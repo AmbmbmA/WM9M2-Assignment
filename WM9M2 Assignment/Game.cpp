@@ -12,6 +12,10 @@
 const int WINDOWSIZE[2] = { 1920,1080 };
 const float FOV = 90;
 
+Matrix StandardLocation(Vec3 position) {
+	return Matrix::Transformationto(Vec3(-1, 0, 0), Vec3(0, -1, 0), Vec3(0, 0, -1), position);
+}
+
 // Windows program entrance
 // prameters are set by the windows system
 int WinMain(
@@ -32,23 +36,30 @@ int WinMain(
 
 	Matrix projection = Matrix::Perspectiveprojectionz01(1, 100, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
 	Camera camera;
-	camera.init(Vec3(0, 0, 0), 90, 0, projection, &win);
+	camera.init(Vec3(0, 2, 0), 90, 0, projection, &win);
 
 	DXcore core;
 	core.init(win.width, win.height, win.hwnd, false);
 
 	Plane p;
 	p.init(&core);
-	Matrix planeWorld = Matrix::Transformationto(Vec3(-1, 0, 0), Vec3(0, -1, 0), Vec3(0, 0, -1), Vec3(0, -2, 0));
+	Matrix planeWorld = StandardLocation(Vec3(0, 0, 0));
 
 	Cube c;
 	c.init(&core);
-	Matrix cubeWorld = Matrix::Transformationto(Vec3(-1, 0, 0), Vec3(0, -1, 0), Vec3(0, 0, -1), Vec3(3, 10, 3));
+	Matrix cubeWorld = StandardLocation(Vec3(3, 5, 3));
+
+	Sphere sphere;
+	sphere.init(&core, 100, 100, 2);
+	Matrix sphereWorld = StandardLocation(Vec3(3, 2, 3));
+
 
 
 	Shader shaderstatic;
 	shaderstatic.init("static", &core);
-	shaderstatic.apply(&core);
+
+	Shader shaderanimated;
+
 
 	while (run)
 	{
@@ -79,13 +90,21 @@ int WinMain(
 			win.keys[VK_ESCAPE] = false;
 		}
 
-		//camera.changetoSet(1, time);
 
-		camera.update();
+		camera.update(dt);
 
 		p.mesh.draw(&core, &shaderstatic, &planeWorld, &camera.vp);
 
 		c.mesh.draw(&core, &shaderstatic, &cubeWorld, &camera.vp);
+
+		sphereWorld = StandardLocation(Vec3(3, 2, 3));
+
+		sphere.mesh.draw(&core, &shaderstatic, &sphereWorld, &camera.vp);
+
+		Matrix sphereWorld = StandardLocation(Vec3(10, 2, 10));
+
+		sphere.mesh.draw(&core, &shaderstatic, &sphereWorld, &camera.vp);
+
 
 		core.present();
 	}
