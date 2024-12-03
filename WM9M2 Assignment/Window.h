@@ -19,8 +19,8 @@ public:
 	int mousey;
 	bool mouseButtons[3]; // track mouse press
 
-	int rawmousex = 0;
-	int rawmousey = 0;
+	float rawmousex = 0;
+	float rawmousey = 0;
 
 	void init(std::string window_name, int window_width, int window_height, int window_x = 0, int window_y = 0); //initialize the window
 
@@ -47,6 +47,25 @@ public:
 			ShowCursor(true);
 			hidec = false;
 		}
+	}
+
+	void clipMouseToWindow()
+	{
+		RECT rect;
+		GetWindowRect(hwnd, &rect);
+		POINT ul;
+		ul.x = rect.left;
+		ul.y = rect.top;
+		POINT lr;
+		lr.x = rect.right;
+		lr.y = rect.bottom;
+		MapWindowPoints(hwnd, nullptr, &ul, 1);
+		MapWindowPoints(hwnd, nullptr, &lr, 1);
+		rect.left = ul.x;
+		rect.top = ul.y;
+		rect.right = lr.x;
+		rect.bottom = lr.y;
+		ClipCursor(&rect);
 	}
 };
 

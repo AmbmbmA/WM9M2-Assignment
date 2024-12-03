@@ -6,7 +6,10 @@
 #include "GamesEngineeringBase.h"
 #include "Camera.h"
 
-const int WINDOWSIZE[2] = { 1024, 720 };
+//int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+//int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+const int WINDOWSIZE[2] = { 1920,1080 };
 const float FOV = 90;
 
 // Windows program entrance
@@ -21,42 +24,36 @@ int WinMain(
 	GamesEngineeringBase::Timer timer;
 	float time = 0.0f;
 
-	Camera camera;
-	camera.init(Vec3(10, 5, 10), Vec3(0, 0, 0), Vec3(0, 1, 0));
+	bool run = true;
 
-	Matrix view, vp;
-	Vec3 from, to;
-
-	Matrix planeWorld = Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), Vec3(0, 10, 0));
-
-	Matrix cubeWorld = Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), Vec3(0, 0, 0));
-
-	Matrix projection = Matrix::Perspectiveprojectionz01(1, 100, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
 
 	Window win;
 	win.init("Cindy's Adventure", WINDOWSIZE[0], WINDOWSIZE[1]);
-	bool run = true;
+
+	Matrix projection = Matrix::Perspectiveprojectionz01(1, 100, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+	Camera camera;
+	camera.init(Vec3(0, 0, 0), 90, 0, projection, &win);
 
 	DXcore core;
 	core.init(win.width, win.height, win.hwnd, false);
 
 	Plane p;
 	p.init(&core);
+	Matrix planeWorld = Matrix::Transformationto(Vec3(-1, 0, 0), Vec3(0, -1, 0), Vec3(0, 0, -1), Vec3(0, -2, 0));
 
 	Cube c;
 	c.init(&core);
+	Matrix cubeWorld = Matrix::Transformationto(Vec3(-1, 0, 0), Vec3(0, -1, 0), Vec3(0, 0, -1), Vec3(3, 10, 3));
 
 
 	Shader shaderstatic;
 	shaderstatic.init("static", &core);
 	shaderstatic.apply(&core);
 
-
-	float camerax = 0;
-	float cameraz = 0;
-
 	while (run)
 	{
+		//win.clipMouseToWindow();
+
 		float dt = timer.dt();
 		time += dt;
 
@@ -64,55 +61,31 @@ int WinMain(
 		core.clear();
 		win.processMessages();
 
-		// key press
 
 
-		if (win.keys['W']) {
-			cameraz += u;
+		if (win.keys['H']) {
+			win.hideCursor();
 		}
-		if (win.keys['S']) {
-			cameraz -= u;
+		if (win.keys['Y']) {
+			win.showCursor();
 		}
-		if (win.keys['A']) {
-			camerax -= u;
-		}
-		if (win.keys['D']) {
-			camerax += u;
-		}
-
-
-
-		//if (win.keys['Z']) {
-		//	win.hideCursor();
-		//}
-		//if (win.keys['X']) {
-		//	win.showCursor();
-		//}
 		//if (win.rawmousex != 0 || win.rawmousey != 0) {
 		//	win.windowmove(win.rawmousex, win.rawmousey);
 		//}
+
+		//quit game
 		if (win.keys[VK_ESCAPE]) {
 			PostMessage(win.hwnd, WM_CLOSE, 0, 0); //post a message to requst closing the window without blocking
 			win.keys[VK_ESCAPE] = false;
 		}
 
+		//camera.changetoSet(1, time);
 
-		//from = Vec3(10 * cosf(time), 5, 10 * sinf(time));
-		//to = Vec3(0, 0, 0);
-		//view = view.LookAt(from, to, Vec3(0, 1, 0));
+		camera.update();
 
-		camera.changetoSet(1, time);
+		p.mesh.draw(&core, &shaderstatic, &planeWorld, &camera.vp);
 
-		vp = projection * camera.view;
-
-		p.mesh.draw(&core, &shaderstatic, &planeWorld, &vp);
-
-		shaderstatic.updateConstantVS("staticMeshBuffer", "W", &cubeWorld);
-
-		c.mesh.draw(&core, &shaderstatic, &cubeWorld, &vp);
-
-
-
+		c.mesh.draw(&core, &shaderstatic, &cubeWorld, &camera.vp);
 
 		core.present();
 	}

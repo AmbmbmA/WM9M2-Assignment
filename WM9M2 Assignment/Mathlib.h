@@ -271,6 +271,7 @@ namespace Mathlib {
 		Vec3 normalize() const
 		{
 			float len = 1.0f / sqrtf(square(x) + square(y) + square(z));
+			if (x == 0 && y == 0 && z == 0) len = 0;
 			return Vec3(x * len, y * len, z * len);
 		}
 		float normalize_GetLength()
@@ -689,12 +690,12 @@ namespace Mathlib {
 			Vec3 result;
 			result.x = r * sinf(theta) * cosf(phi);
 			if (yup) {
-				result.y = r * sinf(theta) * sinf(phi);
-				result.z = r * cosf(theta);
-			}
-			else {
 				result.y = r * cosf(theta);
 				result.z = r * sinf(theta) * sinf(phi);
+			}
+			else {
+				result.y = r * sinf(theta) * sinf(phi);
+				result.z = r * cosf(theta);
 			}
 			return result;
 		}

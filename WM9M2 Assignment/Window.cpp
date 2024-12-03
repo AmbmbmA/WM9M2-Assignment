@@ -111,7 +111,7 @@ void Window::init(std::string window_name, int window_width, int window_height, 
 	name = window_name;
 	width = window_width;
 	height = window_height;
-	style = WS_VISIBLE | WS_OVERLAPPEDWINDOW & ~WS_THICKFRAME; // window style 
+	style = WS_VISIBLE | WS_OVERLAPPEDWINDOW /*& ~WS_THICKFRAME*/; // window style 
 	memset(keys, 0, 256 * sizeof(char)); // initialize the key function
 	window = this; // set this pointer to global to be used by WndProc
 
