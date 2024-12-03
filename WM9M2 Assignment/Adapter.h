@@ -11,8 +11,12 @@
 class Adapter {
 public:
 	// poiter to DXGI adapter (GPU)
-	IDXGIAdapter1* adapter; 
+	IDXGIAdapter1* adapter;
 
 	void findadapter();
+
+	~Adapter() {
+		if (adapter)adapter->Release();
+	}
 
 };

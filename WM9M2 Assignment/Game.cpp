@@ -4,9 +4,10 @@
 #include "Mesh.h"
 #include "Shaders.h"
 #include "GamesEngineeringBase.h"
-
+#include "Camera.h"
 
 const int WINDOWSIZE[2] = { 1024, 720 };
+const float FOV = 90;
 
 // Windows program entrance
 // prameters are set by the windows system
@@ -18,16 +19,19 @@ int WinMain(
 ) {
 
 	GamesEngineeringBase::Timer timer;
-
 	float time = 0.0f;
 
-	Matrix view, to, vp;
-	Vec3 from;
-	float fov = 90.0f;
+	Camera camera;
+	camera.init(Vec3(10, 5, 10), Vec3(0, 0, 0), Vec3(0, 1, 0));
 
-	Matrix planeWorld = Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), Vec3(0, 0, 0));
+	Matrix view, vp;
+	Vec3 from, to;
 
-	Matrix projection = Matrix::Perspectiveprojectionz01(1, 100, fov, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+	Matrix planeWorld = Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), Vec3(0, 10, 0));
+
+	Matrix cubeWorld = Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), Vec3(0, 0, 0));
+
+	Matrix projection = Matrix::Perspectiveprojectionz01(1, 100, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
 
 	Window win;
 	win.init("Cindy's Adventure", WINDOWSIZE[0], WINDOWSIZE[1]);
@@ -36,12 +40,6 @@ int WinMain(
 	DXcore core;
 	core.init(win.width, win.height, win.hwnd, false);
 
-	Triangle triangle;
-	triangle.init(&core);
-
-	Triangle triangle2;
-	triangle2.init2(&core);
-
 	Plane p;
 	p.init(&core);
 
@@ -49,11 +47,10 @@ int WinMain(
 	c.init(&core);
 
 
-	Shader shader;
-	shader.init("static", &core);
+	Shader shaderstatic;
+	shaderstatic.init("static", &core);
+	shaderstatic.apply(&core);
 
-	//Shader shader;
-	//shader.init("static", &core);
 
 	float camerax = 0;
 	float cameraz = 0;
@@ -63,7 +60,7 @@ int WinMain(
 		float dt = timer.dt();
 		time += dt;
 
-		float u = 200 * dt;
+		float u = 1 * dt;
 		core.clear();
 		win.processMessages();
 
@@ -100,87 +97,24 @@ int WinMain(
 		}
 
 
-		from = Vec3(10 * cosf(time), 5, 10 * sinf(time));
+		//from = Vec3(10 * cosf(time), 5, 10 * sinf(time));
+		//to = Vec3(0, 0, 0);
+		//view = view.LookAt(from, to, Vec3(0, 1, 0));
 
-		//from = Vec3(camerax, 10, cameraz);
-		view = view.LookAt(from, Vec3(0, 0, 0), Vec3(0, 1, 0));
+		camera.changetoSet(1, time);
 
-		vp = projection * view;
+		vp = projection * camera.view;
 
-		shader.updateConstantVS("staticMeshBuffer", "W", &planeWorld);
-		shader.updateConstantVS("staticMeshBuffer", "VP", &vp);
+		p.mesh.draw(&core, &shaderstatic, &planeWorld, &vp);
 
-		shader.apply(&core);
+		shaderstatic.updateConstantVS("staticMeshBuffer", "W", &cubeWorld);
 
-		c.mesh.draw(&core);
-		//p.mesh.draw(&core);
+		c.mesh.draw(&core, &shaderstatic, &cubeWorld, &vp);
 
-		//triangle.draw(&core);
-		//triangle2.draw(&core);
+
 
 
 		core.present();
 	}
 
 }
-
-
-//int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, int nCmdShow)
-//{
-//	Window win;
-//	DXcore core;
-//	Shader shader_animated, shader_static;
-//	Model_static tree;
-//	Plane plane;
-//	Model_animated trex;
-//	AnimationInstance instance;
-//	GamesEngineeringBase::Timer timer;
-//	float WIDTH = 1024.f;
-//	float HEIGHT = 1024.f;
-//	Matrix worldMatrix_plane, worldMatrix_tree, worldMatrix_trex;
-//	Matrix view, projection, vp;
-//	Vec3 from;
-//	win.create(1024, 1024, "My Window");
-//	core.init(1024, 1024, win.hwnd, false);
-//	shader_animated.init("VertexShader_anim.txt", "PixelShader_anim.txt", &core);
-//	shader_static.init("VertexShader_1125.txt", "PixelShader_1125.txt", &core);
-//	tree.init("acacia_003.gem", &core);
-//	plane.init(&core);
-//	trex.init("TRex.gem", &core);
-//	float time = 0.f;
-//	float fov = 45.0f;
-//	worldMatrix_tree = Matrix::worldMatrix(Vec3(-4, 0, -4), Vec3(0.03, 0.03, 0.03), 0, 0, 0);
-//	worldMatrix_trex = Matrix::worldMatrix(Vec3(0, 0, 0), Vec3(1, 1, 1), 0, 0, 0);
-//	worldMatrix_plane = Matrix::worldMatrix(Vec3(0, 0, 0), Vec3(1, 1, 1), 0, 0, 0);
-//	projection.perspectiveProjection(1024.f / 1024.f, tan(fov * 5 * M_PI / 180));
-//	//initialize animation instance
-//	instance.animation = &trex.animation;
-//	instance.currentAnimation = "Run";
-//	while (true) {
-//		win.processMessages();
-//		core.clear();
-//		float dt = timer.dt();
-//		instance.update("Run", dt);
-//		from = Vec3(20 * cos(time), 10, 20 * sinf(time));
-//		view = view.lookAtMat(from, Vec3(0, 1, 0), Vec3(0, 1, 0));
-//		vp = view * projection;
-//		// draw plane
-//		shader_static.updateConstantVS("StaticModel", "staticMeshBuffer", "W", &worldMatrix_plane);
-//		shader_static.updateConstantVS("StaticModel", "staticMeshBuffer", "VP", &vp);
-//		shader_static.apply(&core);
-//		plane.mesh.draw(&core);
-//		// draw tree
-//		shader_static.updateConstantVS("StaticModel", "staticMeshBuffer", "W", &worldMatrix_tree);
-//		shader_static.updateConstantVS("StaticModel", "staticMeshBuffer", "VP", &vp);
-//		shader_static.apply(&core);
-//		tree.draw(&core);
-//		// draw trex
-//		shader_animated.updateConstantVS("Animated", "staticMeshBuffer", "bones", instance.matrices);
-//		shader_animated.updateConstantVS("Animated", "staticMeshBuffer", "W", &worldMatrix_trex);
-//		shader_animated.updateConstantVS("Animated", "staticMeshBuffer", "VP", &vp);
-//		shader_animated.apply(&core);
-//		trex.draw(&core);
-//		core.present();
-//		time += dt;
-//	}
-//}

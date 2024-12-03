@@ -18,22 +18,28 @@ using namespace std;
 class Shader {
 public:
 
-	ID3D11VertexShader* vertexShader; 
+	ID3D11VertexShader* vertexShader;
 	ID3D11PixelShader* pixelShader;
-	ID3D11InputLayout* layout; 
+	ID3D11InputLayout* layout;
 
 
 	// constant buffer 
-	vector<ConstantBuffer> vsConstantBuffers; 
-	vector<ConstantBuffer> psConstantBuffers; 
+	vector<ConstantBuffer> vsConstantBuffers;
+	vector<ConstantBuffer> psConstantBuffers;
 
 	map<string, int> textureBindPointsVS;
 	map<string, int> textureBindPointsPS;
 
+	~Shader() {
+		if (vertexShader)vertexShader->Release();
+		if (pixelShader)pixelShader->Release();
+		if (layout)layout->Release();
+
+	}
 	void init(string shadername, DXcore* core);
 
 	string readfile(string filename);
-	
+
 	ID3DBlob* ReadCompileSaveVS(string shadername);
 
 	ID3DBlob* ReadCompileSavePS(string shadername);

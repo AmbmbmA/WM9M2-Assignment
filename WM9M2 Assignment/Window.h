@@ -22,8 +22,6 @@ public:
 	int rawmousex = 0;
 	int rawmousey = 0;
 
-	bool hidec = false;
-
 	void init(std::string window_name, int window_width, int window_height, int window_x = 0, int window_y = 0); //initialize the window
 
 	void processMessages();
@@ -33,6 +31,9 @@ public:
 		mousex = x;
 		mousey = y;
 	}
+
+	// hide mouse
+	bool hidec = false;
 
 	void hideCursor() {
 		if (!hidec) {

@@ -19,9 +19,22 @@ public:
 
 	ID3D11RasterizerState* rasterizerState; // control rasterizer for culling etc.
 
-	ID3D11DepthStencilState* depthStencilState; 
+	ID3D11DepthStencilState* depthStencilState;
 
 	ID3D11BlendState* blendState;
+
+	~DXcore() {
+		if (device)device->Release();
+		if (devicecontext)devicecontext->Release();
+		if (swapchain)swapchain->Release();
+		if (backbufferRenderTargetView)backbufferRenderTargetView->Release();
+		if (backbuffer)backbuffer->Release();
+		if (depthStencilView)depthStencilView->Release();
+		if (backbuffer)backbuffer->Release();
+		if (rasterizerState)rasterizerState->Release();
+		if (depthStencilState)depthStencilState->Release();
+		if (blendState)blendState->Release();
+	}
 
 	void init(int width, int height, HWND hwnd, bool window_fullscreen);
 

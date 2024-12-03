@@ -2,6 +2,7 @@
 
 #include "Mathlib.h"
 #include "DXcore.h"
+#include "Shaders.h"
 
 using namespace Mathlib;
 
@@ -58,7 +59,12 @@ public:
 		init(core, vertices.data(), sizeof(Vertex), vertices.size(), indices.data(), indices.size());
 	}
 
-	void draw(DXcore* core) {
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp) {
+
+		shader->updateConstantVS("staticMeshBuffer", "W", World);
+		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+
+		shader->apply(core);
 
 		UINT offsets = 0;
 
@@ -178,48 +184,8 @@ public:
 
 };
 
-class Triangle {
-public:
-
-	Vertex vertices[3];
-
-	ID3D11Buffer* vertexBuffer; // memomry on GPU (used to hold the vertices)
-
-	void init(DXcore* core, int N = 3);
-
-	void draw(DXcore* core);
-
-	void init2(DXcore* core, int N = 3) {
-
-		// triangle vertex data
-		vertices[0].position = Vec3(0, 1.0f, 0);
-		vertices[0].colour = Colour(1.0f, 0, 0, 0);
-		vertices[1].position = Vec3(-1.0f, -1.0f, 0);
-		vertices[1].colour = Colour(1.0f, 0, 0, 0);
-		vertices[2].position = Vec3(1.0f, -1.0f, 0);
-		vertices[2].colour = Colour(1.0f, 0, 0, 1);
 
 
-		// vertex buffer info set
-		D3D11_BUFFER_DESC vbinfo;
-		vbinfo.Usage = D3D11_USAGE_DEFAULT; // default setting for read and write by GPU
-		vbinfo.CPUAccessFlags = 0; // CPU is not allowed to access directly
-		vbinfo.MiscFlags = 0;
-		vbinfo.ByteWidth = sizeof(Vertex) * N; // size of the buffer 
-		vbinfo.BindFlags = D3D11_BIND_VERTEX_BUFFER; // specify this as the vertex buffer
-
-		// initial data
-		D3D11_SUBRESOURCE_DATA uploadData;
-		uploadData.pSysMem = vertices;
-		uploadData.SysMemPitch = 0;
-		uploadData.SysMemSlicePitch = 0;
-
-		// creat the vertex buffer
-		core->device->CreateBuffer(&vbinfo, &uploadData, &vertexBuffer);
-
-	}
-
-};
 
 
 
