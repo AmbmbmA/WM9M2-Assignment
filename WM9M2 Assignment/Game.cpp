@@ -53,7 +53,9 @@ int WinMain(
 	sphere.init(&core, 100, 100, 2);
 	Matrix sphereWorld = StandardLocation(Vec3(3, 2, 3));
 
-
+	Model acacia;
+	acacia.init(&core, "Resources/Models/acacia_003.gem");
+	Matrix acaciaWorld = StandardLocation(Vec3(-3, 2, -3));
 
 	Shader shaderstatic;
 	shaderstatic.init("static", &core);
@@ -105,6 +107,7 @@ int WinMain(
 
 		sphere.mesh.draw(&core, &shaderstatic, &sphereWorld, &camera.vp);
 
+		acacia.draw(&core, &shaderstatic, &acaciaWorld, &camera.vp);
 
 		core.present();
 	}

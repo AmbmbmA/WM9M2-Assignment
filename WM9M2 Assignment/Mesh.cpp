@@ -24,7 +24,6 @@ void Mesh::init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVert
 
 }
 
-
 void Mesh::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp) {
 
 	shader->updateConstantVS("staticMeshBuffer", "W", World);
