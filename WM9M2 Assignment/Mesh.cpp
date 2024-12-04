@@ -156,9 +156,11 @@ void Sphere::init(DXcore* core, int rings, int segments, float radius) {
 
 
 void StaticModel::init(DXcore* core, string filename) {
+
 	GEMLoader::GEMModelLoader loader;
 
 	std::vector<GEMLoader::GEMMesh> gemmeshes;
+
 
 	loader.load(filename, gemmeshes);
 
@@ -170,13 +172,14 @@ void StaticModel::init(DXcore* core, string filename) {
 			memcpy(&v, &gemmeshes[i].verticesStatic[j], sizeof(STATIC_VERTEX));
 			vertices.push_back(v);
 		}
+		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
 		mesh.init(core, vertices, gemmeshes[i].indices);
 		meshes.push_back(mesh);
 	}
 }
 
 
-void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
+void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
 
 	Matrix Scaled = Matrix::Scaling(Scal);
 	Matrix Scaledworld = (*World) * Scaled;
@@ -185,8 +188,10 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
 	shader->apply(core);
 
+
 	for (int i = 0; i < meshes.size(); i++)
 	{
+		shader->bindShaderRV(core, "tex", textures->find(textureFilenames[i]));
 		meshes[i].draw(core);
 	}
 
@@ -194,9 +199,11 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 
 
 void AnimatedModel::init(DXcore* core, string filename) {
+
 	GEMLoader::GEMModelLoader loader;
 	std::vector<GEMLoader::GEMMesh> gemmeshes;
 	GEMLoader::GEMAnimation gemanimation;
+
 	loader.load(filename, gemmeshes, gemanimation);
 
 	listAnimationNames(gemanimation);
@@ -209,6 +216,7 @@ void AnimatedModel::init(DXcore* core, string filename) {
 			memcpy(&v, &gemmeshes[i].verticesAnimated[j], sizeof(ANIMATED_VERTEX));
 			vertices.push_back(v);
 		}
+		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
 		mesh.init(core, vertices, gemmeshes[i].indices);
 		meshes.push_back(mesh);
 	}
@@ -249,7 +257,7 @@ void AnimatedModel::init(DXcore* core, string filename) {
 
 }
 
-void AnimatedModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance) {
+void AnimatedModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures) {
 
 	Matrix Scaled = Matrix::Scaling(Scal);
 	Matrix Scaledworld = (*World) * Scaled;
@@ -261,6 +269,7 @@ void AnimatedModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp
 
 	for (int i = 0; i < meshes.size(); i++)
 	{
+		shader->bindShaderRV(core, "tex", textures->find(textureFilenames[i]));
 		meshes[i].draw(core);
 	}
 

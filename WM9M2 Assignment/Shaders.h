@@ -78,4 +78,8 @@ public:
 		updateConstant(constantBufferName, variableName, data, psConstantBuffers);
 	}
 
+	void bindShaderRV(DXcore* core, string name, ID3D11ShaderResourceView* srv) {
+		core->devicecontext->PSSetShaderResources(textureBindPointsPS[name], 1, &srv);
+	}
+
 };

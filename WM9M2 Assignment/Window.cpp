@@ -121,7 +121,7 @@ void Window::init(std::string window_name, int window_width, int window_height, 
 	wc.cbWndExtra = 0; // extra memory for each window
 	wc.hInstance = hinstance; // set the handle of the program
 	//wc.hIcon = LoadIcon(NULL, IDI_WINLOGO); // load the big icon as default
-	wc.hIcon = (HICON)LoadImage(NULL, L"Resources/Icons/Game_icon_Cindy.ico", IMAGE_ICON, 512, 512, LR_LOADFROMFILE); // load the icon from file
+	wc.hIcon = (HICON)LoadImage(NULL, L"Icons/Game_icon_Cindy.ico", IMAGE_ICON, 512, 512, LR_LOADFROMFILE); // load the icon from file
 	wc.hIconSm = wc.hIcon;  // load the small icon same as big
 	wc.hCursor = LoadCursor(NULL, IDC_ARROW); // load cursor from default
 	wc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH); // back ground set as black

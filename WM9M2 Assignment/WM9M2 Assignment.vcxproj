@@ -135,10 +135,10 @@
     <ClInclude Include="GEMLoader.h" />
     <ClInclude Include="Mathlib.h" />
     <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Shadermanage.h" />
     <ClInclude Include="ShaderReflection.h" />
     <ClInclude Include="Shaders.h" />
     <ClInclude Include="stb_image.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -152,8 +152,8 @@
     <ClCompile Include="DXcore.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="Shadermanage.cpp" />
     <ClCompile Include="Shaders.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

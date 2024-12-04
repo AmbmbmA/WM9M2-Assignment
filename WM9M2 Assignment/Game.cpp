@@ -6,6 +6,8 @@
 #include "GamesEngineeringBase.h"
 #include "Camera.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
 
 //int screenWidth = GetSystemMetrics(SM_CXSCREEN);
 //int screenHeight = GetSystemMetrics(SM_CYSCREEN);
@@ -35,19 +37,24 @@ int WinMain(
 	Window win;
 	win.init("Cindy's Adventure", WINDOWSIZE[0], WINDOWSIZE[1]);
 
+	DXcore core;
+	core.init(win.width, win.height, win.hwnd, false);
+
+	Sampler sampler;
+	sampler.init(&core);
+
+
+
+	// Camera
 	Matrix projection = Matrix::Perspectiveprojectionz01(1, 100, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
 	Camera camera;
 	camera.init(Vec3(0, 2, 0), 90, 0, projection, &win);
 
-	DXcore core;
-	core.init(win.width, win.height, win.hwnd, false);
-
-	// Static
-
-	Shader shaderstatic;
-	shaderstatic.init("static", &core);
 
 	// basic shape
+	Shader shaderdefinedshape;
+	shaderdefinedshape.init("definedshape", &core);
+
 	Plane p;
 	p.init(&core);
 	Matrix planeWorld = StandardLocation(Vec3(0, 0, 0));
@@ -60,23 +67,57 @@ int WinMain(
 	sphere.init(&core, 100, 100, 2);
 	Matrix sphereWorld = StandardLocation(Vec3(3, 2, 3));
 
-	StaticModel acacia;
-	acacia.init(&core, "Resources/Models/acacia_003.gem");
-	Matrix acaciaWorld = StandardLocation(Vec3(3, 0, -3));
+	// Static models
+	Shader shaderstatic;
+	shaderstatic.init("static", &core);
 
-	// Animated
+	// pine
+
+	StaticModel pine;
+	pine.init(&core, "Models/pine.gem");
+	Matrix pineWorld = StandardLocation(Vec3(3, 0, -3));
+
+	TextureManager pinetextures;
+	pinetextures.load(&core, "stump01.png");
+	pinetextures.load(&core, "bark09.png");
+	pinetextures.load(&core, "pine branch.png");
+
+
+	// Animated models
 	Shader shaderanimated;
 	shaderanimated.init("animated", &core);
 
+	// TRex
 	AnimationInstance TRexins;
 	AnimatedModel TRex;
-	TRex.init(&core, "Resources/Models/TRex.gem");
+	TRex.init(&core, "Models/TRex.gem");
+
 	Vec3 TRexposition = Vec3(-10, 0, -10);
 	Matrix TRexWorld = StandardLocation(TRexposition);
 
 	TRexins.animation = &TRex.animation;
 	TRexins.currentAnimation = "Run";
 
+	TextureManager TRextextures;
+	TRextextures.load(&core, "T-rex_Base_Color.png");
+
+	// T
+
+	//AnimationInstance T;
+	//AnimatedModel TT;
+	//TT.init(&core, "Models/Soldier1.gem");
+
+	//Vec3 Tp = Vec3(-5, 0, -5);
+	//Matrix Tw = StandardLocation(Tp);
+
+	//T.animation = &TT.animation;
+	//T.currentAnimation = "Talking";
+
+	//TextureManager Tte;
+	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Diffuse.png");
+	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Gloss.png");
+	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Normal.png");
+	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Specular.png");
 
 	while (run)
 	{
@@ -88,6 +129,8 @@ int WinMain(
 		float u = 1 * dt;
 		core.clear();
 		win.processMessages();
+
+		sampler.bind(&core);
 
 		if (win.keys['H']) {
 			win.hideCursor();
@@ -108,22 +151,22 @@ int WinMain(
 
 		camera.update(dt);
 
-		p.draw(&core, &shaderstatic, &planeWorld, &camera.vp,Vec3(1,1,1));
+		p.draw(&core, &shaderdefinedshape, &planeWorld, &camera.vp, Vec3(10, 10, 10));
 
-		c.draw(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 1, 1));
+		c.draw(&core, &shaderdefinedshape, &cubeWorld, &camera.vp, Vec3(1, 1, 1));
 
 		sphereWorld = StandardLocation(Vec3(3, 2, 3));
 
-		sphere.draw(&core, &shaderstatic, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
+		sphere.draw(&core, &shaderdefinedshape, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
 
 		Matrix sphereWorld = StandardLocation(Vec3(10, 2, 10));
 
-		sphere.draw(&core, &shaderstatic, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
+		sphere.draw(&core, &shaderdefinedshape, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
 
-		acacia.draw(&core, &shaderstatic, &acaciaWorld, &camera.vp, Vec3(0.01, 0.01, 0.01));
+		pine.draw(&core, &shaderstatic, &pineWorld, &camera.vp, Vec3(0.01, 0.01, 0.01), &pinetextures);
 
 
-		
+
 
 		if ((camera.position - TRexposition).getlength() >= 10) {
 			TRexins.update("walk", dt);
@@ -132,7 +175,13 @@ int WinMain(
 		else {
 			TRexins.update("Run", dt);
 		}
-		TRex.draw(&core, &shaderanimated, &TRexWorld, &camera.vp, Vec3(1, 1, 1), &TRexins);
+		TRex.draw(&core, &shaderanimated, &TRexWorld, &camera.vp, Vec3(1, 1, 1), &TRexins, &TRextextures);
+		
+
+
+		//T.update("Talking", dt);
+
+		//TT.draw(&core, &shaderanimated, &Tw, &camera.vp, Vec3(1, 1, 1), &T,&Tte);
 
 
 		core.present();

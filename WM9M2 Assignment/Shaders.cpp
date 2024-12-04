@@ -150,6 +150,15 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 		{ "COLOUR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
 	};
 
+	D3D11_INPUT_ELEMENT_DESC layout_definedshape[] =
+	{
+		{ "POS", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "TANGENT", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+
+	};
+
 	D3D11_INPUT_ELEMENT_DESC layout_static[] =
 	{
 		{ "POS", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
@@ -177,6 +186,10 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 	if (shadername == "simple") {
 		layoutDesc = layout_simple;
 		num = 2;
+	}
+	else if (shadername == "definedshape") {
+		layoutDesc = layout_definedshape;
+		num = 4;
 	}
 	else if (shadername == "static") {
 		layoutDesc = layout_static;

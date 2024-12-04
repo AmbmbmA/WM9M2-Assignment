@@ -5,6 +5,8 @@
 #include "Shaders.h"
 #include "GEMLoader.h"
 #include "Animation.h"
+#include "Texture.h"
+
 
 using namespace Mathlib;
 
@@ -157,6 +159,7 @@ class StaticModel {
 public:
 
 	std::vector<Mesh> meshes;
+	std::vector<std::string> textureFilenames;
 
 	~StaticModel() {
 		for (auto m : meshes) {
@@ -166,11 +169,11 @@ public:
 
 	void init(DXcore* core, string filename);
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal);
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
 };
 
-// list animation names in a log.txt file
+// list animation names in a log
 static void listAnimationNames(const GEMLoader::GEMAnimation& gemanimation)
 {
 	ofstream write;
@@ -197,6 +200,8 @@ public:
 	std::vector<Mesh> meshes;
 	Animation animation;
 
+	std::vector<std::string> textureFilenames;
+
 	~AnimatedModel() {
 		for (auto m : meshes) {
 			m.free();
@@ -205,7 +210,7 @@ public:
 
 	void init(DXcore* core, string filename);
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance);
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures);
 
 };
 
