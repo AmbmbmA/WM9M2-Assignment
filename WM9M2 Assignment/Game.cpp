@@ -57,11 +57,11 @@ int WinMain(
 
 	Plane p;
 	p.init(&core);
-	Matrix planeWorld = StandardLocation(Vec3(0, 0, 0));
+	Matrix planeWorld = StandardLocation(Vec3(0, -0.05, 0));
 
 	Cube c;
 	c.init(&core);
-	Matrix cubeWorld = StandardLocation(Vec3(3, 5, 3));
+	Matrix cWorld = StandardLocation(Vec3(3, 5, 3));
 
 	Sphere sphere;
 	sphere.init(&core, 100, 100, 2);
@@ -82,6 +82,14 @@ int WinMain(
 	pinetextures.load(&core, "bark09.png");
 	pinetextures.load(&core, "pine branch.png");
 
+	// cube
+
+	StaticModel cube;
+	cube.init(&core, "Models/cube.gem");
+	Matrix cubeWorld = StandardLocation(Vec3(0, -0.05, 0));
+
+	TextureManager cubetex;
+	cubetex.load(&core, "rounded-brick1-albedo.png");
 
 	// Animated models
 	Shader shaderanimated;
@@ -103,18 +111,18 @@ int WinMain(
 
 	// T
 
-	//AnimationInstance T;
-	//AnimatedModel TT;
-	//TT.init(&core, "Models/Soldier1.gem");
+	AnimationInstance T;
+	AnimatedModel TT;
+	TT.init(&core, "Models/Soldier1.gem");
 
-	//Vec3 Tp = Vec3(-5, 0, -5);
-	//Matrix Tw = StandardLocation(Tp);
+	Vec3 Tp = Vec3(-5, 0, -5);
+	Matrix Tw = StandardLocation(Tp);
 
-	//T.animation = &TT.animation;
-	//T.currentAnimation = "Talking";
+	T.animation = &TT.animation;
+	T.currentAnimation = "Talking";
 
-	//TextureManager Tte;
-	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Diffuse.png");
+	TextureManager Tte;
+	Tte.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Gloss.png");
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Normal.png");
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Specular.png");
@@ -151,19 +159,34 @@ int WinMain(
 
 		camera.update(dt);
 
-		p.draw(&core, &shaderdefinedshape, &planeWorld, &camera.vp, Vec3(10, 10, 10));
+		p.draw(&core, &shaderdefinedshape, &planeWorld, &camera.vp, Vec3(1, 1, 1));
 
-		c.draw(&core, &shaderdefinedshape, &cubeWorld, &camera.vp, Vec3(1, 1, 1));
+		c.draw(&core, &shaderdefinedshape, &cWorld, &camera.vp, Vec3(1, 1, 1));
 
 		sphereWorld = StandardLocation(Vec3(3, 2, 3));
 
 		sphere.draw(&core, &shaderdefinedshape, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
 
-		Matrix sphereWorld = StandardLocation(Vec3(10, 2, 10));
+		sphereWorld = StandardLocation(Vec3(10, 2, 10));
 
 		sphere.draw(&core, &shaderdefinedshape, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
 
 		pine.draw(&core, &shaderstatic, &pineWorld, &camera.vp, Vec3(0.01, 0.01, 0.01), &pinetextures);
+		
+		for (int i = -10; i <= 10; i+=2) {
+			for (int j = -10; j <= 10; j+=2) {
+				cubeWorld = StandardLocation(Vec3(i, -0.05, j));
+				cube.drawt(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 0.05, 1), &cubetex);
+			}
+		}
+
+		//cubeWorld = StandardLocation(Vec3(0, -0.05, 0));
+
+		//cube.drawt(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 0.05, 1), &cubetex);
+
+		//cubeWorld = StandardLocation(Vec3(2, -0.05, 2));
+
+		//cube.drawt(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 0.05, 1), &cubetex);
 
 
 
@@ -179,9 +202,9 @@ int WinMain(
 		
 
 
-		//T.update("Talking", dt);
+		T.update("Talking", dt);
 
-		//TT.draw(&core, &shaderanimated, &Tw, &camera.vp, Vec3(1, 1, 1), &T,&Tte);
+		TT.draw(&core, &shaderanimated, &Tw, &camera.vp, Vec3(10, 10, 10), &T,&Tte);
 
 
 		core.present();

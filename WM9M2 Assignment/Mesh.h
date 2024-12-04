@@ -153,6 +153,7 @@ public:
 
 	}
 
+
 };
 
 class StaticModel {
@@ -171,6 +172,25 @@ public:
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
+	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
+
+		Matrix Scaled = Matrix::Scaling(Scal);
+		Matrix Scaledworld = (*World) * Scaled;
+
+		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+		shader->apply(core);
+
+		string a = "Textures/rounded-brick1-albedo.png";
+
+		for (int i = 0; i < meshes.size(); i++)
+		{
+			shader->bindShaderRV(core, "tex", textures->find(a));
+			meshes[i].draw(core);
+		}
+
+	}
+
 };
 
 // list animation names in a log
@@ -181,7 +201,7 @@ static void listAnimationNames(const GEMLoader::GEMAnimation& gemanimation)
 	if (!write.is_open()) {
 		write.open("Log.txt", ios::out);
 	}
-	else 
+	else
 	{
 		for (int i = 0; i < gemanimation.animations.size(); i++)
 		{
@@ -212,6 +232,27 @@ public:
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures);
 
+
+	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures) {
+
+		Matrix Scaled = Matrix::Scaling(Scal);
+		Matrix Scaledworld = (*World) * Scaled;
+
+		shader->updateConstantVS("animatedMeshBuffer", "W", &Scaledworld);
+		shader->updateConstantVS("animatedMeshBuffer", "VP", vp);
+		shader->updateConstantVS("animatedMeshBuffer", "bones", instance->matrices);
+		shader->apply(core);
+
+		string a = "Textures/MaleDuty_3_OBJ_Happy_Packed0_Diffuse.png";
+
+		for (int i = 0; i < meshes.size(); i++)
+		{
+
+			shader->bindShaderRV(core, "tex", textures->textures[a]->srv);
+			meshes[i].draw(core);
+		}
+
+	}
 };
 
 

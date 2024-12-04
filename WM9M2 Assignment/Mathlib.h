@@ -892,7 +892,7 @@ namespace Mathlib {
 
 			if (dot > 0.99f) {
 				//return lerp(q1m, q2, t);
-				return (q1m * (1.0f - t) + q2 * t);
+				return (q1m * (1.0f - t) + q2 * t).normalize();
 			}
 
 			float theta = acosf(dot);
@@ -900,7 +900,7 @@ namespace Mathlib {
 			float s1 = (sinf(theta * (1 - t))) / s;
 			float s2 = (sinf(theta * t)) / s;
 
-			return ((q1m * s1) + (q2 * s2));
+			return ((q1m * s1) + (q2 * s2)).normalize();
 
 		}
 
