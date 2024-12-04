@@ -1,0 +1,7 @@
+attack
+death
+idle2
+Idle
+roar
+Run
+walk

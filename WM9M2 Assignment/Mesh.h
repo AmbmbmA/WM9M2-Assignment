@@ -170,6 +170,27 @@ public:
 
 };
 
+// list animation names in a log.txt file
+static void listAnimationNames(const GEMLoader::GEMAnimation& gemanimation)
+{
+	ofstream write;
+	write.open("Log.txt", ios::app);
+	if (!write.is_open()) {
+		write.open("Log.txt", ios::out);
+	}
+	else 
+	{
+		for (int i = 0; i < gemanimation.animations.size(); i++)
+		{
+			write << gemanimation.animations[i].name << std::endl;
+		}
+	}
+
+	write.close();
+
+}
+
+
 class AnimatedModel {
 public:
 
@@ -187,5 +208,7 @@ public:
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance);
 
 };
+
+
 
 

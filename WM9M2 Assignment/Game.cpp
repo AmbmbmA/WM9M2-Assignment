@@ -7,7 +7,6 @@
 #include "Camera.h"
 
 
-
 //int screenWidth = GetSystemMetrics(SM_CXSCREEN);
 //int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
@@ -63,7 +62,7 @@ int WinMain(
 
 	StaticModel acacia;
 	acacia.init(&core, "Resources/Models/acacia_003.gem");
-	Matrix acaciaWorld = StandardLocation(Vec3(0, 0, 0));
+	Matrix acaciaWorld = StandardLocation(Vec3(3, 0, -3));
 
 	// Animated
 	Shader shaderanimated;
@@ -72,7 +71,8 @@ int WinMain(
 	AnimationInstance TRexins;
 	AnimatedModel TRex;
 	TRex.init(&core, "Resources/Models/TRex.gem");
-	Matrix TRexWorld = StandardLocation(Vec3(-10, 0, -10));
+	Vec3 TRexposition = Vec3(-10, 0, -10);
+	Matrix TRexWorld = StandardLocation(TRexposition);
 
 	TRexins.animation = &TRex.animation;
 	TRexins.currentAnimation = "Run";
@@ -123,9 +123,17 @@ int WinMain(
 		acacia.draw(&core, &shaderstatic, &acaciaWorld, &camera.vp, Vec3(0.01, 0.01, 0.01));
 
 
-		TRexins.update("Run", dt);
+		
 
+		if ((camera.position - TRexposition).getlength() >= 10) {
+			TRexins.update("walk", dt);
+
+		}
+		else {
+			TRexins.update("Run", dt);
+		}
 		TRex.draw(&core, &shaderanimated, &TRexWorld, &camera.vp, Vec3(1, 1, 1), &TRexins);
+
 
 		core.present();
 	}

@@ -91,6 +91,7 @@ public:
 	{
 		t = 0;
 	}
+
 	bool animationFinished()
 	{
 		if (t > animation->animations[currentAnimation].duration())

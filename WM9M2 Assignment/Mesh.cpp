@@ -194,11 +194,13 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 
 
 void AnimatedModel::init(DXcore* core, string filename) {
-
 	GEMLoader::GEMModelLoader loader;
 	std::vector<GEMLoader::GEMMesh> gemmeshes;
 	GEMLoader::GEMAnimation gemanimation;
 	loader.load(filename, gemmeshes, gemanimation);
+
+	listAnimationNames(gemanimation);
+
 	for (int i = 0; i < gemmeshes.size(); i++) {
 		Mesh mesh;
 		std::vector<ANIMATED_VERTEX> vertices;
