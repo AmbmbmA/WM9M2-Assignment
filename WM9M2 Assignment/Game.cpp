@@ -6,6 +6,8 @@
 #include "GamesEngineeringBase.h"
 #include "Camera.h"
 
+
+
 //int screenWidth = GetSystemMetrics(SM_CXSCREEN);
 //int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
@@ -13,7 +15,7 @@ const int WINDOWSIZE[2] = { 1920,1080 };
 const float FOV = 90;
 
 Matrix StandardLocation(Vec3 position) {
-	return Matrix::Transformationto(Vec3(-1, 0, 0), Vec3(0, -1, 0), Vec3(0, 0, -1), position);
+	return Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), position);
 }
 
 // Windows program entrance
@@ -41,6 +43,12 @@ int WinMain(
 	DXcore core;
 	core.init(win.width, win.height, win.hwnd, false);
 
+	// Static
+
+	Shader shaderstatic;
+	shaderstatic.init("static", &core);
+
+	// basic shape
 	Plane p;
 	p.init(&core);
 	Matrix planeWorld = StandardLocation(Vec3(0, 0, 0));
@@ -53,14 +61,21 @@ int WinMain(
 	sphere.init(&core, 100, 100, 2);
 	Matrix sphereWorld = StandardLocation(Vec3(3, 2, 3));
 
-	Model acacia;
+	StaticModel acacia;
 	acacia.init(&core, "Resources/Models/acacia_003.gem");
-	Matrix acaciaWorld = StandardLocation(Vec3(-3, 2, -3));
+	Matrix acaciaWorld = StandardLocation(Vec3(0, 0, 0));
 
-	Shader shaderstatic;
-	shaderstatic.init("static", &core);
-
+	// Animated
 	Shader shaderanimated;
+	shaderanimated.init("animated", &core);
+
+	AnimationInstance TRexins;
+	AnimatedModel TRex;
+	TRex.init(&core, "Resources/Models/TRex.gem");
+	Matrix TRexWorld = StandardLocation(Vec3(-10, 0, -10));
+
+	TRexins.animation = &TRex.animation;
+	TRexins.currentAnimation = "Run";
 
 
 	while (run)
@@ -73,8 +88,6 @@ int WinMain(
 		float u = 1 * dt;
 		core.clear();
 		win.processMessages();
-
-
 
 		if (win.keys['H']) {
 			win.hideCursor();
@@ -95,19 +108,24 @@ int WinMain(
 
 		camera.update(dt);
 
-		p.mesh.draw(&core, &shaderstatic, &planeWorld, &camera.vp);
+		p.draw(&core, &shaderstatic, &planeWorld, &camera.vp,Vec3(1,1,1));
 
-		c.mesh.draw(&core, &shaderstatic, &cubeWorld, &camera.vp);
+		c.draw(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 1, 1));
 
 		sphereWorld = StandardLocation(Vec3(3, 2, 3));
 
-		sphere.mesh.draw(&core, &shaderstatic, &sphereWorld, &camera.vp);
+		sphere.draw(&core, &shaderstatic, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
 
 		Matrix sphereWorld = StandardLocation(Vec3(10, 2, 10));
 
-		sphere.mesh.draw(&core, &shaderstatic, &sphereWorld, &camera.vp);
+		sphere.draw(&core, &shaderstatic, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
 
-		acacia.draw(&core, &shaderstatic, &acaciaWorld, &camera.vp);
+		acacia.draw(&core, &shaderstatic, &acaciaWorld, &camera.vp, Vec3(0.01, 0.01, 0.01));
+
+
+		TRexins.update("Run", dt);
+
+		TRex.draw(&core, &shaderanimated, &TRexWorld, &camera.vp, Vec3(1, 1, 1), &TRexins);
 
 		core.present();
 	}

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -495,15 +495,15 @@ namespace Mathlib {
 			result.m[0] = u.x;
 			result.m[1] = u.y;
 			result.m[2] = u.z;
-			result.m[3] = -p.Dot(u);
+			result.m[3] = p.Dot(u);
 			result.m[4] = n.x;
 			result.m[5] = n.y;
 			result.m[6] = n.z;
-			result.m[7] = -p.Dot(n);
+			result.m[7] = p.Dot(n);
 			result.m[8] = v.x;
 			result.m[9] = v.y;
 			result.m[10] = v.z;
-			result.m[11] = -p.Dot(v);
+			result.m[11] = p.Dot(v);
 			return result;
 		}
 		static Matrix Transformationback(const Vec3& u, const Vec3& n, const Vec3& v, const Vec3& p) {
@@ -715,7 +715,7 @@ namespace Mathlib {
 		return ((A[0] + A[1] + A[2]) / deno);
 	}
 
-	class Quaternion {
+	class Quaternion{
 	public:
 		union {
 			struct {
@@ -819,6 +819,9 @@ namespace Mathlib {
 		}
 		Quaternion normalize() const {
 			float len = 1.0f / sqrtf(square(a) + square(b) + square(c) + square(d));
+			if (len == 0) {
+				return Quaternion(1.0f, 0.0f, 0.0f, 0.0f);
+			}
 			return Quaternion(a * len, b * len, c * len, d * len);
 		}
 		float normalize_GetLength()
@@ -837,26 +840,59 @@ namespace Mathlib {
 		}
 
 		Matrix toRotationMatrix() const {
-			Matrix result;
-			result.m[0] = 1 - 2 * (square(c) + square(d));
-			result.m[1] = 2 * b * c - 2 * a * d;
-			result.m[2] = 2 * b * d + 2 * a * c;
-			result.m[4] = 2 * b * c + 2 * a * d;
-			result.m[5] = 1 - 2 * (square(b) + square(d));
-			result.m[6] = 2 * c * d - 2 * a * b;
-			result.m[8] = 2 * b * d - 2 * a * c;
-			result.m[9] = 2 * c * d + 2 * a * b;
-			result.m[10] = 1 - 2 * (square(b) + square(c));
-			return result;
+			//Matrix result;
+			//result.m[0] = 1 - 2 * (square(c) + square(d));
+			//result.m[1] = 2 * b * c - 2 * a * d;
+			//result.m[2] = 2 * b * d + 2 * a * c;
+			//result.m[4] = 2 * b * c + 2 * a * d;
+			//result.m[5] = 1 - 2 * (square(b) + square(d));
+			//result.m[6] = 2 * c * d - 2 * a * b;
+			//result.m[8] = 2 * b * d - 2 * a * c;
+			//result.m[9] = 2 * c * d + 2 * a * b;
+			//result.m[10] = 1 - 2 * (square(b) + square(c));
+			//return result;
+			float xx = q[0] * q[0];
+			float xy = q[0] * q[1];
+			float xz = q[0] * q[2];
+			float yy = q[1] * q[1];
+			float zz = q[2] * q[2];
+			float yz = q[1] * q[2];
+			float wx = q[3] * q[0];
+			float wy = q[3] * q[1];
+			float wz = q[3] * q[2];
+			Matrix matrix;
+			matrix[0] = 1.0f - 2.0f * (yy + zz);
+			matrix[1] = 2.0f * (xy - wz);
+			matrix[2] = 2.0f * (xz + wy);
+			matrix[3] = 0.0;
+			matrix[4] = 2.0f * (xy + wz);
+			matrix[5] = 1.0f - 2.0f * (xx + zz);
+			matrix[6] = 2.0f * (yz - wx);
+			matrix[7] = 0.0;
+			matrix[8] = 2.0f * (xz - wy);
+			matrix[9] = 2.0f * (yz + wx);
+			matrix[10] = 1.0f - 2.0f * (xx + yy);
+			matrix[11] = 0.0;
+			matrix[12] = 0;
+			matrix[13] = 0;
+			matrix[14] = 0;
+			matrix[15] = 1;
+			return matrix;
 		}
 
 		static Quaternion Slerp(const Quaternion q1, const Quaternion q2, float t)
 		{
+
 			float dot = q1.a * q2.a + q1.b * q2.b + q1.c * q2.c + q1.d * q2.d;
 			Quaternion q1m = q1;
 			if (dot < 0) {
 				dot = -dot;
 				q1m = -q1;
+			}	
+
+			if (dot > 0.99f) {
+				//return lerp(q1m, q2, t);
+				return (q1m * (1.0f - t) + q2 * t);
 			}
 
 			float theta = acosf(dot);
@@ -864,8 +900,10 @@ namespace Mathlib {
 			float s1 = (sinf(theta * (1 - t))) / s;
 			float s2 = (sinf(theta * t)) / s;
 
-			return (q1 * s1) + (q2 * s2);
+			return ((q1m * s1) + (q2 * s2));
+
 		}
+
 
 		static Quaternion Rotate(const Vec3& v, const float theta) {
 			Quaternion result;
@@ -891,6 +929,7 @@ namespace Mathlib {
 		}
 
 	};
+	
 
 	class Shadingframe
 	{

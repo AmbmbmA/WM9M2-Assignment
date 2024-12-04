@@ -138,6 +138,7 @@
     <ClInclude Include="Shadermanage.h" />
     <ClInclude Include="ShaderReflection.h" />
     <ClInclude Include="Shaders.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

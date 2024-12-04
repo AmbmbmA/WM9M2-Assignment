@@ -161,14 +161,12 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 
 	D3D11_INPUT_ELEMENT_DESC layout_animated[] =
 	{
-		{ "POSITION", // Semantic name
-		0, // if there is multi property for this name
-		DXGI_FORMAT_R32G32B32_FLOAT, // data type (float3)
-		0, // which vertex buffer
-		D3D11_APPEND_ALIGNED_ELEMENT,  // auto offset
-		D3D11_INPUT_PER_VERTEX_DATA, 0 // data for each vertex
-		},
-		{ "COLOUR", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "POS", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "TANGENT", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "BONEIDS", 0, DXGI_FORMAT_R32G32B32A32_UINT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "BONEWEIGHTS", 0, DXGI_FORMAT_R32G32B32A32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
 	};
 
 
@@ -186,7 +184,7 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 	}
 	else if (shadername == "animated") {
 		layoutDesc = layout_animated;
-		num = 2;
+		num = 6;
 	}
 	else {
 		MessageBox(nullptr, L"LayoutError", L"LayoutError", MB_ICONERROR);

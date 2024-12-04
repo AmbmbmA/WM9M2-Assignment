@@ -4,6 +4,7 @@
 #include "DXcore.h"
 #include "Shaders.h"
 #include "GEMLoader.h"
+#include "Animation.h"
 
 using namespace Mathlib;
 
@@ -71,7 +72,7 @@ public:
 		init(core, vertices.data(), sizeof(Vertex), vertices.size(), indices.data(), indices.size());
 	}
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp);
+	void draw(DXcore* core);
 
 	void free() {
 		if (indexBuffer) indexBuffer->Release();
@@ -85,7 +86,22 @@ public:
 	Mesh mesh;
 
 	~Plane() { mesh.free(); }
+
 	void init(DXcore* core);
+
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
+
+		Matrix Scaled = Matrix::Scaling(Scal);
+		Matrix Scaledworld = (*World) * Scaled;
+
+		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+		shader->apply(core);
+
+		mesh.draw(core);
+
+	}
+
 
 };
 
@@ -98,6 +114,19 @@ public:
 
 	void init(DXcore* core);
 
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
+
+		Matrix Scaled = Matrix::Scaling(Scal);
+		Matrix Scaledworld = (*World) * Scaled;
+
+		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+		shader->apply(core);
+
+		mesh.draw(core);
+
+	}
+
 };
 
 class Sphere {
@@ -109,52 +138,54 @@ public:
 
 	void init(DXcore* core, int rings, int segments, float radius);
 
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
+
+		Matrix Scaled = Matrix::Scaling(Scal);
+		Matrix Scaledworld = (*World) * Scaled;
+
+		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+		shader->apply(core);
+
+		mesh.draw(core);
+
+	}
+
 };
 
-class Model {
+class StaticModel {
 public:
 
 	std::vector<Mesh> meshes;
 
-	~Model() {
+	~StaticModel() {
 		for (auto m : meshes) {
 			m.free();
 		}
 	}
 
-	void init(DXcore* core, string filename) {
-		GEMLoader::GEMModelLoader loader;
+	void init(DXcore* core, string filename);
 
-		std::vector<GEMLoader::GEMMesh> gemmeshes;
-
-		loader.load(filename, gemmeshes);
-
-		for (int i = 0; i < gemmeshes.size(); i++) {
-			Mesh mesh;
-			std::vector<STATIC_VERTEX> vertices;
-			for (int j = 0; j < gemmeshes[i].verticesStatic.size(); j++) {
-				STATIC_VERTEX v;
-				memcpy(&v, &gemmeshes[i].verticesStatic[j], sizeof(STATIC_VERTEX));
-				vertices.push_back(v);
-			}
-			mesh.init(core, vertices, gemmeshes[i].indices);
-			meshes.push_back(mesh);
-		}
-	}
-
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp) {
-
-		Matrix Scaledworld = World->Scaling(Vec3(0.01f, 0.01f, 0.01f));
-
-		for (int i = 0; i < meshes.size(); i++)
-		{
-			meshes[i].draw(core, shader, &Scaledworld, vp);
-		}
-
-	}
-
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal);
 
 };
 
+class AnimatedModel {
+public:
+
+	std::vector<Mesh> meshes;
+	Animation animation;
+
+	~AnimatedModel() {
+		for (auto m : meshes) {
+			m.free();
+		}
+	}
+
+	void init(DXcore* core, string filename);
+
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance);
+
+};
 
 
