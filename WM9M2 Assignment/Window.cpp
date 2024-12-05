@@ -19,15 +19,20 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	{
 		// double check the request using message box
 		//(HWND, text content, tile of the box, type of the box)
-		int result = MessageBox(hwnd, L"Confirm to close the Window", L"Confirmation", MB_OKCANCEL | MB_ICONQUESTION);
-		if (result == IDOK) {
-			PostQuitMessage(0);
-			exit(0);
-			return 0;
-		}
-		else {
-			return 0;
-		}
+		
+		//int result = MessageBox(hwnd, L"Confirm to close the Window", L"Confirmation", MB_OKCANCEL | MB_ICONQUESTION);
+		//if (result == IDOK) {
+		//	PostQuitMessage(0);
+		//	exit(0);
+		//	return 0;
+		//}
+		//else {
+		//	return 0;
+		//}
+
+		PostQuitMessage(0); // quit message loop
+		exit(0); // end the program
+		return 0;
 	}
 	case WM_DESTROY: //actual close of the window
 	{

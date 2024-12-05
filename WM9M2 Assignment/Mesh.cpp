@@ -4,51 +4,78 @@
 using namespace Mathlib;
 
 
-void Mesh::init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVertices, unsigned int* indices, int numIndices) {
+void Mesh::init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVertices, unsigned int* indices, int numIndices, vector<Vec3> instanceData,int _instancenum) {
+
+	instancenum = _instancenum;
+	indicesSize = numIndices;
 
 	D3D11_BUFFER_DESC bd;
 	memset(&bd, 0, sizeof(D3D11_BUFFER_DESC));
 	bd.Usage = D3D11_USAGE_DEFAULT;
 	bd.ByteWidth = sizeof(unsigned int) * numIndices;
 	bd.BindFlags = D3D11_BIND_INDEX_BUFFER;
+
 	D3D11_SUBRESOURCE_DATA data;
 	memset(&data, 0, sizeof(D3D11_SUBRESOURCE_DATA));
 	data.pSysMem = indices;
+
 	core->device->CreateBuffer(&bd, &data, &indexBuffer);
+
 	bd.ByteWidth = vertexSizeInBytes * numVertices;
 	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	data.pSysMem = vertices;
 	core->device->CreateBuffer(&bd, &data, &vertexBuffer);
-	indicesSize = numIndices;
-	strides = vertexSizeInBytes;
+
+	//for (int i = 0; i < instancenum; i++) {
+	//}
+
+	// instance
+	bd.ByteWidth = sizeof(instanceData);
+	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+	data.pSysMem = instanceData.data();
+	core->device->CreateBuffer(&bd, &data, &instanceBuffer);
+
+
+
+	strides[0] = vertexSizeInBytes;
+	strides[1] = sizeof(Vec3);
+
+	buffers[0] = vertexBuffer;
+	buffers[1] = instanceBuffer;
 
 }
 
 
 void Mesh::draw(DXcore* core) {
 
-	UINT offsets = 0;
+	unsigned int offsets[2] = { 0,0 };
 
 	core->devicecontext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-	core->devicecontext->IASetVertexBuffers(0, 1, &vertexBuffer, &strides, &offsets);
+	core->devicecontext->IASetVertexBuffers(0, 2, buffers, strides, offsets);
+	//core->devicecontext->IASetVertexBuffers(0, 1, &vertexBuffer, &strides, &offsets);
 	core->devicecontext->IASetIndexBuffer(indexBuffer, DXGI_FORMAT_R32_UINT, 0);
-	core->devicecontext->DrawIndexed(indicesSize, 0, 0);
+	//core->devicecontext->DrawIndexed(indicesSize, 0, 0);
+	core->devicecontext->DrawIndexedInstanced(indicesSize, instancenum,0,0,0);
 
 }
 
 
-void Plane::init(DXcore* core) {
+void Plane::init(DXcore* core,int tiling) {
 
 	std::vector<STATIC_VERTEX> vertices;
-	vertices.push_back(addVertex(Vec3(-15, 0, -15), Vec3(0, 1, 0), 0, 0));
-	vertices.push_back(addVertex(Vec3(15, 0, -15), Vec3(0, 1, 0), 1, 0));
-	vertices.push_back(addVertex(Vec3(-15, 0, 15), Vec3(0, 1, 0), 0, 1));
-	vertices.push_back(addVertex(Vec3(15, 0, 15), Vec3(0, 1, 0), 1, 1));
+	vertices.push_back(addVertexwithtiling(Vec3(-15, 0, -15), Vec3(0, 1, 0), 0, 0, tiling));
+	vertices.push_back(addVertexwithtiling(Vec3(15, 0, -15), Vec3(0, 1, 0), 1, 0, tiling));
+	vertices.push_back(addVertexwithtiling(Vec3(-15, 0, 15), Vec3(0, 1, 0), 0, 1, tiling));
+	vertices.push_back(addVertexwithtiling(Vec3(15, 0, 15), Vec3(0, 1, 0), 1, 1, tiling));
 
 	std::vector<unsigned int> indices;
 	indices.push_back(2); indices.push_back(1); indices.push_back(0);
 	indices.push_back(1); indices.push_back(2); indices.push_back(3);
-	mesh.init(core, vertices, indices);
+
+	vector<Vec3> instanceData;
+	instanceData.push_back(Vec3(0, 0, 0));
+
+	mesh.init(core, vertices, indices, instanceData,1);
 
 }
 
@@ -109,7 +136,10 @@ void Cube::init(DXcore* core) {
 	indices.push_back(20); indices.push_back(21); indices.push_back(22);
 	indices.push_back(20); indices.push_back(22); indices.push_back(23);
 
-	mesh.init(core, vertices, indices);
+	vector<Vec3> instanceData;
+	instanceData.push_back(Vec3(0, 0, 0));
+
+	mesh.init(core, vertices, indices, instanceData, 1);
 }
 
 
@@ -149,7 +179,11 @@ void Sphere::init(DXcore* core, int rings, int segments, float radius) {
 	}
 
 
-	mesh.init(core, vertices, indices);
+	vector<Vec3> instanceData;
+	instanceData.push_back(Vec3(0, 0, 0));
+	instanceData.push_back(Vec3(3, 0, 3));
+
+	mesh.init(core, vertices, indices, instanceData, 2);
 
 
 }
@@ -161,6 +195,8 @@ void StaticModel::init(DXcore* core, string filename) {
 
 	std::vector<GEMLoader::GEMMesh> gemmeshes;
 
+	vector<Vec3> instanceData;
+	instanceData.push_back(Vec3(0, 0, 0));
 
 	loader.load(filename, gemmeshes);
 
@@ -173,7 +209,7 @@ void StaticModel::init(DXcore* core, string filename) {
 			vertices.push_back(v);
 		}
 		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
-		mesh.init(core, vertices, gemmeshes[i].indices);
+		mesh.init(core, vertices, gemmeshes[i].indices, instanceData,1);
 		meshes.push_back(mesh);
 	}
 }
@@ -204,6 +240,8 @@ void StaticModelwithtiling::init(DXcore* core, string filename, int tilingnum) {
 
 	std::vector<GEMLoader::GEMMesh> gemmeshes;
 
+	vector<Vec3> instanceData;
+	instanceData.push_back(Vec3(0, 0, 0));
 
 	loader.load(filename, gemmeshes);
 
@@ -218,7 +256,7 @@ void StaticModelwithtiling::init(DXcore* core, string filename, int tilingnum) {
 			vertices.push_back(v);
 		}
 		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
-		mesh.init(core, vertices, gemmeshes[i].indices);
+		mesh.init(core, vertices, gemmeshes[i].indices, instanceData,1);
 		meshes.push_back(mesh);
 	}
 }
@@ -249,6 +287,9 @@ void AnimatedModel::init(DXcore* core, string filename) {
 	std::vector<GEMLoader::GEMMesh> gemmeshes;
 	GEMLoader::GEMAnimation gemanimation;
 
+	vector<Vec3> instanceData;
+	instanceData.push_back(Vec3(0, 0, 0));
+
 	loader.load(filename, gemmeshes, gemanimation);
 
 	listAnimationNames(gemanimation);
@@ -262,7 +303,7 @@ void AnimatedModel::init(DXcore* core, string filename) {
 			vertices.push_back(v);
 		}
 		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
-		mesh.init(core, vertices, gemmeshes[i].indices);
+		mesh.init(core, vertices, gemmeshes[i].indices, instanceData,1);
 		meshes.push_back(mesh);
 	}
 

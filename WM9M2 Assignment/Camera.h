@@ -11,8 +11,6 @@ private:
 
 	void checkanglelimit();
 
-	bool thirdpersonview = false;
-
 public:
 
 	// for lookat Matrix
@@ -20,8 +18,6 @@ public:
 	Vec3 to;
 	Vec3 up;
 
-	Vec3 thirdposition;
-	Vec3 firstposition;
 
 	// for view direction moving
 	float theta; // rotate around x
@@ -46,20 +42,5 @@ public:
 
 	void update(float dt);
 
-	void switchview(bool _third) {
-		if (thirdpersonview != _third) {
-			thirdpersonview = _third;
-		}
-		if (thirdpersonview) {
-			firstposition = position;
-			position = thirdposition;
-		}
-		else {
-			thirdposition = position;
-			position = firstposition;
-		}
-
-
-	}
 
 };

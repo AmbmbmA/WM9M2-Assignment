@@ -13,6 +13,7 @@ struct VS_INPUT
 	float2 TexCoords : TEXCOORD;
 	uint4 BoneIDs : BONEIDS;
 	float4 BoneWeights : BONEWEIGHTS;
+	float3 InstancePosition : INSTANCEPOSITION;
 };
 
 struct PS_INPUT
@@ -30,7 +31,9 @@ PS_INPUT VS(VS_INPUT input)
 	transform += bones[input.BoneIDs[1]] * input.BoneWeights[1];
 	transform += bones[input.BoneIDs[2]] * input.BoneWeights[2];
 	transform += bones[input.BoneIDs[3]] * input.BoneWeights[3];
-	output.Pos = mul(input.Pos, transform);
+	
+	output.Pos = input.Pos + float4(input.InstancePosition,0.0);
+	output.Pos = mul(output.Pos, transform);
 	output.Pos = mul(output.Pos, W);
 	output.Pos = mul(output.Pos, VP);
 

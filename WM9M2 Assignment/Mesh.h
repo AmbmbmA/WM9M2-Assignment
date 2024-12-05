@@ -38,7 +38,6 @@ struct ANIMATED_VERTEX
 	float tu;
 	float tv;
 
-
 	unsigned int bonesIDs[4]; // vertex influenced by 4 bones
 	float boneWeights[4]; // weigt of influence of the 4 bones
 };
@@ -57,21 +56,45 @@ static STATIC_VERTEX addVertex(Vec3 p, Vec3 n, float tu, float tv)
 	return v;
 }
 
+static STATIC_VERTEX addVertexwithtiling(Vec3 p, Vec3 n, float tu, float tv,int tiling)
+{
+	STATIC_VERTEX v;
+	v.pos = p;
+	v.normal = n;
+	//Frame frame;
+	//frame.fromVector(n);
+	//v.tangent = frame.u; // For now
+	v.tangent = Vec3(0, 0, 0); // For now
+	v.tu = tu * tiling;
+	v.tv = tv * tiling;
+	return v;
+}
+
+struct INSTANCE_DATA
+{
+	Vec3 position;
+};
+
 class Mesh {
 public:
 	ID3D11Buffer* indexBuffer;
 	ID3D11Buffer* vertexBuffer;
+	ID3D11Buffer* instanceBuffer;
+
+	unsigned int strides[2];
+	ID3D11Buffer* buffers[2];
+
 	int indicesSize; // num of index
-	UINT strides; // size of the vertex info     
+	int instancenum;
 
 
 
-	void init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVertices, unsigned int* indices, int numIndices);
+	void init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVertices, unsigned int* indices, int numIndices, vector<Vec3> instanceData,int _instancenum);
 
 	// initialize using vector of vertices
 	template <typename Vertex>
-	void init(DXcore* core, std::vector<Vertex> vertices, std::vector<unsigned int> indices) {
-		init(core, vertices.data(), sizeof(Vertex), vertices.size(), indices.data(), indices.size());
+	void init(DXcore* core, std::vector<Vertex> vertices, std::vector<unsigned int> indices, vector<Vec3> instanceData, int _instancenum) {
+		init(core, vertices.data(), sizeof(Vertex), vertices.size(), indices.data(), indices.size(), instanceData, _instancenum);
 	}
 
 	void draw(DXcore* core);
@@ -89,9 +112,9 @@ public:
 
 	~Plane() { mesh.free(); }
 
-	void init(DXcore* core);
+	void init(DXcore* core,int tiling);
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal,TextureManager* textures) {
 
 		Matrix Scaled = Matrix::Scaling(Scal);
 		Matrix Scaledworld = (*World) * Scaled;
@@ -100,7 +123,15 @@ public:
 		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
 		shader->apply(core);
 
+		string a = "Textures/rounded-brick1-albedo.png";
+
+		shader->bindShaderRV(core, "tex", textures->textures[a]->srv);
+
 		mesh.draw(core);
+
+	}
+
+	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
 
 	}
 
@@ -212,6 +243,24 @@ public:
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
+	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
+
+		Matrix Scaled = Matrix::Scaling(Scal);
+		Matrix Scaledworld = (*World) * Scaled;
+
+		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+		shader->apply(core);
+
+		string a = "Textures/rounded-brick1-albedo.png";
+
+		for (int i = 0; i < meshes.size(); i++)
+		{
+			shader->bindShaderRV(core, "tex", textures->find(a));
+			meshes[i].draw(core);
+		}
+
+	}
 };
 
 // list animation names in a log
