@@ -30,12 +30,12 @@ public:
 	map<string, int> textureBindPointsVS;
 	map<string, int> textureBindPointsPS;
 
-	~Shader() {
+	void free() {
 		if (vertexShader)vertexShader->Release();
 		if (pixelShader)pixelShader->Release();
 		if (layout)layout->Release();
-
 	}
+
 	void init(string shadername, DXcore* core);
 
 	string readfile(string filename);
@@ -80,6 +80,52 @@ public:
 
 	void bindShaderRV(DXcore* core, string name, ID3D11ShaderResourceView* srv) {
 		core->devicecontext->PSSetShaderResources(textureBindPointsPS[name], 1, &srv);
+	}
+
+};
+
+
+class ShaderManager
+{
+public:
+
+	std::map<std::string, Shader*> Shaders;
+
+	void load(DXcore* core, std::string shadername)
+	{
+
+		string filename = "Shaders/" + shadername;
+
+		std::map<std::string, Shader*>::iterator it = Shaders.find(shadername);
+		if (it != Shaders.end())
+		{
+			return;
+		}
+		Shader* shader = new Shader();
+
+		shader->init(shadername, core);
+
+		Shaders.insert({ shadername, shader });
+	}
+
+	Shader* find(std::string shadername)
+	{
+		return Shaders[shadername];
+	}
+
+	void unload(std::string shadername)
+	{
+		Shaders[shadername]->free();
+		Shaders.erase(shadername);
+	}
+
+	~ShaderManager()
+	{
+		for (auto it = Shaders.cbegin(); it != Shaders.cend(); )
+		{
+			it->second->free();
+			Shaders.erase(it++);
+		}
 	}
 
 };

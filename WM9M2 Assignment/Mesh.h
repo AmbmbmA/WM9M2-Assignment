@@ -156,6 +156,9 @@ public:
 
 };
 
+
+
+
 class StaticModel {
 public:
 
@@ -190,6 +193,24 @@ public:
 		}
 
 	}
+
+};
+
+class StaticModelwithtiling {
+public:
+
+	std::vector<Mesh> meshes;
+	std::vector<std::string> textureFilenames;
+
+	~StaticModelwithtiling() {
+		for (auto m : meshes) {
+			m.free();
+		}
+	}
+
+	void init(DXcore* core, string filename,int tilingnum);
+
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
 };
 
@@ -231,7 +252,6 @@ public:
 	void init(DXcore* core, string filename);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures);
-
 
 	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures) {
 

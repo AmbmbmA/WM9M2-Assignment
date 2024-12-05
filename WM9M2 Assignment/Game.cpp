@@ -44,12 +44,15 @@ int WinMain(
 	sampler.init(&core);
 
 
-
 	// Camera
-	Matrix projection = Matrix::Perspectiveprojectionz01(1, 100, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+	Matrix projection = Matrix::Perspectiveprojectionz01(0.01, 100, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
 	Camera camera;
 	camera.init(Vec3(0, 2, 0), 90, 0, projection, &win);
 
+	ShaderManager shaders;
+	shaders.load(&core, "definedshape");
+	shaders.load(&core, "static");
+	shaders.load(&core, "animated");
 
 	// basic shape
 	Shader shaderdefinedshape;
@@ -77,10 +80,11 @@ int WinMain(
 	pine.init(&core, "Models/pine.gem");
 	Matrix pineWorld = StandardLocation(Vec3(3, 0, -3));
 
-	TextureManager pinetextures;
-	pinetextures.load(&core, "stump01.png");
-	pinetextures.load(&core, "bark09.png");
-	pinetextures.load(&core, "pine branch.png");
+	//TextureManager pinetextures;
+	TextureManager textures;
+	textures.load(&core, "stump01.png");
+	textures.load(&core, "bark09.png");
+	textures.load(&core, "pine branch.png");
 
 	// cube
 
@@ -89,7 +93,7 @@ int WinMain(
 	Matrix cubeWorld = StandardLocation(Vec3(0, -0.05, 0));
 
 	TextureManager cubetex;
-	cubetex.load(&core, "rounded-brick1-albedo.png");
+	textures.load(&core, "rounded-brick1-albedo.png");
 
 	// Animated models
 	Shader shaderanimated;
@@ -107,7 +111,7 @@ int WinMain(
 	TRexins.currentAnimation = "Run";
 
 	TextureManager TRextextures;
-	TRextextures.load(&core, "T-rex_Base_Color.png");
+	textures.load(&core, "T-rex_Base_Color.png");
 
 	// T
 
@@ -122,7 +126,7 @@ int WinMain(
 	T.currentAnimation = "Talking";
 
 	TextureManager Tte;
-	Tte.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
+	textures.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Gloss.png");
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Normal.png");
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Specular.png");
@@ -155,6 +159,13 @@ int WinMain(
 			PostMessage(win.hwnd, WM_CLOSE, 0, 0); //post a message to requst closing the window without blocking
 			win.keys[VK_ESCAPE] = false;
 		}
+		//if (win.keys['P']) {
+		//	camera.switchview(true);
+		//}
+		//if (win.keys['L']) {
+		//	camera.switchview(false);
+		//}
+
 
 
 		camera.update(dt);
@@ -171,24 +182,22 @@ int WinMain(
 
 		sphere.draw(&core, &shaderdefinedshape, &sphereWorld, &camera.vp, Vec3(1, 1, 1));
 
-		pine.draw(&core, &shaderstatic, &pineWorld, &camera.vp, Vec3(0.01, 0.01, 0.01), &pinetextures);
-		
-		for (int i = -10; i <= 10; i+=2) {
-			for (int j = -10; j <= 10; j+=2) {
-				cubeWorld = StandardLocation(Vec3(i, -0.05, j));
-				cube.drawt(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 0.05, 1), &cubetex);
-			}
-		}
+		pine.draw(&core, &shaderstatic, &pineWorld, &camera.vp, Vec3(0.01, 0.01, 0.01), &textures);
 
-		//cubeWorld = StandardLocation(Vec3(0, -0.05, 0));
+		//for (int i = -10; i <= 10; i += 2) {
+		//	for (int j = -10; j <= 10; j += 2) {
+		//		cubeWorld = StandardLocation(Vec3(i, -0.05, j));
+		//		cube.drawt(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 0.05, 1), &cubetex);
+		//	}
+		//}
 
-		//cube.drawt(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 0.05, 1), &cubetex);
+		cubeWorld = StandardLocation(Vec3(0, -0.05, 0));
+
+		cube.drawt(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(0.5, 0.5, 0.5), &textures);
 
 		//cubeWorld = StandardLocation(Vec3(2, -0.05, 2));
 
 		//cube.drawt(&core, &shaderstatic, &cubeWorld, &camera.vp, Vec3(1, 0.05, 1), &cubetex);
-
-
 
 
 		if ((camera.position - TRexposition).getlength() >= 10) {
@@ -198,13 +207,13 @@ int WinMain(
 		else {
 			TRexins.update("Run", dt);
 		}
-		TRex.draw(&core, &shaderanimated, &TRexWorld, &camera.vp, Vec3(1, 1, 1), &TRexins, &TRextextures);
-		
+		TRex.draw(&core, &shaderanimated, &TRexWorld, &camera.vp, Vec3(1, 1, 1), &TRexins, &textures);
 
 
-		T.update("Talking", dt);
 
-		TT.draw(&core, &shaderanimated, &Tw, &camera.vp, Vec3(10, 10, 10), &T,&Tte);
+		T.update("run forward", dt);
+
+		TT.draw(&core, shaders.find("animated"), &Tw, &camera.vp, Vec3(0.01, 0.01, 0.01), &T, &textures);
 
 
 		core.present();

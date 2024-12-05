@@ -8,6 +8,11 @@ void Camera::updatevp() {
 	to = position + face;
 	up = Vec3(0, 1, 0);
 
+	thirdposition = position + Vec3(0, 3, 0);
+	thirdposition = position - movedirforward * 2;
+
+	firstposition = position;
+
 	movedirforward = Vec3(face.x, 0, face.z).normalize();
 	movedirright = movedirforward.Crossright(Vec3(0, 1, 0)).normalize();
 

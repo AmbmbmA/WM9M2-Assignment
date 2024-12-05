@@ -544,7 +544,7 @@ namespace Mathlib {
 			result.m[11] = -from.Dot(dir);
 			return result;
 		}
-		static Matrix Perspectiveprojectionz01(const int& n, const int& f, const float& fov, const float& aspect) {
+		static Matrix Perspectiveprojectionz01(const float& n, const float& f, const float& fov, const float& aspect) {
 			Matrix result;
 			auto t = tanf(fov * M_PI / 360);
 			result.m[0] = 1 / (aspect * t);

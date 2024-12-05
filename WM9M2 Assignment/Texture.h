@@ -77,6 +77,7 @@ public:
 		stbi_image_free(texels);
 
 	}
+
 };
 
 class Sampler {

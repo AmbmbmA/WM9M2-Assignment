@@ -11,12 +11,17 @@ private:
 
 	void checkanglelimit();
 
+	bool thirdpersonview = false;
+
 public:
 
 	// for lookat Matrix
 	Vec3 position;
 	Vec3 to;
 	Vec3 up;
+
+	Vec3 thirdposition;
+	Vec3 firstposition;
 
 	// for view direction moving
 	float theta; // rotate around x
@@ -40,5 +45,21 @@ public:
 	void rotate(float dtheta, float dphi);
 
 	void update(float dt);
+
+	void switchview(bool _third) {
+		if (thirdpersonview != _third) {
+			thirdpersonview = _third;
+		}
+		if (thirdpersonview) {
+			firstposition = position;
+			position = thirdposition;
+		}
+		else {
+			thirdposition = position;
+			position = firstposition;
+		}
+
+
+	}
 
 };

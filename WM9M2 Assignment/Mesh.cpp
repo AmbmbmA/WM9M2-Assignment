@@ -198,6 +198,51 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 }
 
 
+void StaticModelwithtiling::init(DXcore* core, string filename, int tilingnum) {
+
+	GEMLoader::GEMModelLoader loader;
+
+	std::vector<GEMLoader::GEMMesh> gemmeshes;
+
+
+	loader.load(filename, gemmeshes);
+
+	for (int i = 0; i < gemmeshes.size(); i++) {
+		Mesh mesh;
+		std::vector<STATIC_VERTEX> vertices;
+		for (int j = 0; j < gemmeshes[i].verticesStatic.size(); j++) {
+			STATIC_VERTEX v;
+			memcpy(&v, &gemmeshes[i].verticesStatic[j], sizeof(STATIC_VERTEX));
+			v.tu *= tilingnum;
+			v.tv *= tilingnum;
+			vertices.push_back(v);
+		}
+		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
+		mesh.init(core, vertices, gemmeshes[i].indices);
+		meshes.push_back(mesh);
+	}
+}
+
+
+void StaticModelwithtiling::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
+
+	Matrix Scaled = Matrix::Scaling(Scal);
+	Matrix Scaledworld = (*World) * Scaled;
+
+	shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+	shader->apply(core);
+
+
+	for (int i = 0; i < meshes.size(); i++)
+	{
+		shader->bindShaderRV(core, "tex", textures->find(textureFilenames[i]));
+		meshes[i].draw(core);
+	}
+
+}
+
+
 void AnimatedModel::init(DXcore* core, string filename) {
 
 	GEMLoader::GEMModelLoader loader;
