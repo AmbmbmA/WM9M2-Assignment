@@ -48,16 +48,21 @@ int WinMain(
 
 	ShaderManager shaders;
 	//shaders.load(&core, "definedshape");
-	//shaders.load(&core, "static");
+	shaders.load(&core, "static");
+	shaders.load(&core, "staticNM");
 	//shaders.load(&core, "animated");
-	shaders.load(&core, "definedshapeG");
-	shaders.load(&core, "definedshapeL");
+	//shaders.load(&core, "definedshapeG");
+	//shaders.load(&core, "definedshapeL");
 
 
 	TextureManager textures;
 	textures.load(&core, "stump01.png");
 	textures.load(&core, "bark09.png");
 	textures.load(&core, "pine branch.png");
+	textures.load(&core, "stump01_normal.png");
+	textures.load(&core, "bark09_normal.png");
+	textures.load(&core, "pine branch_normal.png");
+
 	textures.load(&core, "rounded-brick1-albedo.png");
 	textures.load(&core, "T-rex_Base_Color.png");
 	textures.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
@@ -87,7 +92,7 @@ int WinMain(
 
 	StaticModel pine;
 	vector<Vec3> pineinslocation;
-	pineinslocation.push_back(Vec3(-5, 0, -5));
+	pineinslocation.push_back(Vec3(5, 0, 5));
 	pine.init(&core, "Models/pine.gem", pineinslocation, 1);
 
 
@@ -179,11 +184,11 @@ int WinMain(
 		// Pass2
 		core.settoBackbuffer();
 
-		sphere.draw(&core, shaders.find("definedshapeG"), &W, &camera.vp, Vec3(1, 1, 1));
+		//sphere.draw(&core, shaders.find("definedshape"), &W, &camera.vp, Vec3(1, 1, 1));
 
 		//p.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, 1, 1), &textures);
 
-		//pine.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(0.005f, 0.005f, 0.005f), &textures);
+		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.005f, 0.005f, 0.005f), &textures);
 
 		//TRexins.update("Run", dt);
 

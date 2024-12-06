@@ -4,7 +4,7 @@
 using namespace Mathlib;
 
 
-void Mesh::init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVertices, unsigned int* indices, int numIndices, vector<Vec3> instanceData,int _instancenum) {
+void Mesh::init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVertices, unsigned int* indices, int numIndices, vector<Vec3> instanceData, int _instancenum) {
 
 	instancenum = _instancenum;
 	indicesSize = numIndices;
@@ -86,12 +86,12 @@ void Mesh::draw(DXcore* core) {
 	//core->devicecontext->IASetVertexBuffers(0, 1, &vertexBuffer, &strides, &offsets);
 	core->devicecontext->IASetIndexBuffer(indexBuffer, DXGI_FORMAT_R32_UINT, 0);
 	//core->devicecontext->DrawIndexed(indicesSize, 0, 0);
-	core->devicecontext->DrawIndexedInstanced(indicesSize, instancenum,0,0,0);
+	core->devicecontext->DrawIndexedInstanced(indicesSize, instancenum, 0, 0, 0);
 
 }
 
 
-void Plane::init(DXcore* core,int tiling, vector<Vec3> instanceData,int instancenum) {
+void Plane::init(DXcore* core, int tiling, vector<Vec3> instanceData, int instancenum) {
 
 	std::vector<STATIC_VERTEX> vertices;
 	vertices.push_back(addVertexwithtiling(Vec3(-10, 0, -10), Vec3(0, 1, 0), 0, 0, tiling));
@@ -239,12 +239,25 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 
 	shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
 	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+
+	Vec3 lightdir = Vec3(1,0.2,1);
+	Vec3 lightcol = Vec3(1,1,1);
+	shader->updateConstantPS("LightBuffer", "lightDirection", &lightdir);
+	shader->updateConstantPS("LightBuffer", "lightColour", &lightcol);
+
 	shader->apply(core);
 
 
 	for (int i = 0; i < meshes.size(); i++)
 	{
-		shader->bindShaderRV(core, "tex", textures->find(textureFilenames[i]));
+		string temp = textureFilenames[i];
+
+		shader->bindShaderRV(core, "tex", textures->find(temp));
+
+		temp = temp.erase(temp.size() - 4);
+		temp = temp + "_normal.png";
+
+		shader->bindShaderRV(core, "normalMap", textures->find(temp));
 		meshes[i].draw(core);
 	}
 
@@ -314,7 +327,7 @@ void AnimatedModel::init(DXcore* core, string filename, vector<Vec3> instanceDat
 			vertices.push_back(v);
 		}
 		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
-		mesh.init(core, vertices, gemmeshes[i].indices, instanceData,instancenum);
+		mesh.init(core, vertices, gemmeshes[i].indices, instanceData, instancenum);
 		meshes.push_back(mesh);
 	}
 

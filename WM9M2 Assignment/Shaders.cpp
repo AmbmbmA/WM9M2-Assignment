@@ -205,7 +205,7 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 		layoutDesc = layout_definedshape;
 		num = 5;
 	}
-	else if (shadername == "static") {
+	else if (shadername == "static" || shadername == "staticNM") {
 		layoutDesc = layout_static;
 		num = 5;
 	}

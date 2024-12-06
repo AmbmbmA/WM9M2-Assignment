@@ -79,7 +79,7 @@ void Camera::update(float dt) {
 	if (win->keys['D']) {
 		direcmoniter[3] = true;
 	}
-	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(10*0.05*sensity);
+	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(0.05*sensity);
 
 	updatevp();
 
