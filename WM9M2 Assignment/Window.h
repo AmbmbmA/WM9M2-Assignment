@@ -52,7 +52,7 @@ public:
 	void clipMouseToWindow()
 	{
 		RECT rect;
-		GetWindowRect(hwnd, &rect);
+		GetClientRect(hwnd, &rect);
 		POINT ul;
 		ul.x = rect.left;
 		ul.y = rect.top;
@@ -62,7 +62,7 @@ public:
 		MapWindowPoints(hwnd, nullptr, &ul, 1);
 		MapWindowPoints(hwnd, nullptr, &lr, 1);
 		rect.left = ul.x;
-		rect.top = ul.y;
+		rect.top = ul.y - 30;
 		rect.right = lr.x;
 		rect.bottom = lr.y;
 		ClipCursor(&rect);

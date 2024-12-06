@@ -1,0 +1,26 @@
+Texture2D<float4> GBufferDiffuse : register(t0);
+Texture2D<float3> GBufferNormal : register(t1);
+Texture2D<float4> GBufferPosition : register(t2);
+SamplerState samplerLinear : register(s0);
+
+struct PS_INPUT {
+    float4 Pos : SV_POSITION;
+    float2 TexCoords : TEXCOORD;
+};
+
+float4 PS(PS_INPUT input) : SV_Target {
+    // 从 G-Buffer 采样
+    float4 diffuse = GBufferDiffuse.Sample(samplerLinear, input.TexCoords);
+    float3 normal = normalize(GBufferNormal.Sample(samplerLinear, input.TexCoords));
+    float3 position = GBufferPosition.Sample(samplerLinear, input.TexCoords).xyz;
+	
+	float3 LightPosition = float3(4,0,4);
+    	float3 LightColor =float3(1,0,1);
+    	float LightIntensity = 1;
+    // 计算光照
+    float3 lightDir = normalize(LightPosition - position);
+    float NdotL = max(dot(normal, lightDir), 0.0);
+    float3 diffuseColor = LightColor * diffuse.rgb * NdotL * LightIntensity;
+
+    return float4(diffuseColor, 1.0);
+}

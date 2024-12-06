@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Adapter.h"
 #include "memory"
@@ -12,6 +12,13 @@ public:
 
 	ID3D11RenderTargetView* backbufferRenderTargetView; // target to be rander on back buffer
 	ID3D11Texture2D* backbuffer; // back buffer
+
+	static const int RENDERTARNUM = 3; // number of render targets
+	ID3D11Texture2D* renderTargets[RENDERTARNUM]; 
+	ID3D11RenderTargetView* renderTargetViews[RENDERTARNUM]; 
+	ID3D11ShaderResourceView* shaderResourceViews[RENDERTARNUM]; 
+
+
 
 	// for depth buffer and stencil buffer
 	ID3D11DepthStencilView* depthStencilView;
@@ -37,6 +44,18 @@ public:
 	}
 
 	void init(int width, int height, HWND hwnd, bool window_fullscreen);
+
+	void createRenderTargets(int width, int height);
+
+	void settoGbuffer() {
+		devicecontext->OMSetRenderTargets(RENDERTARNUM, renderTargetViews, depthStencilView);
+
+	}
+
+	void settoBackbuffer() {
+		devicecontext->OMSetRenderTargets(1, &backbufferRenderTargetView, depthStencilView);
+
+	}
 
 	void clear();
 

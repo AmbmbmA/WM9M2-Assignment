@@ -182,6 +182,16 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 
 	};
 
+	D3D11_INPUT_ELEMENT_DESC layout_definedshapeG[] =
+	{
+		{ "POS", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "TANGENT", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "INSTANCEPOSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 1, 0, D3D11_INPUT_PER_INSTANCE_DATA, 1 },
+	};
+
+
 
 	// choose the correct one
 	D3D11_INPUT_ELEMENT_DESC* layoutDesc = nullptr;
@@ -202,6 +212,14 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 	else if (shadername == "animated") {
 		layoutDesc = layout_animated;
 		num = 7;
+	}
+	else if (shadername == "definedshapeG") {
+		layoutDesc = layout_definedshapeG;
+		num = 5;
+	}
+	else if (shadername == "definedshapeL") {
+		layout = nullptr;
+		return;
 	}
 	else {
 		MessageBox(nullptr, L"LayoutError", L"LayoutError", MB_ICONERROR);

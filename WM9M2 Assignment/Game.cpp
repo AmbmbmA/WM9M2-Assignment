@@ -15,10 +15,6 @@
 const int WINDOWSIZE[2] = { 1920,1080 };
 const float FOV = 90;
 
-Matrix StandardLocation(Vec3 position) {
-	return Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), position);
-}
-
 // Windows program entrance
 // prameters are set by the windows system
 int WinMain(
@@ -43,16 +39,20 @@ int WinMain(
 	Sampler sampler;
 	sampler.init(&core);
 
+	Matrix W = Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), Vec3(0, 0, 0));
 
 	// Camera
-	Matrix projection = Matrix::Perspectiveprojectionz01(0.01, 100, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+	Matrix projection = Matrix::Perspectiveprojectionz01(0.01, 10000, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
 	Camera camera;
 	camera.init(Vec3(0, 3, 0), 90, 0, projection, &win);
 
 	ShaderManager shaders;
-	shaders.load(&core, "definedshape");
-	shaders.load(&core, "static");
-	shaders.load(&core, "animated");
+	//shaders.load(&core, "definedshape");
+	//shaders.load(&core, "static");
+	//shaders.load(&core, "animated");
+	shaders.load(&core, "definedshapeG");
+	shaders.load(&core, "definedshapeL");
+
 
 	TextureManager textures;
 	textures.load(&core, "stump01.png");
@@ -67,57 +67,62 @@ int WinMain(
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Specular.png");
 
 	Plane p;
-	p.init(&core,10);
-	Matrix planeWorld = StandardLocation(Vec3(0, -0.05, 0));
+	vector<Vec3> pinslocation;
+	pinslocation.push_back(Vec3(0, 0, 0));
+	p.init(&core, 10, pinslocation, 1);
 
 	Cube c;
-	c.init(&core);
-	Matrix cWorld = StandardLocation(Vec3(3, 5, 3));
+	vector<Vec3> cinslocation;
+	cinslocation.push_back(Vec3(3, 5, 3));
+	c.init(&core, cinslocation, 1);
 
 	Sphere sphere;
-	sphere.init(&core, 100, 100, 2);
-	Matrix sphereWorld = StandardLocation(Vec3(3, 2, 3));
+	vector<Vec3> sphereinslocation;
+	sphereinslocation.push_back(Vec3(10, 2, 10));
+	sphereinslocation.push_back(Vec3(10, 5, 10));
+	sphere.init(&core, 100, 100, 2, sphereinslocation, 2);
 
 
 	// pine
 
 	StaticModel pine;
-	pine.init(&core, "Models/pine.gem");
-	Matrix pineWorld = StandardLocation(Vec3(3, 0, -3));
+	vector<Vec3> pineinslocation;
+	pineinslocation.push_back(Vec3(-5, 0, -5));
+	pine.init(&core, "Models/pine.gem", pineinslocation, 1);
 
 
 
 	// cube
 
 	StaticModelwithtiling cube;
-	cube.init(&core, "Models/cube.gem",3);
-	Matrix cubeWorld = StandardLocation(Vec3(0, -0.05, 0));
+	vector<Vec3> cubeinslocation;
+	cubeinslocation.push_back(Vec3(-5, 7, -5));
+	cube.init(&core, "Models/cube.gem", 3, cubeinslocation, 1);
 
 
 	// TRex
-	AnimationInstance TRexins;
+
 	AnimatedModel TRex;
-	TRex.init(&core, "Models/TRex.gem");
+	vector<Vec3> TRexinslocation;
+	TRexinslocation.push_back(Vec3(10,0,10));
+	TRexinslocation.push_back(Vec3(5,0,5));
+	TRexinslocation.push_back(Vec3(20,0,20));
+	TRex.init(&core, "Models/TRex.gem", TRexinslocation, 3);
 
-	Vec3 TRexposition = Vec3(-10, 0, -10);
-	Matrix TRexWorld = StandardLocation(TRexposition);
-
+	AnimationInstance TRexins;
 	TRexins.animation = &TRex.animation;
 	TRexins.currentAnimation = "Run";
 
 
+	AnimatedModel Soldier;
+	vector<Vec3> Soldierinslocation;
+	Soldierinslocation.push_back(Vec3(0.0f, 0.0f, 0.0f));
+	//Soldierinslocation.push_back(Vec3(15, 0, 15));
+	Soldier.init(&core, "Models/Soldier1.gem", Soldierinslocation, 1);
 
-	// T
-
-	AnimationInstance T;
-	AnimatedModel TT;
-	TT.init(&core, "Models/Soldier1.gem");
-
-	Vec3 Tp = Vec3(-5, 0, -5);
-	Matrix Tw = StandardLocation(Tp);
-
-	T.animation = &TT.animation;
-	T.currentAnimation = "idle aiming";
+	AnimationInstance Soldierins;
+	Soldierins.animation = &Soldier.animation;
+	Soldierins.currentAnimation = "idle";
 
 
 
@@ -130,15 +135,19 @@ int WinMain(
 
 		float u = 1 * dt;
 		core.clear();
+
 		win.processMessages();
 
 		sampler.bind(&core);
 
-		if (win.keys['H']) {
-			win.hideCursor();
-		}
-		if (win.keys['Y']) {
+
+
+
+		if (win.keys['N']) {
 			win.showCursor();
+		}
+		else if(win.keys['H']) {
+			win.hideCursor();
 		}
 		//if (win.rawmousex != 0 || win.rawmousey != 0) {
 		//	win.windowmove(win.rawmousex, win.rawmousey);
@@ -159,36 +168,31 @@ int WinMain(
 
 
 		camera.update(dt);
+		
+		// Pass 1
+		//core.settoGbuffer();
 
-		p.draw(&core, shaders.find("static"), &planeWorld, &camera.vp, Vec3(1, 1, 1),&textures);
+		//sphere.draw(&core, shaders.find("definedshapeG"), &W, &camera.vp, Vec3(1, 1, 1));
 
-		c.draw(&core, shaders.find("definedshape"), &cWorld, &camera.vp, Vec3(1, 1, 1));
+		//core.devicecontext->PSSetShaderResources(0, 3, core.shaderResourceViews);
 
-		sphereWorld = StandardLocation(Vec3(3, 2, 3));
+		// Pass2
+		core.settoBackbuffer();
 
-		sphere.draw(&core, shaders.find("definedshape"), &sphereWorld, &camera.vp, Vec3(1, 1, 1));
+		sphere.draw(&core, shaders.find("definedshapeG"), &W, &camera.vp, Vec3(1, 1, 1));
 
-		pine.draw(&core, shaders.find("static"), &pineWorld, &camera.vp, Vec3(0.01, 0.01, 0.01), &textures);
+		//p.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, 1, 1), &textures);
 
-		cubeWorld = StandardLocation(Vec3(0, -0.05, 0));
+		//pine.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(0.005f, 0.005f, 0.005f), &textures);
 
-		cube.drawt(&core, shaders.find("static"), &cubeWorld, &camera.vp, Vec3(0.5, 0.5, 0.5), &textures);
+		//TRexins.update("Run", dt);
 
-
-		if ((camera.position - TRexposition).getlength() >= 10) {
-			TRexins.update("walk", dt);
-
-		}
-		else {
-			TRexins.update("Run", dt);
-		}
-		TRex.draw(&core, shaders.find("animated"), &TRexWorld, &camera.vp, Vec3(1, 1, 1), &TRexins, &textures);
+		//TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(1,1,1), &TRexins, &textures);
 
 
+		//Soldierins.update("idle", dt);
 
-		T.update("idle aiming", dt);
-
-		TT.draw(&core, shaders.find("animated"), &Tw, &camera.vp, Vec3(0.02, 0.02, 0.02), &T, &textures);
+		//Soldier.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(0.02,0.02,0.02), &Soldierins, &textures);
 
 
 		core.present();

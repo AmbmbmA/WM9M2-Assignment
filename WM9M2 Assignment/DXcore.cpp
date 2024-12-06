@@ -92,8 +92,12 @@ void DXcore::init(int width, int height, HWND hwnd, bool window_fullscreen) {
 	// use the depth stencil buffer to create a depth stencil view
 	device->CreateDepthStencilView(depthbuffer, NULL, &depthStencilView);
 
+	createRenderTargets(width, height);
+
+
+
 	// send bbrv and sdv to GPU for rendering
-	devicecontext->OMSetRenderTargets(1, &backbufferRenderTargetView, depthStencilView);
+	//devicecontext->OMSetRenderTargets(1, &backbufferRenderTargetView, depthStencilView);
 
 	// creat viewport and set
 	D3D11_VIEWPORT viewport;
@@ -156,8 +160,71 @@ void DXcore::init(int width, int height, HWND hwnd, bool window_fullscreen) {
 
 }
 
+void DXcore::createRenderTargets(int width, int height) {
+
+	for (int i = 0; i < RENDERTARNUM; ++i) {
+
+		D3D11_TEXTURE2D_DESC textureDesc = {};
+		ZeroMemory(&textureDesc, sizeof(textureDesc));
+		textureDesc.Width = width;
+		textureDesc.Height = height;
+		textureDesc.MipLevels = 1;
+		textureDesc.ArraySize = 1;
+		textureDesc.Format = DXGI_FORMAT_R32G32B32A32_FLOAT;
+		textureDesc.SampleDesc.Count = 1;
+		textureDesc.SampleDesc.Quality = 0;
+		textureDesc.Usage = D3D11_USAGE_DEFAULT;
+		textureDesc.BindFlags = D3D11_BIND_RENDER_TARGET | D3D11_BIND_SHADER_RESOURCE;
+		textureDesc.CPUAccessFlags = 0;
+		textureDesc.MiscFlags = 0;
+
+
+		// create render target texture
+		HRESULT hr = device->CreateTexture2D(&textureDesc, nullptr, &renderTargets[i]);
+		if (FAILED(hr)) {
+			MessageBox(nullptr, L"render target texture Error", L"render target texture Error", MB_ICONERROR);
+			exit(0);
+		}
+
+		D3D11_RENDER_TARGET_VIEW_DESC renderTargetViewDesc;
+		ZeroMemory(&renderTargetViewDesc, sizeof(renderTargetViewDesc));
+		renderTargetViewDesc.Format = textureDesc.Format;
+		renderTargetViewDesc.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
+		renderTargetViewDesc.Texture2D.MipSlice = 0;
+
+		// create render target view
+		hr = device->CreateRenderTargetView(renderTargets[i], &renderTargetViewDesc, &renderTargetViews[i]);
+		if (FAILED(hr)) {
+			MessageBox(nullptr, L"render target view Error", L"render target view Error", MB_ICONERROR);
+			exit(0);
+		}
+
+		D3D11_SHADER_RESOURCE_VIEW_DESC shaderResourceViewDesc;
+		ZeroMemory(&shaderResourceViewDesc, sizeof(shaderResourceViewDesc));
+		shaderResourceViewDesc.Format = textureDesc.Format;
+		shaderResourceViewDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+		shaderResourceViewDesc.Texture2D.MostDetailedMip = 0;
+		shaderResourceViewDesc.Texture2D.MipLevels = 1;
+
+
+		// create shader resource view
+		hr = device->CreateShaderResourceView(renderTargets[i], &shaderResourceViewDesc, &shaderResourceViews[i]);
+		if (FAILED(hr)) {
+			MessageBox(nullptr, L"shader resource view Error", L"shader resource view Error", MB_ICONERROR);
+			exit(0);
+		}
+	}
+}
+
+
+
 void DXcore::clear() {
 	float ClearColour[4] = { 0.0f, 0.0f, 0.0f, 1.0f }; // clear back ground 
+
+	// clear all render targets
+	for (int i = 0; i < RENDERTARNUM; ++i) {
+		devicecontext->ClearRenderTargetView(renderTargetViews[i], ClearColour);
+	}
 
 	// clear the back buffer use set color
 	devicecontext->ClearRenderTargetView(backbufferRenderTargetView, ClearColour); 

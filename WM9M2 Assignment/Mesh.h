@@ -97,6 +97,8 @@ public:
 		init(core, vertices.data(), sizeof(Vertex), vertices.size(), indices.data(), indices.size(), instanceData, _instancenum);
 	}
 
+	void updateinstanceBuffer(DXcore* core, vector<Vec3>newinstancedata);
+
 	void draw(DXcore* core);
 
 	void free() {
@@ -109,10 +111,9 @@ class Plane {
 public:
 
 	Mesh mesh;
-
 	~Plane() { mesh.free(); }
 
-	void init(DXcore* core,int tiling);
+	void init(DXcore* core,int tiling, vector<Vec3> instanceData, int instancenum);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal,TextureManager* textures) {
 
@@ -145,7 +146,7 @@ public:
 
 	~Cube() { mesh.free(); }
 
-	void init(DXcore* core);
+	void init(DXcore* core, vector<Vec3> instanceData, int instancenum);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
 
@@ -169,7 +170,7 @@ public:
 
 	~Sphere() { mesh.free(); }
 
-	void init(DXcore* core, int rings, int segments, float radius);
+	void init(DXcore* core, int rings, int segments, float radius, vector<Vec3> instanceData, int instancenum);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
 
@@ -202,7 +203,7 @@ public:
 		}
 	}
 
-	void init(DXcore* core, string filename);
+	void init(DXcore* core, string filename, vector<Vec3> instanceData, int instancenum);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
@@ -239,7 +240,7 @@ public:
 		}
 	}
 
-	void init(DXcore* core, string filename,int tilingnum);
+	void init(DXcore* core, string filename,int tilingnum, vector<Vec3> instanceData, int instancenum);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
@@ -298,7 +299,7 @@ public:
 		}
 	}
 
-	void init(DXcore* core, string filename);
+	void init(DXcore* core, string filename, vector<Vec3> instanceData, int instancenum);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures);
 
@@ -312,12 +313,12 @@ public:
 		shader->updateConstantVS("animatedMeshBuffer", "bones", instance->matrices);
 		shader->apply(core);
 
-		string a = "Textures/MaleDuty_3_OBJ_Happy_Packed0_Diffuse.png";
+		string a = "Textures/MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png";
 
 		for (int i = 0; i < meshes.size(); i++)
 		{
 
-			shader->bindShaderRV(core, "tex", textures->textures[a]->srv);
+			shader->bindShaderRV(core, "tex", textures->find(a));
 			meshes[i].draw(core);
 		}
 
