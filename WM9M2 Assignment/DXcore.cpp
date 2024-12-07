@@ -1,4 +1,4 @@
-#include "DXcore.h"
+﻿#include "DXcore.h"
 
 
 void DXcore::init(int width, int height, HWND hwnd, bool window_fullscreen) {
@@ -86,18 +86,48 @@ void DXcore::init(int width, int height, HWND hwnd, bool window_fullscreen) {
 		dsbinfo.MiscFlags = 0;
 	}
 
+
 	// creat depth stencil buffer
 	device->CreateTexture2D(&dsbinfo, NULL, &depthbuffer);
 
 	// use the depth stencil buffer to create a depth stencil view
 	device->CreateDepthStencilView(depthbuffer, NULL, &depthStencilView);
 
-	createRenderTargets(width, height);
+	//createRenderTargets(width, height);
 
+	// failed shadow mapping
+	/*
+	D3D11_TEXTURE2D_DESC shadowDesc = {};
+	shadowDesc.Width = width; 
+	shadowDesc.Height = height;
+	shadowDesc.MipLevels = 1;
+	shadowDesc.ArraySize = 1;
+	shadowDesc.Format = DXGI_FORMAT_R32_TYPELESS; 
+	shadowDesc.SampleDesc.Count = 1;
+	shadowDesc.Usage = D3D11_USAGE_DEFAULT;
+	shadowDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL | D3D11_BIND_SHADER_RESOURCE;
+
+	device->CreateTexture2D(&shadowDesc, nullptr, &shadowTexture);
+
+	D3D11_DEPTH_STENCIL_VIEW_DESC dsvDesc = {};
+	dsvDesc.Format = DXGI_FORMAT_D32_FLOAT;
+	dsvDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+	device->CreateDepthStencilView(shadowTexture, &dsvDesc, &shadowDSV);
+
+
+	// 创建 Shader Resource View
+	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
+	srvDesc.Format = DXGI_FORMAT_R32_FLOAT;
+	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
+	srvDesc.Texture2D.MostDetailedMip = 0;
+	srvDesc.Texture2D.MipLevels = 1;
+	device->CreateShaderResourceView(shadowTexture, &srvDesc, &shadowSRV);
+
+	*/
 
 
 	// send bbrv and sdv to GPU for rendering
-	//devicecontext->OMSetRenderTargets(1, &backbufferRenderTargetView, depthStencilView);
+	devicecontext->OMSetRenderTargets(1, &backbufferRenderTargetView, depthStencilView);
 
 	// creat viewport and set
 	D3D11_VIEWPORT viewport;
@@ -222,9 +252,9 @@ void DXcore::clear() {
 	float ClearColour[4] = { 0.0f, 0.0f, 0.0f, 1.0f }; // clear back ground 
 
 	// clear all render targets
-	for (int i = 0; i < RENDERTARNUM; ++i) {
-		devicecontext->ClearRenderTargetView(renderTargetViews[i], ClearColour);
-	}
+	//for (int i = 0; i < RENDERTARNUM; ++i) {
+	//	devicecontext->ClearRenderTargetView(renderTargetViews[i], ClearColour);
+	//}
 
 	// clear the back buffer use set color
 	devicecontext->ClearRenderTargetView(backbufferRenderTargetView, ClearColour); 

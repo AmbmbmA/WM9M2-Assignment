@@ -14,7 +14,7 @@
 
 const int WINDOWSIZE[2] = { 1920,1080 };
 const float FOV = 90;
-const float NEARPLANE = 0.01;
+const float NEARPLANE = 0.1;
 const float FARPLANE = 1000;
 
 // Windows program entrance
@@ -48,13 +48,16 @@ int WinMain(
 	// Camera
 	Matrix projection = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
 	Camera camera;
-	camera.init(Vec3(0, 4, 0), 90, 0, projection, &win);
+	camera.init(Vec3(0, 8, 0), 90, 0, projection, &win);
 
 	ShaderManager shaders;
 	shaders.load(&core, "definedshape");
 	shaders.load(&core, "static");
 	shaders.load(&core, "staticNM");
-	//shaders.load(&core, "animated");
+	shaders.load(&core, "staticNMshadow");
+	shaders.load(&core, "shadow");
+	shaders.load(&core, "animated");
+
 	//shaders.load(&core, "definedshapeG");
 	//shaders.load(&core, "definedshapeL");
 
@@ -80,7 +83,7 @@ int WinMain(
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Normal.png");
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Specular.png");
 
-	
+
 	Plane ground;
 	vector<Vec3> groundinslocation;
 	groundinslocation.push_back(Vec3(0, 0, 0));
@@ -89,7 +92,7 @@ int WinMain(
 	Sphere Sky;
 	vector<Vec3> Skyinslocation;
 	Skyinslocation.push_back(Vec3(0, 0, 0));
-	Sky.init(&core, 1000, 1000, FARPLANE-20, Skyinslocation, 1);
+	Sky.init(&core, 1000, 1000, FARPLANE - 20, Skyinslocation, 1);
 
 
 
@@ -108,13 +111,17 @@ int WinMain(
 	int pinerangemin = -500;
 	int pinerangemax = 500;
 	int pinenum = 200;
-	for (int i = 0; i < pinenum; i++) {
-		int x = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
-		int y = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
-		pineinslocation.push_back(Vec3(x, 0, y));
-	}
-	pine.init(&core, "Models/pine.gem", pineinslocation, pinenum);
+	//for (int i = 0; i < pinenum; i++) {
+	//	int x = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
+	//	int y = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
+	//	pineinslocation.push_back(Vec3(x, 0, y));
+	//}
+	//pine.init(&core, "Models/pine.gem", pineinslocation, pinenum);
 
+
+	pineinslocation.push_back(Vec3(3, 0, 3));
+
+	pine.init(&core, "Models/pine.gem", pineinslocation, 1);
 
 
 	// cube
@@ -142,7 +149,6 @@ int WinMain(
 	AnimatedModel Soldier;
 	vector<Vec3> Soldierinslocation;
 	Soldierinslocation.push_back(Vec3(0.0f, 0.0f, 0.0f));
-	//Soldierinslocation.push_back(Vec3(15, 0, 15));
 	Soldier.init(&core, "Models/Soldier1.gem", Soldierinslocation, 1);
 
 	AnimationInstance Soldierins;
@@ -150,6 +156,15 @@ int WinMain(
 	Soldierins.currentAnimation = "idle";
 
 
+	Vec3 lightDirection = Vec3(-1.0f, -1.0f, -1.0f).normalize(); 
+	Vec3 lightPosition = Vec3(100.0f, 100.0f, 100.0f);
+	Vec3 target = Vec3(0.0f, 0.0f, 0.0f);          
+	Vec3 up = Vec3(0.0f, 1.0f, 0.0f);                           
+
+	Matrix LightViewMatrix = Matrix::LookAt(lightPosition, target, up);
+
+	Matrix LightProjectionMatrix = Matrix::OrthographicProjection(NEARPLANE,FARPLANE, WINDOWSIZE[0], WINDOWSIZE[1]);
+	Matrix LightViewProjMatrix = LightProjectionMatrix * LightViewMatrix;
 
 	while (run)
 	{
@@ -174,9 +189,10 @@ int WinMain(
 		else if (win.keys['H']) {
 			win.hideCursor();
 		}
-		//if (win.rawmousex != 0 || win.rawmousey != 0) {
-		//	win.windowmove(win.rawmousex, win.rawmousey);
-		//}
+
+		if (win.keys[VK_SPACE]) {
+			camera.jump();
+		}
 
 		//quit game
 		if (win.keys[VK_ESCAPE]) {
@@ -194,37 +210,60 @@ int WinMain(
 
 		camera.update(dt);
 
+		
+		// failed deffered shading
+		/*
+
 		// Pass 1
-		//core.settoGbuffer();
+		core.settoGbuffer();
 
-		//sphere.draw(&core, shaders.find("definedshapeG"), &W, &camera.vp, Vec3(1, 1, 1));
-
-		//core.devicecontext->PSSetShaderResources(0, 3, core.shaderResourceViews);
+		core.devicecontext->PSSetShaderResources(0, 3, core.shaderResourceViews);
 
 		// Pass2
 		core.settoBackbuffer();
 
-		ground.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1000, 1000, 1000), &textures);
+		*/
 
 
-		
+		// failed shadow mapping
+		/*
+		core.settoshadowmap();
+
+		shaders.find("shadow")->updateConstantVS("ShadowMapBuffer", "LightViewProj", &LightViewProjMatrix);
+
+		shaders.find("shadow")->apply(&core);
+
+		pine.draw(&core, shaders.find("shadow"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
+
+		core.settoBackbuffer();
+		core.devicecontext->PSSetShaderResources(2, 1, &core.shadowSRV);
+
+		shaders.find("staticNMshadow")->updateConstantVS("staticMeshBuffer", "LightViewProj", &LightViewProjMatrix);
+		shaders.find("staticNMshadow")->apply(&core);
+		pine.draw(&core, shaders.find("staticNMshadow"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
+
+		*/
 
 
-		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
+		//pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
 
-		//TRexins.update("Run", dt);
+		//TRexins.update("attack", dt);
 
-		//TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(1,1,1), &TRexins, &textures);
+		//TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(4,4,4), &TRexins, &textures);
 
 
 		//Soldierins.update("idle", dt);
 
-		//Soldier.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(0.02,0.02,0.02), &Soldierins, &textures);
+		//Soldier.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(0.05, 0.05, 0.05), &Soldierins, &textures);
+
+
+
+		ground.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1000, 0.0f, 1000), &textures);
 
 		Skyinslocation.clear();
-		Skyinslocation.push_back(camera.position - Vec3(0, 3, 0));
+		Skyinslocation.push_back(Vec3(camera.position.x, 0, camera.position.z));
 		Sky.mesh.updateinstanceBuffer(&core, Skyinslocation);
-		Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1),&textures);
+		Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1), &textures);
 
 		core.present();
 	}

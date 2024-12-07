@@ -190,6 +190,11 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 		{ "TEXCOORD", 0, DXGI_FORMAT_R32G32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
 		{ "INSTANCEPOSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 1, 0, D3D11_INPUT_PER_INSTANCE_DATA, 1 },
 	};
+	D3D11_INPUT_ELEMENT_DESC layout_shadow[] =
+	{
+		{ "POS", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, D3D11_APPEND_ALIGNED_ELEMENT,D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "INSTANCEPOSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 1, 0, D3D11_INPUT_PER_INSTANCE_DATA, 1 },
+	};
 
 
 
@@ -205,7 +210,7 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 		layoutDesc = layout_definedshape;
 		num = 5;
 	}
-	else if (shadername == "static" || shadername == "staticNM") {
+	else if (shadername == "static" || shadername == "staticNM" || shadername == "staticNMshadow") {
 		layoutDesc = layout_static;
 		num = 5;
 	}
@@ -220,6 +225,10 @@ void Shader::CreateLayout(DXcore* core, ID3DBlob* compiledVertexShader, string s
 	else if (shadername == "definedshapeL") {
 		layout = nullptr;
 		return;
+	}
+	else if (shadername == "shadow") {
+		layoutDesc = layout_shadow;
+		num = 2;
 	}
 	else {
 		MessageBox(nullptr, L"LayoutError", L"LayoutError", MB_ICONERROR);

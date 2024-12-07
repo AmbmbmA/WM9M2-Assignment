@@ -28,6 +28,10 @@ public:
 	Vec3 movedirright;
 	bool direcmoniter[4] = { false,false,false,false }; // moniter weather this is input for moving
 
+	bool isjump = false;
+	float jumpspeed = 30;
+	float jumpspeedtemp = 0;
+
 	Matrix view; // view matrix
 	Matrix p; // projection
 	Matrix vp;
@@ -38,9 +42,10 @@ public:
 
 	void move(float dt);
 
-	void rotate(float dtheta, float dphi);
+	void rotate(double dtheta, double dphi);
 
 	void update(float dt);
 
+	void jump();
 
 };

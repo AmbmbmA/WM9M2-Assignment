@@ -218,6 +218,7 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 	shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
 	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
 
+	
 	Vec3 lightdir = Vec3(-1,0.2,1);
 	Vec3 lightcol = Vec3(2,2,2);
 	shader->updateConstantPS("LightBuffer", "lightDirection", &lightdir);
@@ -236,6 +237,7 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 		temp = temp + "_normal.png";
 
 		shader->bindShaderRV(core, "normalMap", textures->find(temp));
+
 		meshes[i].draw(core);
 	}
 

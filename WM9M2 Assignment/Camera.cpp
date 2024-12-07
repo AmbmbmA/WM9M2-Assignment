@@ -1,4 +1,4 @@
-#include "Camera.h"
+﻿#include "Camera.h"
 
 
 void Camera::updatevp() {
@@ -53,7 +53,7 @@ void Camera::move(float sensity) {
 
 }
 
-void Camera::rotate(float dtheta, float dphi) {
+void Camera::rotate(double dtheta, double dphi) {
 
 	theta += dtheta;
 	phi += dphi;
@@ -61,11 +61,19 @@ void Camera::rotate(float dtheta, float dphi) {
 	checkanglelimit();
 }
 
+void Camera::jump() {
+	if (!isjump) {
+		isjump = true;
+		jumpspeedtemp = jumpspeed;
+	}
+}
+
+
 void Camera::update(float dt) {
 
-	float sensity = 150*dt;
+	float sensity = 150 * dt;
 
-	rotate(win->rawmousey * 0.5*sensity, win->rawmousex * sensity);
+	rotate(win->rawmousey * 0.5 * sensity, win->rawmousex * sensity);
 
 	if (win->keys['W']) {
 		direcmoniter[0] = true;
@@ -79,10 +87,25 @@ void Camera::update(float dt) {
 	if (win->keys['D']) {
 		direcmoniter[3] = true;
 	}
-	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(0.2*sensity);
+	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(0.2 * sensity);
+
+	if (isjump) {
+		float g = 10 * 9.8 * dt;
+		jumpspeedtemp -= g; // 重力作用
+		position.y += jumpspeedtemp * dt; // 更新位置
+		if (position.y <= 8) {
+			position.y = 8;
+			isjump = false;
+			jumpspeedtemp = 0;
+		}
+	}
+
 
 	updatevp();
 
 	direcmoniter[0] = direcmoniter[1] = direcmoniter[2] = direcmoniter[3] = false;
+
+	float g = 9.8 * dt;
+	float v = 5;
 
 }

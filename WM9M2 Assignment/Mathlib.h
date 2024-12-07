@@ -568,6 +568,15 @@ namespace Mathlib {
 
 			return result;
 		}
+		static Matrix OrthographicProjection(const int& n, const int& f, const float& width, const float& height) {
+			Matrix result;
+			result.m[0] = 2 / width;
+			result.m[5] = 2 / height;
+			result.m[10] = 1 / (f - n);
+			result.m[11] = -n / (f - n);
+
+			return result;
+		}
 
 
 		Matrix mul(const Matrix& matrix) const
@@ -715,7 +724,7 @@ namespace Mathlib {
 		return ((A[0] + A[1] + A[2]) / deno);
 	}
 
-	class Quaternion{
+	class Quaternion {
 	public:
 		union {
 			struct {
@@ -888,7 +897,7 @@ namespace Mathlib {
 			if (dot < 0) {
 				dot = -dot;
 				q1m = -q1;
-			}	
+			}
 
 			if (dot > 0.99f) {
 				//return lerp(q1m, q2, t);
@@ -929,7 +938,7 @@ namespace Mathlib {
 		}
 
 	};
-	
+
 
 	class Shadingframe
 	{

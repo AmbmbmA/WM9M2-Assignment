@@ -14,11 +14,13 @@ public:
 	ID3D11Texture2D* backbuffer; // back buffer
 
 	static const int RENDERTARNUM = 3; // number of render targets
-	ID3D11Texture2D* renderTargets[RENDERTARNUM]; 
-	ID3D11RenderTargetView* renderTargetViews[RENDERTARNUM]; 
-	ID3D11ShaderResourceView* shaderResourceViews[RENDERTARNUM]; 
+	ID3D11Texture2D* renderTargets[RENDERTARNUM];
+	ID3D11RenderTargetView* renderTargetViews[RENDERTARNUM];
+	ID3D11ShaderResourceView* shaderResourceViews[RENDERTARNUM];
 
-
+	//ID3D11Texture2D* shadowTexture = nullptr; 
+	//ID3D11DepthStencilView* shadowDSV = nullptr; 
+	//ID3D11ShaderResourceView* shadowSRV = nullptr; 
 
 	// for depth buffer and stencil buffer
 	ID3D11DepthStencilView* depthStencilView;
@@ -41,6 +43,11 @@ public:
 		if (rasterizerState)rasterizerState->Release();
 		if (depthStencilState)depthStencilState->Release();
 		if (blendState)blendState->Release();
+		//for (int i = 0; i < RENDERTARNUM; i++) {
+		//	renderTargets[i]->Release();
+		//	renderTargetViews[i]->Release();
+		//	shaderResourceViews[i]->Release();
+		//}
 	}
 
 	void init(int width, int height, HWND hwnd, bool window_fullscreen);
@@ -54,6 +61,12 @@ public:
 
 	void settoBackbuffer() {
 		devicecontext->OMSetRenderTargets(1, &backbufferRenderTargetView, depthStencilView);
+
+	}
+
+	void settoshadowmap() {
+		//devicecontext->OMSetRenderTargets(0, nullptr, shadowDSV); 
+		//devicecontext->ClearDepthStencilView(shadowDSV, D3D11_CLEAR_DEPTH, 1.0f, 0); 
 
 	}
 
