@@ -124,17 +124,14 @@ public:
 		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
 		shader->apply(core);
 
-		string a = "Textures/rounded-brick1-albedo.png";
+		string a = "Textures/grassland.jpg";
 
 		shader->bindShaderRV(core, "tex", textures->textures[a]->srv);
-
+		
 		mesh.draw(core);
 
 	}
 
-	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
-
-	}
 
 
 };
@@ -172,7 +169,7 @@ public:
 
 	void init(DXcore* core, int rings, int segments, float radius, vector<Vec3> instanceData, int instancenum);
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
 
 		Matrix Scaled = Matrix::Scaling(Scal);
 		Matrix Scaledworld = (*World) * Scaled;
@@ -180,6 +177,10 @@ public:
 		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
 		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
 		shader->apply(core);
+
+		string a = "Textures/sky.png";
+
+		shader->bindShaderRV(core, "tex", textures->textures[a]->srv);
 
 		mesh.draw(core);
 
@@ -207,25 +208,6 @@ public:
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
-	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
-
-		Matrix Scaled = Matrix::Scaling(Scal);
-		Matrix Scaledworld = (*World) * Scaled;
-
-		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
-		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
-		shader->apply(core);
-
-		string a = "Textures/rounded-brick1-albedo.png";
-
-		for (int i = 0; i < meshes.size(); i++)
-		{
-			shader->bindShaderRV(core, "tex", textures->find(a));
-			meshes[i].draw(core);
-		}
-
-	}
-
 };
 
 class StaticModelwithtiling {
@@ -244,24 +226,6 @@ public:
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
-	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
-
-		Matrix Scaled = Matrix::Scaling(Scal);
-		Matrix Scaledworld = (*World) * Scaled;
-
-		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
-		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
-		shader->apply(core);
-
-		string a = "Textures/rounded-brick1-albedo.png";
-
-		for (int i = 0; i < meshes.size(); i++)
-		{
-			shader->bindShaderRV(core, "tex", textures->find(a));
-			meshes[i].draw(core);
-		}
-
-	}
 };
 
 // list animation names in a log
@@ -303,26 +267,6 @@ public:
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures);
 
-	void drawt(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, AnimationInstance* instance, TextureManager* textures) {
-
-		Matrix Scaled = Matrix::Scaling(Scal);
-		Matrix Scaledworld = (*World) * Scaled;
-
-		shader->updateConstantVS("animatedMeshBuffer", "W", &Scaledworld);
-		shader->updateConstantVS("animatedMeshBuffer", "VP", vp);
-		shader->updateConstantVS("animatedMeshBuffer", "bones", instance->matrices);
-		shader->apply(core);
-
-		string a = "Textures/MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png";
-
-		for (int i = 0; i < meshes.size(); i++)
-		{
-
-			shader->bindShaderRV(core, "tex", textures->find(a));
-			meshes[i].draw(core);
-		}
-
-	}
 };
 
 

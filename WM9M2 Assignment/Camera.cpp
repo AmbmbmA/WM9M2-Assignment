@@ -63,9 +63,9 @@ void Camera::rotate(float dtheta, float dphi) {
 
 void Camera::update(float dt) {
 
-	float sensity = 0.2 + 0.2 * sin(100 * dt);
+	float sensity = 150*dt;
 
-	rotate(win->rawmousey * sensity, win->rawmousex * sensity);
+	rotate(win->rawmousey * 0.5*sensity, win->rawmousex * sensity);
 
 	if (win->keys['W']) {
 		direcmoniter[0] = true;
@@ -79,7 +79,7 @@ void Camera::update(float dt) {
 	if (win->keys['D']) {
 		direcmoniter[3] = true;
 	}
-	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(0.05*sensity);
+	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(0.2*sensity);
 
 	updatevp();
 

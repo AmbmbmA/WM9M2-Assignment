@@ -27,7 +27,9 @@ void Mesh::init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVert
 	core->device->CreateBuffer(&bd, &data, &vertexBuffer);
 
 	// instance
-	bd.ByteWidth = sizeof(instanceData);
+	bd.Usage = D3D11_USAGE_DYNAMIC;
+	bd.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+	bd.ByteWidth = sizeof(Vec3)* _instancenum;
 	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
 	data.pSysMem = instanceData.data();
 	core->device->CreateBuffer(&bd, &data, &instanceBuffer);
@@ -43,39 +45,14 @@ void Mesh::init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVert
 }
 
 void Mesh::updateinstanceBuffer(DXcore* core, vector<Vec3>newinstancedata) {
-	//D3D11_MAPPED_SUBRESOURCE mappedResource;
-	//HRESULT hr = core->devicecontext->Map(instanceBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
-	//if (FAILED(hr)) {
-	//	// 错误处理
-	//	return;
-	//}
+	D3D11_MAPPED_SUBRESOURCE mappedResource;
+	HRESULT hr = core->devicecontext->Map(instanceBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &mappedResource);
+	if (FAILED(hr)) {
+		return;
+	}
+	memcpy(mappedResource.pData, newinstancedata.data(), sizeof(Vec3) * newinstancedata.size());
 
-	//vector<Vec3>* instancePtr = (InstanceData*)mappedResource.pData;
-	instanceBuffer->Release();
-
-	D3D11_BUFFER_DESC bd;
-	memset(&bd, 0, sizeof(D3D11_BUFFER_DESC));
-	D3D11_SUBRESOURCE_DATA data;
-	memset(&data, 0, sizeof(D3D11_SUBRESOURCE_DATA));
-	bd.Usage = D3D11_USAGE_DEFAULT;
-	bd.ByteWidth = sizeof(newinstancedata);
-	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	data.pSysMem = newinstancedata.data();
-	core->device->CreateBuffer(&bd, &data, &instanceBuffer);
-
-
-	//for (int i = 0; i < instanceData.size(); ++i) {
-	//	// 动态更改位置，这里仅作简单演示，可以是任意的移动逻辑
-	//	instanceData[i].InstancePosition.x += 0.1f; // 将 x 坐标增加 0.1
-	//	instanceData[i].InstancePosition.y = 0.0f;  // 保持 y 不变
-	//	instanceData[i].InstancePosition.z = 0.0f;  // 保持 z 不变
-
-	//	// 更新到映射的内存中
-	//	instancePtr[i] = instanceData[i];
-	//}
-
-	//// 解除对缓冲区的映射
-	//deviceContext->Unmap(instanceBuffer, 0);
+	core->devicecontext->Unmap(instanceBuffer, 0);
 }
 void Mesh::draw(DXcore* core) {
 
@@ -183,6 +160,7 @@ void Sphere::init(DXcore* core, int rings, int segments, float radius, vector<Ve
 			Vec3 normal = position.normalize();
 			float tu = 1.0f - (float)lon / segments;
 			float tv = 1.0f - (float)lat / rings;
+
 			vertices.push_back(addVertex(position, normal, tu, tv));
 		}
 	}
@@ -240,8 +218,8 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 	shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
 	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
 
-	Vec3 lightdir = Vec3(1,0.2,1);
-	Vec3 lightcol = Vec3(1,1,1);
+	Vec3 lightdir = Vec3(-1,0.2,1);
+	Vec3 lightcol = Vec3(2,2,2);
 	shader->updateConstantPS("LightBuffer", "lightDirection", &lightdir);
 	shader->updateConstantPS("LightBuffer", "lightColour", &lightcol);
 

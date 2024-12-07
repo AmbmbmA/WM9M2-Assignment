@@ -39,8 +39,8 @@ float4 PS(PS_INPUT input) : SV_Target0
    	 }
 
 	float3 lightDir = normalize(lightDirection);
-	float3 ambient = (0.5,0.5,0.5);
-	float3 diffuse = (albedo.rgb) * (lightColour * max(dot(lightDir,mapNormal),0.0) +ambient) ;
+	float3 ambient = (2,2,2);
+	float3 diffuse = (albedo.rgb/PI) * (lightColour * max(dot(mapNormal,lightDir),0.0) +ambient) ;
 	
     return float4(diffuse, 1.0);
 }

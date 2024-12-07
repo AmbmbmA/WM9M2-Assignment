@@ -14,6 +14,8 @@
 
 const int WINDOWSIZE[2] = { 1920,1080 };
 const float FOV = 90;
+const float NEARPLANE = 0.01;
+const float FARPLANE = 1000;
 
 // Windows program entrance
 // prameters are set by the windows system
@@ -23,6 +25,8 @@ int WinMain(
 	PSTR lpCmdLine, //  for command lines to pass extra info
 	int nCmdShow // for initial window setting
 ) {
+
+	srand(time(0));
 
 	GamesEngineeringBase::Timer timer;
 	float time = 0.0f;
@@ -42,12 +46,12 @@ int WinMain(
 	Matrix W = Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), Vec3(0, 0, 0));
 
 	// Camera
-	Matrix projection = Matrix::Perspectiveprojectionz01(0.01, 10000, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+	Matrix projection = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
 	Camera camera;
-	camera.init(Vec3(0, 3, 0), 90, 0, projection, &win);
+	camera.init(Vec3(0, 4, 0), 90, 0, projection, &win);
 
 	ShaderManager shaders;
-	//shaders.load(&core, "definedshape");
+	shaders.load(&core, "definedshape");
 	shaders.load(&core, "static");
 	shaders.load(&core, "staticNM");
 	//shaders.load(&core, "animated");
@@ -56,6 +60,11 @@ int WinMain(
 
 
 	TextureManager textures;
+	textures.load(&core, "grassland.jpg");
+	textures.load(&core, "grassland1.jpg");
+
+	textures.load(&core, "sky.png");
+
 	textures.load(&core, "stump01.png");
 	textures.load(&core, "bark09.png");
 	textures.load(&core, "pine branch.png");
@@ -71,29 +80,40 @@ int WinMain(
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Normal.png");
 	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Specular.png");
 
-	Plane p;
-	vector<Vec3> pinslocation;
-	pinslocation.push_back(Vec3(0, 0, 0));
-	p.init(&core, 10, pinslocation, 1);
+	
+	Plane ground;
+	vector<Vec3> groundinslocation;
+	groundinslocation.push_back(Vec3(0, 0, 0));
+	ground.init(&core, 5000, groundinslocation, 1);
+
+	Sphere Sky;
+	vector<Vec3> Skyinslocation;
+	Skyinslocation.push_back(Vec3(0, 0, 0));
+	Sky.init(&core, 1000, 1000, FARPLANE-20, Skyinslocation, 1);
+
+
 
 	Cube c;
 	vector<Vec3> cinslocation;
 	cinslocation.push_back(Vec3(3, 5, 3));
 	c.init(&core, cinslocation, 1);
 
-	Sphere sphere;
-	vector<Vec3> sphereinslocation;
-	sphereinslocation.push_back(Vec3(10, 2, 10));
-	sphereinslocation.push_back(Vec3(10, 5, 10));
-	sphere.init(&core, 100, 100, 2, sphereinslocation, 2);
+
 
 
 	// pine
 
 	StaticModel pine;
 	vector<Vec3> pineinslocation;
-	pineinslocation.push_back(Vec3(5, 0, 5));
-	pine.init(&core, "Models/pine.gem", pineinslocation, 1);
+	int pinerangemin = -500;
+	int pinerangemax = 500;
+	int pinenum = 200;
+	for (int i = 0; i < pinenum; i++) {
+		int x = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
+		int y = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
+		pineinslocation.push_back(Vec3(x, 0, y));
+	}
+	pine.init(&core, "Models/pine.gem", pineinslocation, pinenum);
 
 
 
@@ -109,9 +129,9 @@ int WinMain(
 
 	AnimatedModel TRex;
 	vector<Vec3> TRexinslocation;
-	TRexinslocation.push_back(Vec3(10,0,10));
-	TRexinslocation.push_back(Vec3(5,0,5));
-	TRexinslocation.push_back(Vec3(20,0,20));
+	TRexinslocation.push_back(Vec3(10, 0, 10));
+	TRexinslocation.push_back(Vec3(5, 0, 5));
+	TRexinslocation.push_back(Vec3(20, 0, 20));
 	TRex.init(&core, "Models/TRex.gem", TRexinslocation, 3);
 
 	AnimationInstance TRexins;
@@ -151,7 +171,7 @@ int WinMain(
 		if (win.keys['N']) {
 			win.showCursor();
 		}
-		else if(win.keys['H']) {
+		else if (win.keys['H']) {
 			win.hideCursor();
 		}
 		//if (win.rawmousex != 0 || win.rawmousey != 0) {
@@ -173,7 +193,7 @@ int WinMain(
 
 
 		camera.update(dt);
-		
+
 		// Pass 1
 		//core.settoGbuffer();
 
@@ -184,11 +204,13 @@ int WinMain(
 		// Pass2
 		core.settoBackbuffer();
 
-		//sphere.draw(&core, shaders.find("definedshape"), &W, &camera.vp, Vec3(1, 1, 1));
+		ground.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1000, 1000, 1000), &textures);
 
-		//p.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, 1, 1), &textures);
 
-		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.005f, 0.005f, 0.005f), &textures);
+		
+
+
+		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
 
 		//TRexins.update("Run", dt);
 
@@ -199,6 +221,10 @@ int WinMain(
 
 		//Soldier.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(0.02,0.02,0.02), &Soldierins, &textures);
 
+		Skyinslocation.clear();
+		Skyinslocation.push_back(camera.position - Vec3(0, 3, 0));
+		Sky.mesh.updateinstanceBuffer(&core, Skyinslocation);
+		Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1),&textures);
 
 		core.present();
 	}
