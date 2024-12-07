@@ -73,8 +73,10 @@ void Camera::update(float dt) {
 
 	float sensity = 150 * dt;
 
+	// camera rotate
 	rotate(win->rawmousey * 0.5 * sensity, win->rawmousex * sensity);
 
+	// move
 	if (win->keys['W']) {
 		direcmoniter[0] = true;
 	}
@@ -89,10 +91,16 @@ void Camera::update(float dt) {
 	}
 	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(0.2 * sensity);
 
+	direcmoniter[0] = direcmoniter[1] = direcmoniter[2] = direcmoniter[3] = false;
+
+	// jump
+	if (win->keys[VK_SPACE]) {
+		jump();
+	}
 	if (isjump) {
 		float g = 10 * 9.8 * dt;
-		jumpspeedtemp -= g; // 重力作用
-		position.y += jumpspeedtemp * dt; // 更新位置
+		jumpspeedtemp -= g;
+		position.y += jumpspeedtemp * dt;
 		if (position.y <= 8) {
 			position.y = 8;
 			isjump = false;
@@ -101,11 +109,7 @@ void Camera::update(float dt) {
 	}
 
 
+
 	updatevp();
-
-	direcmoniter[0] = direcmoniter[1] = direcmoniter[2] = direcmoniter[3] = false;
-
-	float g = 9.8 * dt;
-	float v = 5;
 
 }

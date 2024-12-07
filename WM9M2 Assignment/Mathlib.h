@@ -490,6 +490,41 @@ namespace Mathlib {
 			result.m[5] = cost;
 			return result;
 		}
+		static Matrix RotationAroundAxis(const Vec3& axis, float angle) {
+			Vec3 normalizedAxis = axis.normalize();
+
+			float x = normalizedAxis.x;
+			float y = normalizedAxis.y;
+			float z = normalizedAxis.z;
+
+			float cosTheta = cos(angle);
+			float sinTheta = sin(angle);
+			float oneMinusCos = 1.0f - cosTheta;
+
+			Matrix rotation;
+
+			rotation.m[0] = cosTheta + x * x * oneMinusCos;
+			rotation.m[1] = x * y * oneMinusCos - z * sinTheta;
+			rotation.m[2] = x * z * oneMinusCos + y * sinTheta;
+			rotation.m[3] = 0;
+
+			rotation.m[4] = y * x * oneMinusCos + z * sinTheta;
+			rotation.m[5] = cosTheta + y * y * oneMinusCos;
+			rotation.m[6] = y * z * oneMinusCos - x * sinTheta;
+			rotation.m[7] = 0;
+
+			rotation.m[8] = z * x * oneMinusCos - y * sinTheta;
+			rotation.m[9] = z * y * oneMinusCos + x * sinTheta;
+			rotation.m[10] = cosTheta + z * z * oneMinusCos;
+			rotation.m[11] = 0;
+
+			rotation.m[12] = 0;
+			rotation.m[13] = 0;
+			rotation.m[14] = 0;
+			rotation.m[15] = 1;
+
+			return rotation;
+		}
 		static Matrix Transformationto(const Vec3& u, const Vec3& n, const Vec3& v, const Vec3& p) {
 			Matrix result;
 			result.m[0] = u.x;

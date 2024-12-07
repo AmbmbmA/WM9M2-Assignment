@@ -1,0 +1,45 @@
+cbuffer staticMeshBuffer
+{
+    float4x4 W;
+    float4x4 VP;
+    float4x4 LightViewProj; 
+};
+
+struct VS_INPUT
+{
+    float4 Pos : POS;
+    float3 Normal : NORMAL;
+    float3 Tangent : TANGENT;
+    float2 TexCoords : TEXCOORD;
+    float3 InstancePosition : INSTANCEPOSITION;
+};
+
+struct PS_INPUT
+{
+    float4 Pos : SV_POSITION;
+    float3 Normal : NORMAL;
+    float3 Tangent : TANGENT;
+    float3 Binormal : BINORMAL;
+    float2 TexCoords : TEXCOORD;
+    float4 LightSpacePos : TEXCOORD1; 
+};
+
+PS_INPUT VS(VS_INPUT input)
+{
+    PS_INPUT output;
+    float4 worldPos = input.Pos + float4(input.InstancePosition, 0.0);
+
+    output.Pos = mul(worldPos, VP);
+    output.Normal = mul(input.Normal, (float3x3)W);
+    output.Normal = normalize(output.Normal);
+
+    output.Tangent = mul(input.Tangent, (float3x3)W);
+    output.Tangent = normalize(output.Tangent);
+    output.Binormal = normalize(cross(output.Normal, output.Tangent));
+
+    output.TexCoords = input.TexCoords;
+
+    output.LightSpacePos = mul(worldPos, LightViewProj);
+
+    return output;
+}

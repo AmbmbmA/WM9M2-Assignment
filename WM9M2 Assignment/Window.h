@@ -62,7 +62,7 @@ public:
 		MapWindowPoints(hwnd, nullptr, &ul, 1);
 		MapWindowPoints(hwnd, nullptr, &lr, 1);
 		rect.left = ul.x;
-		rect.top = ul.y - 30;
+		rect.top = ul.y;
 		rect.right = lr.x;
 		rect.bottom = lr.y;
 		ClipCursor(&rect);

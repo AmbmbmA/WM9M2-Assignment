@@ -22,6 +22,7 @@ struct PS_INPUT
 	float3 Normal : NORMAL;
 	float3 Tangent : TANGENT;
 	float2 TexCoords : TEXCOORD;
+
 };
 
 PS_INPUT VS(VS_INPUT input)
@@ -48,7 +49,9 @@ PS_INPUT VS(VS_INPUT input)
 	output.Tangent = mul(input.Tangent, (float3x3)transform);
 	output.Tangent = mul(output.Tangent, (float3x3)W);
 	output.Tangent = normalize(output.Tangent);
+
 	output.TexCoords = input.TexCoords;
+
 	return output;
 
 

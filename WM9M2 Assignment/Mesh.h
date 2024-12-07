@@ -70,10 +70,6 @@ static STATIC_VERTEX addVertexwithtiling(Vec3 p, Vec3 n, float tu, float tv,int 
 	return v;
 }
 
-struct INSTANCE_DATA
-{
-	Vec3 position;
-};
 
 class Mesh {
 public:
@@ -86,8 +82,6 @@ public:
 
 	int indicesSize; // num of index
 	int instancenum;
-
-
 
 	void init(DXcore* core, void* vertices, int vertexSizeInBytes, int numVertices, unsigned int* indices, int numIndices, vector<Vec3> instanceData,int _instancenum);
 
@@ -104,6 +98,7 @@ public:
 	void free() {
 		if (indexBuffer) indexBuffer->Release();
 		if (vertexBuffer) vertexBuffer->Release();
+
 	}
 };
 

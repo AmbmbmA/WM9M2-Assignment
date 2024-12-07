@@ -355,11 +355,24 @@ void AnimatedModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp
 	shader->updateConstantVS("animatedMeshBuffer", "W", &Scaledworld);
 	shader->updateConstantVS("animatedMeshBuffer", "VP", vp);
 	shader->updateConstantVS("animatedMeshBuffer", "bones", instance->matrices);
+
+	//Vec3 lightdir = Vec3(-1, 0.2, 1);
+	//Vec3 lightcol = Vec3(2, 2, 2);
+	//shader->updateConstantPS("LightBuffer", "lightDirection", &lightdir);
+	//shader->updateConstantPS("LightBuffer", "lightColour", &lightcol);
+
 	shader->apply(core);
 
 	for (int i = 0; i < meshes.size(); i++)
 	{
-		shader->bindShaderRV(core, "tex", textures->find(textureFilenames[i]));
+		string colorfile = textureFilenames[i];
+
+		shader->bindShaderRV(core, "tex", textures->find(colorfile));
+
+		//string normalfile = "Textures/T-rex_Normal_OpenGL.png";
+
+		//shader->bindShaderRV(core, "normalMap", textures->find(normalfile));
+
 		meshes[i].draw(core);
 	}
 

@@ -1,0 +1,26 @@
+cbuffer ShadowMapBuffer
+{
+    float4x4 LightViewProj;
+};
+
+struct VS_INPUT
+{
+    float4 Pos : POS;
+    float3 InstancePosition : INSTANCEPOSITION;
+};
+
+struct VS_OUTPUT
+{
+    float4 Pos : SV_POSITION;
+};
+
+VS_OUTPUT VS(VS_INPUT input)
+{
+    VS_OUTPUT output;
+
+    float4 worldPos = input.Pos + float4(input.InstancePosition, 0.0);
+
+    output.Pos = mul(worldPos, LightViewProj);
+
+    return output;
+}
