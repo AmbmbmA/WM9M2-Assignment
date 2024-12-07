@@ -187,12 +187,7 @@ int WinMain(
 
 	while (run)
 	{
-		if (win.keys['U']) {
-			ClipCursor(NULL);
-		}
-		else {
-			win.clipMouseToWindow();	
-		}
+
 
 		float dt = timer.dt();
 		time += dt;
@@ -204,12 +199,17 @@ int WinMain(
 
 		sampler.bind(&core);
 
-
-		if (win.keys['N']) {
-			win.showCursor();
+		if (win.keys['Y']) {
+			win.clipMouseToWindow();
 		}
-		else if (win.keys['H']) {
+		else if (win.keys['U']) {
+			ClipCursor(NULL);
+		}
+		if (win.keys['H']) {
 			win.hideCursor();
+		}
+		else if (win.keys['J']) {
+			win.showCursor();
 		}
 
 
@@ -272,14 +272,29 @@ int WinMain(
 		TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(4, 4, 4), &TRexins, &textures);
 
 
-		
 
-		if (win.mouseButtons[0]) {
-			ShootingArmins.update("Armature|08 Fire", dt);	
+		if (win.mouseButtons[1]) {
+			if (win.mouseButtons[0]) {
+				ShootingArmins.update("Armature|13 Zoom Fire", dt);
+			}
+			else if (win.keys['W'] || win.keys['A'] || win.keys['S'] || win.keys['D'] || win.keys[VK_SPACE]) {
+				ShootingArmins.update("Armature|12 Zoom Walk", dt);
+			}
+			else {
+				ShootingArmins.update("Armature|11 Zoom Idle", dt);
+			}
 		}
-		else {
+		else if (win.mouseButtons[0]) {
+			ShootingArmins.update("Armature|08 Fire", dt);
+		}
+		else if (win.keys['W'] || win.keys['A'] || win.keys['S'] || win.keys['D'] || win.keys[VK_SPACE]) {
+
 			ShootingArmins.update("Armature|07 Run", dt);
 		}
+		else {
+			ShootingArmins.update("Armature|04 Idle", dt);
+		}
+
 
 		ShootingArminslocation.clear();
 		ShootingArminslocation.push_back(Vec3(camera.position.x, camera.position.y, camera.position.z));
@@ -289,9 +304,9 @@ int WinMain(
 
 
 		Matrix cameraW = Matrix::Transformationto(-camera.movedirright, Vec3(0, 1, 0), -camera.movedirforward, Vec3(0, 0, 0));
-		cameraW = Matrix::RotationAroundAxis(camera.movedirright, M_PI - camera.theta* M_PI/180) * cameraW;
+		cameraW = Matrix::RotationAroundAxis(camera.movedirright, M_PI - camera.theta * M_PI / 180) * cameraW;
 
-		ShootingArm.draw(&core, shaders.find("animated"), &cameraW, &camera.vp, Vec3(0.2, 0.2,0.2), &ShootingArmins, &textures);
+		ShootingArm.draw(&core, shaders.find("animated"), &cameraW, &camera.vp, Vec3(0.2, 0.2, 0.2), &ShootingArmins, &textures);
 
 		//Soldierins.update("idle", dt);
 
