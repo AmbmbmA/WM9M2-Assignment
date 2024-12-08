@@ -5,6 +5,9 @@
 #include "Shaders.h"
 #include "GamesEngineeringBase.h"
 #include "Camera.h"
+#include "NPC.h"
+
+
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -27,10 +30,9 @@ int WinMain(
 	int nCmdShow // for initial window setting
 ) {
 
-	srand(time(0));
+	
 
 	GamesEngineeringBase::Timer timer;
-	float time = 0.0f;
 
 	bool run = true;
 
@@ -164,6 +166,9 @@ int WinMain(
 	wallz.init(&core, "Models/cube.gem", 25, wallinslocationz, wallnum);
 
 
+	Spawn npcspawn;
+
+
 
 
 	// TRex
@@ -207,9 +212,9 @@ int WinMain(
 	while (run)
 	{
 
-
+		srand(time(0));
 		float dt = timer.dt();
-		time += dt;
+		
 
 		float u = 1 * dt;
 		core.clear();
@@ -284,14 +289,25 @@ int WinMain(
 		wallz.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(30,0.5,20), &textures,"Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
 
 
+
+		npcspawn.update(&win, dt, &core, &camera);
+
+		npcspawn.draw(&core, &shaders, &camera, Vec3(4, 4, 4), &textures);
+
+
 		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.07f, 0.07f, 0.07f), &textures);
 
-		TRexins.update("attack", dt);
+		//TRexins.update("attack", dt);
+		//TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(4, 4, 4), &TRexins, &textures);
 
-		TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(4, 4, 4), &TRexins, &textures);
+
 		//Soldierins.update("idle", dt);
 
 		//Soldier.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(0.05, 0.05, 0.05), &Soldierins, &textures);
+
+
+
+
 
 		// shooting arm
 		if (win.mouseButtons[1]) {
