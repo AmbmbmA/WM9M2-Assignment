@@ -49,24 +49,7 @@ public:
 		}
 	}
 
-	void clipMouseToWindow()
-	{
-		RECT rect;
-		GetClientRect(hwnd, &rect);
-		POINT ul;
-		ul.x = rect.left;
-		ul.y = rect.top;
-		POINT lr;
-		lr.x = rect.right;
-		lr.y = rect.bottom;
-		MapWindowPoints(hwnd, nullptr, &ul, 1);
-		MapWindowPoints(hwnd, nullptr, &lr, 1);
-		rect.left = ul.x;
-		rect.top = ul.y;
-		rect.right = lr.x;
-		rect.bottom = lr.y;
-		ClipCursor(&rect);
-	}
+	void clipMouseToWindow();
 };
 
 

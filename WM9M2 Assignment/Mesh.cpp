@@ -71,10 +71,10 @@ void Mesh::draw(DXcore* core) {
 void Plane::init(DXcore* core, int tiling, vector<Vec3> instanceData, int instancenum) {
 
 	std::vector<STATIC_VERTEX> vertices;
-	vertices.push_back(addVertexwithtiling(Vec3(-10, 0, -10), Vec3(0, 1, 0), 0, 0, tiling));
-	vertices.push_back(addVertexwithtiling(Vec3(10, 0, -10), Vec3(0, 1, 0), 1, 0, tiling));
-	vertices.push_back(addVertexwithtiling(Vec3(-10, 0, 10), Vec3(0, 1, 0), 0, 1, tiling));
-	vertices.push_back(addVertexwithtiling(Vec3(10, 0, 10), Vec3(0, 1, 0), 1, 1, tiling));
+	vertices.push_back(addVertex(Vec3(-10, 0, -10), Vec3(0, 1, 0), 0, 0, tiling));
+	vertices.push_back(addVertex(Vec3(10, 0, -10), Vec3(0, 1, 0), 1, 0, tiling));
+	vertices.push_back(addVertex(Vec3(-10, 0, 10), Vec3(0, 1, 0), 0, 1, tiling));
+	vertices.push_back(addVertex(Vec3(10, 0, 10), Vec3(0, 1, 0), 1, 1, tiling));
 
 	std::vector<unsigned int> indices;
 	indices.push_back(2); indices.push_back(1); indices.push_back(0);
@@ -84,8 +84,24 @@ void Plane::init(DXcore* core, int tiling, vector<Vec3> instanceData, int instan
 
 }
 
+void Plane::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures, string texturefilename) {
 
-void Cube::init(DXcore* core, vector<Vec3> instanceData, int instancenum) {
+	Matrix Scaled = Matrix::Scaling(Scal);
+	Matrix Scaledworld = (*World) * Scaled;
+
+	shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+
+	shader->apply(core);
+
+	shader->bindShaderRV(core, "tex", textures->find(texturefilename));
+
+	mesh.draw(core);
+
+}
+
+
+void Cube::init(DXcore* core, int tiling,vector<Vec3> instanceData, int instancenum) {
 
 	std::vector<STATIC_VERTEX> vertices;
 	Vec3 p0 = Vec3(-1.0f, -1.0f, -1.0f);
@@ -97,35 +113,35 @@ void Cube::init(DXcore* core, vector<Vec3> instanceData, int instancenum) {
 	Vec3 p6 = Vec3(1.0f, 1.0f, 1.0f);
 	Vec3 p7 = Vec3(-1.0f, 1.0f, 1.0f);
 
-	vertices.push_back(addVertex(p0, Vec3(0.0f, 0.0f, -1.0f), 0.0f, 1.0f));
-	vertices.push_back(addVertex(p1, Vec3(0.0f, 0.0f, -1.0f), 1.0f, 1.0f));
-	vertices.push_back(addVertex(p2, Vec3(0.0f, 0.0f, -1.0f), 1.0f, 0.0f));
-	vertices.push_back(addVertex(p3, Vec3(0.0f, 0.0f, -1.0f), 0.0f, 0.0f));
+	vertices.push_back(addVertex(p0, Vec3(0.0f, 0.0f, -1.0f), 0.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p1, Vec3(0.0f, 0.0f, -1.0f), 1.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p2, Vec3(0.0f, 0.0f, -1.0f), 1.0f, 0.0f, tiling));
+	vertices.push_back(addVertex(p3, Vec3(0.0f, 0.0f, -1.0f), 0.0f, 0.0f, tiling));
 
-	vertices.push_back(addVertex(p5, Vec3(0.0f, 0.0f, 1.0f), 0.0f, 1.0f));
-	vertices.push_back(addVertex(p4, Vec3(0.0f, 0.0f, 1.0f), 1.0f, 1.0f));
-	vertices.push_back(addVertex(p7, Vec3(0.0f, 0.0f, 1.0f), 1.0f, 0.0f));
-	vertices.push_back(addVertex(p6, Vec3(0.0f, 0.0f, 1.0f), 0.0f, 0.0f));
+	vertices.push_back(addVertex(p5, Vec3(0.0f, 0.0f, 1.0f), 0.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p4, Vec3(0.0f, 0.0f, 1.0f), 1.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p7, Vec3(0.0f, 0.0f, 1.0f), 1.0f, 0.0f, tiling));
+	vertices.push_back(addVertex(p6, Vec3(0.0f, 0.0f, 1.0f), 0.0f, 0.0f, tiling));
 
-	vertices.push_back(addVertex(p4, Vec3(-1.0f, 0.0f, 0.0f), 0.0f, 1.0f));
-	vertices.push_back(addVertex(p0, Vec3(-1.0f, 0.0f, 0.0f), 1.0f, 1.0f));
-	vertices.push_back(addVertex(p3, Vec3(-1.0f, 0.0f, 0.0f), 1.0f, 0.0f));
-	vertices.push_back(addVertex(p7, Vec3(-1.0f, 0.0f, 0.0f), 0.0f, 0.0f));
+	vertices.push_back(addVertex(p4, Vec3(-1.0f, 0.0f, 0.0f), 0.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p0, Vec3(-1.0f, 0.0f, 0.0f), 1.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p3, Vec3(-1.0f, 0.0f, 0.0f), 1.0f, 0.0f, tiling));
+	vertices.push_back(addVertex(p7, Vec3(-1.0f, 0.0f, 0.0f), 0.0f, 0.0f, tiling));
 
-	vertices.push_back(addVertex(p1, Vec3(1.0f, 0.0f, 0.0f), 0.0f, 1.0f));
-	vertices.push_back(addVertex(p5, Vec3(1.0f, 0.0f, 0.0f), 1.0f, 1.0f));
-	vertices.push_back(addVertex(p6, Vec3(1.0f, 0.0f, 0.0f), 1.0f, 0.0f));
-	vertices.push_back(addVertex(p2, Vec3(1.0f, 0.0f, 0.0f), 0.0f, 0.0f));
+	vertices.push_back(addVertex(p1, Vec3(1.0f, 0.0f, 0.0f), 0.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p5, Vec3(1.0f, 0.0f, 0.0f), 1.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p6, Vec3(1.0f, 0.0f, 0.0f), 1.0f, 0.0f, tiling));
+	vertices.push_back(addVertex(p2, Vec3(1.0f, 0.0f, 0.0f), 0.0f, 0.0f, tiling));
 
-	vertices.push_back(addVertex(p3, Vec3(0.0f, 1.0f, 0.0f), 0.0f, 1.0f));
-	vertices.push_back(addVertex(p2, Vec3(0.0f, 1.0f, 0.0f), 1.0f, 1.0f));
-	vertices.push_back(addVertex(p6, Vec3(0.0f, 1.0f, 0.0f), 1.0f, 0.0f));
-	vertices.push_back(addVertex(p7, Vec3(0.0f, 1.0f, 0.0f), 0.0f, 0.0f));
+	vertices.push_back(addVertex(p3, Vec3(0.0f, 1.0f, 0.0f), 0.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p2, Vec3(0.0f, 1.0f, 0.0f), 1.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p6, Vec3(0.0f, 1.0f, 0.0f), 1.0f, 0.0f, tiling));
+	vertices.push_back(addVertex(p7, Vec3(0.0f, 1.0f, 0.0f), 0.0f, 0.0f, tiling));
 
-	vertices.push_back(addVertex(p4, Vec3(0.0f, -1.0f, 0.0f), 0.0f, 1.0f));
-	vertices.push_back(addVertex(p5, Vec3(0.0f, -1.0f, 0.0f), 1.0f, 1.0f));
-	vertices.push_back(addVertex(p1, Vec3(0.0f, -1.0f, 0.0f), 1.0f, 0.0f));
-	vertices.push_back(addVertex(p0, Vec3(0.0f, -1.0f, 0.0f), 0.0f, 0.0f));
+	vertices.push_back(addVertex(p4, Vec3(0.0f, -1.0f, 0.0f), 0.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p5, Vec3(0.0f, -1.0f, 0.0f), 1.0f, 1.0f, tiling));
+	vertices.push_back(addVertex(p1, Vec3(0.0f, -1.0f, 0.0f), 1.0f, 0.0f, tiling));
+	vertices.push_back(addVertex(p0, Vec3(0.0f, -1.0f, 0.0f), 0.0f, 0.0f, tiling));
 
 	std::vector<unsigned int> indices;
 	indices.push_back(0); indices.push_back(1); indices.push_back(2);
@@ -144,8 +160,23 @@ void Cube::init(DXcore* core, vector<Vec3> instanceData, int instancenum) {
 	mesh.init(core, vertices, indices, instanceData, instancenum);
 }
 
+void Cube::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures, string texturefilename) {
 
-void Sphere::init(DXcore* core, int rings, int segments, float radius, vector<Vec3> instanceData, int instancenum) {
+	Matrix Scaled = Matrix::Scaling(Scal);
+	Matrix Scaledworld = (*World) * Scaled;
+
+	shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+
+	shader->apply(core);
+
+	shader->bindShaderRV(core, "tex", textures->find(texturefilename));
+
+	mesh.draw(core);
+
+}
+
+void Sphere::init(DXcore* core, int tiling, int rings, int segments, float radius, vector<Vec3> instanceData, int instancenum) {
 
 	std::vector<STATIC_VERTEX> vertices;
 	for (int lat = 0; lat <= rings; lat++) {
@@ -161,7 +192,7 @@ void Sphere::init(DXcore* core, int rings, int segments, float radius, vector<Ve
 			float tu = 1.0f - (float)lon / segments;
 			float tv = 1.0f - (float)lat / rings;
 
-			vertices.push_back(addVertex(position, normal, tu, tv));
+			vertices.push_back(addVertex(position, normal, tu, tv, tiling));
 		}
 	}
 
@@ -186,6 +217,21 @@ void Sphere::init(DXcore* core, int rings, int segments, float radius, vector<Ve
 
 }
 
+void Sphere::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures, string texturefilename) {
+
+	Matrix Scaled = Matrix::Scaling(Scal);
+	Matrix Scaledworld = (*World) * Scaled;
+
+	shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
+	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+
+	shader->apply(core);
+
+	shader->bindShaderRV(core, "tex", textures->find(texturefilename));
+
+	mesh.draw(core);
+
+}
 
 void StaticModel::init(DXcore* core, string filename, vector<Vec3> instanceData, int instancenum) {
 
@@ -204,6 +250,7 @@ void StaticModel::init(DXcore* core, string filename, vector<Vec3> instanceData,
 			vertices.push_back(v);
 		}
 		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
+		normalFilenames.push_back(gemmeshes[i].material.find("normals").getValue());
 		mesh.init(core, vertices, gemmeshes[i].indices, instanceData, instancenum);
 		meshes.push_back(mesh);
 	}
@@ -220,7 +267,7 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 
 	
 	Vec3 lightdir = Vec3(-1,0.2,1);
-	Vec3 lightcol = Vec3(2,2,2);
+	Vec3 lightcol = Vec3(1,1,1);
 	shader->updateConstantPS("LightBuffer", "lightDirection", &lightdir);
 	shader->updateConstantPS("LightBuffer", "lightColour", &lightcol);
 
@@ -229,14 +276,10 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 
 	for (int i = 0; i < meshes.size(); i++)
 	{
-		string temp = textureFilenames[i];
 
-		shader->bindShaderRV(core, "tex", textures->find(temp));
+		shader->bindShaderRV(core, "tex", textures->find(textureFilenames[i]));
 
-		temp = temp.erase(temp.size() - 4);
-		temp = temp + "_normal.png";
-
-		shader->bindShaderRV(core, "normalMap", textures->find(temp));
+		shader->bindShaderRV(core, "normalMap", textures->find(normalFilenames[i]));
 
 		meshes[i].draw(core);
 	}
@@ -269,19 +312,30 @@ void StaticModelwithtiling::init(DXcore* core, string filename, int tilingnum, v
 }
 
 
-void StaticModelwithtiling::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
+void StaticModelwithtiling::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures,string tf,string nf) {
 
 	Matrix Scaled = Matrix::Scaling(Scal);
 	Matrix Scaledworld = (*World) * Scaled;
 
 	shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
 	shader->updateConstantVS("staticMeshBuffer", "VP", vp);
+
+
+	Vec3 lightdir = Vec3(-1, 0.3, 1);
+	Vec3 lightcol = Vec3(255/255, 204/255, 153/255);
+	shader->updateConstantPS("LightBuffer", "lightDirection", &lightdir);
+	shader->updateConstantPS("LightBuffer", "lightColour", &lightcol);
+
 	shader->apply(core);
 
 
 	for (int i = 0; i < meshes.size(); i++)
 	{
-		shader->bindShaderRV(core, "tex", textures->find(textureFilenames[i]));
+
+		shader->bindShaderRV(core, "tex", textures->find(tf));
+
+		shader->bindShaderRV(core, "normalMap", textures->find(nf));
+
 		meshes[i].draw(core);
 	}
 
@@ -356,11 +410,6 @@ void AnimatedModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp
 	shader->updateConstantVS("animatedMeshBuffer", "VP", vp);
 	shader->updateConstantVS("animatedMeshBuffer", "bones", instance->matrices);
 
-	//Vec3 lightdir = Vec3(-1, 0.2, 1);
-	//Vec3 lightcol = Vec3(2, 2, 2);
-	//shader->updateConstantPS("LightBuffer", "lightDirection", &lightdir);
-	//shader->updateConstantPS("LightBuffer", "lightColour", &lightcol);
-
 	shader->apply(core);
 
 	for (int i = 0; i < meshes.size(); i++)
@@ -368,10 +417,6 @@ void AnimatedModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp
 		string colorfile = textureFilenames[i];
 
 		shader->bindShaderRV(core, "tex", textures->find(colorfile));
-
-		//string normalfile = "Textures/T-rex_Normal_OpenGL.png";
-
-		//shader->bindShaderRV(core, "normalMap", textures->find(normalfile));
 
 		meshes[i].draw(core);
 	}

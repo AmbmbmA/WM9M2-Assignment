@@ -18,7 +18,6 @@ const float NEARPLANE = 0.1;
 const float FARPLANE = 1000;
 
 
-
 // Windows program entrance
 // prameters are set by the windows system
 int WinMain(
@@ -44,7 +43,7 @@ int WinMain(
 	Sampler sampler;
 	sampler.init(&core);
 
-	Matrix W = Matrix::Transformationto(Vec3(1, 0, 0), Vec3(0, 1, 0), Vec3(0, 0, 1), Vec3(0, 0, 0));
+	Matrix W;
 
 	// Camera
 	Matrix projection = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
@@ -66,78 +65,105 @@ int WinMain(
 
 	// Textures
 	TextureManager textures;
-	textures.load(&core, "grassland.jpg");
-	textures.load(&core, "grassland1.jpg");
 
+	// ground
+	textures.load(&core, "grassland.jpg");
+
+	// sky
 	textures.load(&core, "sky.png");
 
+	// pine
 	textures.load(&core, "stump01.png");
 	textures.load(&core, "bark09.png");
 	textures.load(&core, "pine branch.png");
 	textures.load(&core, "stump01_normal.png");
 	textures.load(&core, "bark09_normal.png");
-	textures.load(&core, "pine branch_normal.png");
+	textures.load(&core, "pine branch_Normal.png");
 
+	//TRex
 	textures.load(&core, "T-rex_Base_Color.png");
 	textures.load(&core, "T-rex_Normal_OpenGL.png");
 
 
-
+	//Shooting arm
 	textures.load(&core, "arms_1_Albedo.png");
 	textures.load(&core, "AC5_Albedo.png");
 	textures.load(&core, "AC5_Bullet_Shell_Albedo.png");
 	textures.load(&core, "AC5_Collimator_Albedo.png");
 	textures.load(&core, "AC5_Collimator_Glass_Albedo.png");
 
+	//wall
+	textures.load(&core, "rounded-brick1-albedo.png");
+	textures.load(&core, "rounded-brick1-normal.png");
 
+	textures.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
 
-
-
-	//textures.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
-
-
-
-	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Gloss.png");
-	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Normal.png");
-	//Tte.load(&core, "MaleDuty_3_OBJ_Happy_Packed0_Specular.png");
-
-
+	// ground
 	Plane ground;
 	vector<Vec3> groundinslocation;
 	groundinslocation.push_back(Vec3(0, 0, 0));
 	ground.init(&core, 5000, groundinslocation, 1);
 
+	// sky
 	Sphere Sky;
 	vector<Vec3> Skyinslocation;
 	Skyinslocation.push_back(Vec3(0, 0, 0));
-	Sky.init(&core, 1000, 1000, FARPLANE - 20, Skyinslocation, 1);
+	Sky.init(&core, 1, 1000, 1000, FARPLANE - 20, Skyinslocation, 1);
+
+
+	// shooting arm
+	AnimatedModel ShootingArm;
+	vector<Vec3> ShootingArminslocation;
+	ShootingArminslocation.push_back(Vec3(0.0f, 8, 0.0f));
+	ShootingArm.init(&core, "Models/Automatic_Carbine_5.gem", ShootingArminslocation, 1);
+
+	AnimationInstance ShootingArmins;
+	ShootingArmins.animation = &ShootingArm.animation;
+	ShootingArmins.currentAnimation = "Armature|04 Idle";
+
 
 	// pine
 
 	StaticModel pine;
 	vector<Vec3> pineinslocation;
-	int pinerangemin = -500;
-	int pinerangemax = 500;
-	int pinenum = 200;
-	//for (int i = 0; i < pinenum; i++) {
-	//	int x = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
-	//	int y = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
-	//	pineinslocation.push_back(Vec3(x, 0, y));
-	//}
-	//pine.init(&core, "Models/pine.gem", pineinslocation, pinenum);
+	int pinerangemin = -1000;
+	int pinerangemax = 1000;
+	int pinenum = 1000;
+	for (int i = 0; i < pinenum; i++) {
+		int x = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
+		int y = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
+		pineinslocation.push_back(Vec3(x, 0, y));
+	}
+	pine.init(&core, "Models/pine.gem", pineinslocation, pinenum);
 
 
-	pineinslocation.push_back(Vec3(3, 0, 3));
-
-	pine.init(&core, "Models/pine.gem", pineinslocation, 1);
+	//pineinslocation.push_back(Vec3(3, 0, 3));
+	//pine.init(&core, "Models/pine.gem", pineinslocation, 1);
 
 
 	// cube
 
-	StaticModelwithtiling cube;
-	vector<Vec3> cubeinslocation;
-	cubeinslocation.push_back(Vec3(-5, 7, -5));
-	cube.init(&core, "Models/cube.gem", 3, cubeinslocation, 1);
+	StaticModelwithtiling wallx;
+	StaticModelwithtiling wallz;
+	vector<Vec3> wallinslocationx;
+	vector<Vec3> wallinslocationz;
+	int wallrangemin = -1000;
+	int wallrangemax = 1000;
+	int wallnum = 20;
+	for (int i = 0; i < wallnum; i++) {
+		int x = wallrangemin + rand() % (wallrangemax - wallrangemin + 1);
+		int y = wallrangemin + rand() % (wallrangemax - wallrangemin + 1);
+		wallinslocationx.push_back(Vec3(x, 0, y));
+	}
+	for (int i = 0; i < wallnum; i++) {
+		int x = wallrangemin + rand() % (wallrangemax - wallrangemin + 1);
+		int y = wallrangemin + rand() % (wallrangemax - wallrangemin + 1);
+		wallinslocationz.push_back(Vec3(x, 0, y));
+	}
+	wallx.init(&core, "Models/cube.gem", 20, wallinslocationx, wallnum);
+	wallz.init(&core, "Models/cube.gem", 25, wallinslocationz, wallnum);
+
+
 
 
 	// TRex
@@ -153,7 +179,7 @@ int WinMain(
 	TRexins.animation = &TRex.animation;
 	TRexins.currentAnimation = "Run";
 
-
+	// Soldier
 	AnimatedModel Soldier;
 	vector<Vec3> Soldierinslocation;
 	Soldierinslocation.push_back(Vec3(0.0f, 0.0f, 0.0f));
@@ -163,14 +189,7 @@ int WinMain(
 	Soldierins.animation = &Soldier.animation;
 	Soldierins.currentAnimation = "idle";
 
-	AnimatedModel ShootingArm;
-	vector<Vec3> ShootingArminslocation;
-	ShootingArminslocation.push_back(Vec3(0.0f, 8, 0.0f));
-	ShootingArm.init(&core, "Models/Automatic_Carbine_5.gem", ShootingArminslocation, 1);
 
-	AnimationInstance ShootingArmins;
-	ShootingArmins.animation = &ShootingArm.animation;
-	ShootingArmins.currentAnimation = "Armature|07 Run";
 
 	// failed shadow mapping
 	/*
@@ -199,6 +218,7 @@ int WinMain(
 
 		sampler.bind(&core);
 
+		// clip, hide mouse
 		if (win.keys['Y']) {
 			win.clipMouseToWindow();
 		}
@@ -219,12 +239,6 @@ int WinMain(
 			PostMessage(win.hwnd, WM_CLOSE, 0, 0); //post a message to requst closing the window without blocking
 			win.keys[VK_ESCAPE] = false;
 		}
-		//if (win.keys['P']) {
-		//	camera.switchview(true);
-		//}
-		//if (win.keys['L']) {
-		//	camera.switchview(false);
-		//}
 
 
 
@@ -265,14 +279,21 @@ int WinMain(
 		*/
 
 
-		//pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
+		Matrix wallr = Matrix::RotationX(M_PI / 2);
+		wallx.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(0.5,30,20), &textures,"Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
+		wallz.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(30,0.5,20), &textures,"Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
+
+
+		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.07f, 0.07f, 0.07f), &textures);
 
 		TRexins.update("attack", dt);
 
 		TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(4, 4, 4), &TRexins, &textures);
+		//Soldierins.update("idle", dt);
 
+		//Soldier.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(0.05, 0.05, 0.05), &Soldierins, &textures);
 
-
+		// shooting arm
 		if (win.mouseButtons[1]) {
 			if (win.mouseButtons[0]) {
 				ShootingArmins.update("Armature|13 Zoom Fire", dt);
@@ -302,24 +323,21 @@ int WinMain(
 			mesh.updateinstanceBuffer(&core, ShootingArminslocation);
 		}
 
-
 		Matrix cameraW = Matrix::Transformationto(-camera.movedirright, Vec3(0, 1, 0), -camera.movedirforward, Vec3(0, 0, 0));
 		cameraW = Matrix::RotationAroundAxis(camera.movedirright, M_PI - camera.theta * M_PI / 180) * cameraW;
 
+
 		ShootingArm.draw(&core, shaders.find("animated"), &cameraW, &camera.vp, Vec3(0.2, 0.2, 0.2), &ShootingArmins, &textures);
 
-		//Soldierins.update("idle", dt);
 
-		//Soldier.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(0.05, 0.05, 0.05), &Soldierins, &textures);
+		// ground
+		ground.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1000, 0.0f, 1000), &textures, "Textures/grassland.jpg");
 
-
-
-		ground.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1000, 0.0f, 1000), &textures);
-
+		// sky
 		Skyinslocation.clear();
 		Skyinslocation.push_back(Vec3(camera.position.x, 0, camera.position.z));
 		Sky.mesh.updateinstanceBuffer(&core, Skyinslocation);
-		Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1), &textures);
+		Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1), &textures, "Textures/sky.png");
 
 		core.present();
 	}

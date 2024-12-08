@@ -19,7 +19,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 	{
 		// double check the request using message box
 		//(HWND, text content, tile of the box, type of the box)
-		
+
 		//int result = MessageBox(hwnd, L"Confirm to close the Window", L"Confirmation", MB_OKCANCEL | MB_ICONQUESTION);
 		//if (result == IDOK) {
 		//	PostQuitMessage(0);
@@ -97,7 +97,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 
 			// read into the memory 
 			GetRawInputData(transferlParam, RID_INPUT, inputinfo, &inputsize, sizeof(RAWINPUTHEADER));
-			
+
 			// transfer from byte into RAWINPUT struct
 			RAWINPUT* raw = (RAWINPUT*)inputinfo;
 
@@ -186,6 +186,25 @@ void Window::processMessages() {
 		DispatchMessage(&msg); // send message to the defined WndProc, use the handle to find the window
 	}
 
+}
+
+void Window::clipMouseToWindow()
+{
+	RECT rect;
+	GetClientRect(hwnd, &rect);
+	POINT ul;
+	ul.x = rect.left;
+	ul.y = rect.top;
+	POINT lr;
+	lr.x = rect.right;
+	lr.y = rect.bottom;
+	MapWindowPoints(hwnd, nullptr, &ul, 1);
+	MapWindowPoints(hwnd, nullptr, &lr, 1);
+	rect.left = ul.x;
+	rect.top = ul.y;
+	rect.right = lr.x;
+	rect.bottom = lr.y;
+	ClipCursor(&rect);
 }
 
 

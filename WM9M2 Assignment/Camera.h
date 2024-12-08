@@ -48,4 +48,6 @@ public:
 
 	void jump();
 
+	void checkcollision();
+
 };

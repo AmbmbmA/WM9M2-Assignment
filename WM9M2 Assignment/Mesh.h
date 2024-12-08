@@ -42,21 +42,7 @@ struct ANIMATED_VERTEX
 	float boneWeights[4]; // weigt of influence of the 4 bones
 };
 
-static STATIC_VERTEX addVertex(Vec3 p, Vec3 n, float tu, float tv)
-{
-	STATIC_VERTEX v;
-	v.pos = p;
-	v.normal = n;
-	//Frame frame;
-	//frame.fromVector(n);
-	//v.tangent = frame.u; // For now
-	v.tangent = Vec3(0, 0, 0); // For now
-	v.tu = tu;
-	v.tv = tv;
-	return v;
-}
-
-static STATIC_VERTEX addVertexwithtiling(Vec3 p, Vec3 n, float tu, float tv,int tiling)
+static STATIC_VERTEX addVertex(Vec3 p, Vec3 n, float tu, float tv,int tiling)
 {
 	STATIC_VERTEX v;
 	v.pos = p;
@@ -69,6 +55,7 @@ static STATIC_VERTEX addVertexwithtiling(Vec3 p, Vec3 n, float tu, float tv,int 
 	v.tv = tv * tiling;
 	return v;
 }
+
 
 
 class Mesh {
@@ -110,22 +97,7 @@ public:
 
 	void init(DXcore* core,int tiling, vector<Vec3> instanceData, int instancenum);
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal,TextureManager* textures) {
-
-		Matrix Scaled = Matrix::Scaling(Scal);
-		Matrix Scaledworld = (*World) * Scaled;
-
-		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
-		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
-		shader->apply(core);
-
-		string a = "Textures/grassland.jpg";
-
-		shader->bindShaderRV(core, "tex", textures->textures[a]->srv);
-		
-		mesh.draw(core);
-
-	}
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures, string texturefilename);
 
 
 
@@ -138,20 +110,9 @@ public:
 
 	~Cube() { mesh.free(); }
 
-	void init(DXcore* core, vector<Vec3> instanceData, int instancenum);
+	void init(DXcore* core, int tiling,vector<Vec3> instanceData, int instancenum);
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal) {
-
-		Matrix Scaled = Matrix::Scaling(Scal);
-		Matrix Scaledworld = (*World) * Scaled;
-
-		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
-		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
-		shader->apply(core);
-
-		mesh.draw(core);
-
-	}
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures, string texturefilename);
 
 };
 
@@ -162,25 +123,9 @@ public:
 
 	~Sphere() { mesh.free(); }
 
-	void init(DXcore* core, int rings, int segments, float radius, vector<Vec3> instanceData, int instancenum);
+	void init(DXcore* core, int tiling, int rings, int segments, float radius, vector<Vec3> instanceData, int instancenum);
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures) {
-
-		Matrix Scaled = Matrix::Scaling(Scal);
-		Matrix Scaledworld = (*World) * Scaled;
-
-		shader->updateConstantVS("staticMeshBuffer", "W", &Scaledworld);
-		shader->updateConstantVS("staticMeshBuffer", "VP", vp);
-		shader->apply(core);
-
-		string a = "Textures/sky.png";
-
-		shader->bindShaderRV(core, "tex", textures->textures[a]->srv);
-
-		mesh.draw(core);
-
-	}
-
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures, string texturefilename);
 
 };
 
@@ -192,6 +137,7 @@ public:
 
 	std::vector<Mesh> meshes;
 	std::vector<std::string> textureFilenames;
+	std::vector<std::string> normalFilenames;
 
 	~StaticModel() {
 		for (auto m : meshes) {
@@ -219,7 +165,7 @@ public:
 
 	void init(DXcore* core, string filename,int tilingnum, vector<Vec3> instanceData, int instancenum);
 
-	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
+	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures,string tf, string nf);
 
 };
 

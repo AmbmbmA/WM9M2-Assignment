@@ -18,7 +18,6 @@ struct PS_INPUT
 
 };
 
-static const float PI = 3.14159265359;
 
 float4 PS(PS_INPUT input) : SV_Target0
 {
@@ -37,10 +36,16 @@ float4 PS(PS_INPUT input) : SV_Target0
    	 {
    	     discard;
    	 }
-
+	
 	float3 lightDir = normalize(lightDirection);
-	float3 ambient = (2,2,2);
-	float3 diffuse = (albedo.rgb/PI) * (lightColour * max(dot(mapNormal,lightDir),0.0) +ambient) ;
+
+	float3 ambient = (0.3,0.3,0.3);
+
+	float3 normFactor = pow(max(dot(mapNormal, lightDir), 0.0), 3);
+	float3 normFactora = pow(min (1 + dot(mapNormal, float3(0, 1, 0)),1), 2);
+
+	float3 ambientLight = ambient * normFactora;
+	float3 diffuse = (albedo.rgb) * (lightColour *normFactor + ambientLight) ;
 	
     return float4(diffuse, 1.0);
 }

@@ -135,7 +135,8 @@
     <ClInclude Include="GEMLoader.h" />
     <ClInclude Include="Mathlib.h" />
     <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Modelmanager.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="Obj.h" />
     <ClInclude Include="ShaderReflection.h" />
     <ClInclude Include="Shaders.h" />
     <ClInclude Include="stb_image.h" />
@@ -153,7 +154,6 @@
     <ClCompile Include="DXcore.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="Modelmanager.cpp" />
     <ClCompile Include="Shaders.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Window.cpp" />
