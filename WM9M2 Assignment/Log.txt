@@ -22391,3 +22391,9025 @@ Idle
 roar
 Run
 walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|00 Pose
+Armature|01 Select
+Armature|02 Putaway
+Armature|03 Empty Select
+Armature|04 Idle
+Armature|05 Inspect
+Armature|06 Walk
+Armature|07 Run
+Armature|08 Fire
+Armature|09 Alternate Fire
+Armature|10 Melee Attack
+Armature|11 Zoom Idle
+Armature|12 Zoom Walk
+Armature|13 Zoom Fire
+Armature|14 Zoom Alternate Fire
+Armature|15 Alternate Fire Mode On
+Armature|16 Dryfire
+Armature|17 Reload
+Armature|18 Empty Reload
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+Armature|Armature|mixamo.com|Layer0
+crouching turn 90 left
+crouching turn 90 right
+death crouching headshot front
+death from back headshot
+death from front headshot
+death from right
+death from the back
+death from the front
+firing rifle
+hit reaction
+Idle (2)
+idle aiming
+idle crouching aiming
+idle crouching
+idle
+IdleWaiting
+jump down
+jump loop
+jump up
+Jumping
+reloading
+rifle aiming idle
+rifle jump
+rifle run
+run backward left
+run backward right
+run backward
+run backwards
+run forward left
+run forward right
+run forward
+run left
+run right
+Running
+Sitting
+SittingTalking
+sprint backward left
+sprint backward right
+sprint backward
+sprint forward left
+sprint forward right
+sprint forward
+sprint left
+sprint right
+strafe (2)
+strafe left
+strafe right
+strafe
+Talking
+toss grenade
+turn 90 left
+turn 90 right
+turn left
+turning right 45 degrees
+walk backward left
+walk backward right
+walk backward
+walk crouching backward left
+walk crouching backward right
+walk crouching backward
+walk crouching forward left
+walk crouching forward right
+walk crouching forward
+walk crouching left
+walk crouching right
+walk forward left
+walk forward right
+walk forward
+walk left
+walk right
+Walking (2)
+walking backwards
+walking
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk
+attack
+death
+idle2
+Idle
+roar
+Run
+walk

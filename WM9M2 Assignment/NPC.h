@@ -8,13 +8,30 @@
 #include "GamesEngineeringBase.h"
 #include "Camera.h"
 
+
+enum NPCname { TRex, Soldier };
+
+
 class NPC {
 public:
 
 	AnimatedModel npc;
 	vector<Vec3> npcinslocation;
 	AnimationInstance npcani;
-	float health;
+	float health = 1000;
+	bool chase = false;
+	bool roar = false;
+	bool attack = false;
+	bool move = true;
+	bool isattacked = false;
+
+
+	Vec3 modelfaward;
+	Vec3 dir = Vec3(1, 0, 1);
+
+	float timeElapsed = 0;
+
+	~NPC() {}
 
 	void init(DXcore* core, string filename, Vec3 position) {
 		npcinslocation.push_back(position);
@@ -22,41 +39,136 @@ public:
 		npcani.animation = &npc.animation;
 	}
 
+	void positionupdate(Camera* camera, Window* win, string* animation, float dt) {
 
-	string animationcontrol(Window* win) {
-		return "Run";
-	}
+		Vec3 position = npcinslocation[0];
+		Vec3 camerap = Vec3(camera->position.x, 0, camera->position.z);
+		float distance = (position - camerap).getlength();
 
-	void positonupdate(Camera* camera) {
-		for (Vec3 position : npcinslocation) {
-			//position += (camera->position - position).normalize();
-			position += Vec3(1,0,1);
+		if (distance < 150) {
+			roar = true;
+			move = false;
 		}
+		else {
+			roar = false;
+		}
+
+		if (distance < 100 || isattacked) {
+			chase = true;
+			move = false;
+			roar = false;
+		}
+		else {
+			chase = false;
+		}
+
+		if (distance < 25) {
+			attack = true;
+			chase = false;
+			move = false;
+			roar = false;
+		}
+		else {
+			attack = false;
+		}
+		
+		if (health <= 0) {
+			*animation = "death";
+		}
+		else if (roar) {
+
+			*animation = "roar";
+
+			modelfaward = -(position - camerap).normalize();
+
+		}
+		else if (chase) {
+			*animation = "Run";
+			Vec3 newposition = position + (camerap - position).normalize() * 0.15;
+			npcinslocation.clear();
+			npcinslocation.push_back(newposition);
+
+			modelfaward = -(position - camerap).normalize();
+		}
+		else if (attack) {
+
+			*animation = "attack";
+
+			modelfaward = -(position - camerap).normalize();
+
+		}
+		else if (move) {
+			timeElapsed += dt;
+
+
+
+			if (timeElapsed <= 3 + rand() % 28) {
+
+				*animation = "walk";
+
+				Vec3 newposition = position + dir.normalize() * 0.1;
+				npcinslocation.clear();
+				npcinslocation.push_back(newposition);
+
+				modelfaward = dir.normalize();
+			}
+			else {
+				*animation = "Idle";
+				move = false;
+				timeElapsed = 0.0f;
+
+			}
+		}
+		else {
+			timeElapsed += dt;
+
+			if (timeElapsed <= 1 + rand() % 5) {
+				*animation = "Idle";
+				modelfaward = dir.normalize();
+
+			}
+			else {
+				*animation = "walk";
+				move = true;
+				timeElapsed = 0.0f;
+
+				float randomx = (-1 + rand() % 3);
+				if (randomx == 0) randomx = 1;
+				float randomz = (-1 + rand() % 3);
+
+				Vec3 change = Vec3(randomx, 0, randomz);
+				dir = change;
+				modelfaward = dir.normalize();
+			}
+		}
+
+
 	}
+
 
 	void update(Window* win, float dt, DXcore* core, Camera* camera) {
 
+		string animation;
+		positionupdate(camera, win, &animation, dt);
 
+		if (isattacked) {
+			health -= 5;
+		}
 
-		npcani.update(animationcontrol(win), dt);
-
-		//npcinslocation.clear();
-		//npcinslocation.push_back(positonupdate(camera));
-
-		//positonupdate(camera);
+		npcani.update(animation, dt);
 
 		for (auto mesh : npc.meshes) {
-			Vec3 position = npcinslocation[0];
-			Vec3 newposition = position + (Vec3(camera->position.x,0, camera->position.z) - position).normalize() * 0.2;
-			npcinslocation.clear();
-			npcinslocation.push_back(newposition);
 			mesh.updateinstanceBuffer(core, npcinslocation);
 		}
 
 	}
 
+
 	void draw(DXcore* core, ShaderManager* shaders, Camera* camera, Vec3 Scal, TextureManager* textures) {
-		Matrix w;
+
+		Vec3 left = modelfaward.Crossright(Vec3(0, 1, 0)).normalize();
+		Matrix w = Matrix::Transformationto(left, Vec3(0, 1, 0), modelfaward, Vec3(0, 0, 0));
+
 		npc.draw(core, shaders->find("animated"), &w, &camera->vp, Scal, &npcani, textures);
 
 	}
@@ -64,16 +176,17 @@ public:
 
 };
 
-enum NPCname { TRex, Soldier };
+
 
 class Spawn {
 public:
 	vector<NPC*> npcmanage;
 
 	float timeElapsed = 0.0f; // time passed since last generate
-	float timeThreshold = 20; // generate time gap
+	float timeThreshold = 2; // generate time gap
 
-	int maxnum = 50;
+	vector<float> deathanimationtime;
+	int maxnum = 1;
 
 
 
@@ -106,16 +219,25 @@ public:
 		if (timeElapsed >= timeThreshold && (!full)) {
 			//random position
 
-			int randomX, randomZ;
-			randomX = camera->position.x -100 + rand() % 100;
-			randomZ = camera->position.z -100 + rand() % 100;
+			int randomX = camera->position.x;
+			int randomZ = camera->position.z;
+
 			Vec3 position = Vec3(randomX, 0, randomZ);
+			Vec3 camerap = Vec3(camera->position.x, 0, camera->position.z);
+
+			while ((position - camerap).getlength() <= 300) {
+				randomX = camera->position.x - 1000 + rand() % 2001;
+				randomZ = camera->position.z - 1000 + rand() % 2001;
+				position = Vec3(randomX, 0, randomZ);
+			}
+			//position = Vec3(1, 0, 1);
+
 
 			NPC* n = new NPC;
 			n->init(core, getfilename(name), position);
 
 			npcmanage.push_back(n);
-
+			deathanimationtime.push_back(0);
 			timeElapsed = 0.0f; //reset
 		}
 	}
@@ -127,9 +249,20 @@ public:
 
 		generate(core, camera, dt, randomnpc());
 
-		for (auto npc : npcmanage) {
+		for (int i = 0; i < npcmanage.size(); i++) {
+
+			NPC* npc = npcmanage[i];
 
 			npc->update(win, dt, core, camera);
+			if (npc->health <= 0) {
+				deathanimationtime[i] += dt;
+
+			}
+			if (deathanimationtime[i] >= 2.8) {
+				npc->~NPC();
+				npcmanage.erase(npcmanage.begin() + i);
+				deathanimationtime.erase(deathanimationtime.begin() + i);
+			}
 		}
 
 	}

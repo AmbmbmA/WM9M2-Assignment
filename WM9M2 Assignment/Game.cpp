@@ -84,7 +84,7 @@ int WinMain(
 
 	//TRex
 	textures.load(&core, "T-rex_Base_Color.png");
-	textures.load(&core, "T-rex_Normal_OpenGL.png");
+	//textures.load(&core, "T-rex_Normal_OpenGL.png");
 
 
 	//Shooting arm
@@ -98,7 +98,7 @@ int WinMain(
 	textures.load(&core, "rounded-brick1-albedo.png");
 	textures.load(&core, "rounded-brick1-normal.png");
 
-	textures.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
+	//textures.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
 
 	// ground
 	Plane ground;
@@ -283,34 +283,13 @@ int WinMain(
 
 		*/
 
-
-		Matrix wallr = Matrix::RotationX(M_PI / 2);
-		wallx.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(0.5,30,20), &textures,"Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
-		wallz.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(30,0.5,20), &textures,"Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
-
-
-
-		npcspawn.update(&win, dt, &core, &camera);
-
-		npcspawn.draw(&core, &shaders, &camera, Vec3(4, 4, 4), &textures);
-
-
-		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.07f, 0.07f, 0.07f), &textures);
-
-		//TRexins.update("attack", dt);
-		//TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(4, 4, 4), &TRexins, &textures);
-
-
-		//Soldierins.update("idle", dt);
-
-		//Soldier.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(0.05, 0.05, 0.05), &Soldierins, &textures);
-
-
-
-
-
 		// shooting arm
-		if (win.mouseButtons[1]) {
+
+		camera.p = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+		if (win.mouseButtons[1]) { // aim
+			// zoom to aim
+			camera.p = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV/3, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+
 			if (win.mouseButtons[0]) {
 				ShootingArmins.update("Armature|13 Zoom Fire", dt);
 			}
@@ -321,7 +300,8 @@ int WinMain(
 				ShootingArmins.update("Armature|11 Zoom Idle", dt);
 			}
 		}
-		else if (win.mouseButtons[0]) {
+		else if (win.mouseButtons[0]) { // shoot
+			npcspawn.npcmanage[0]->isattacked = true;
 			ShootingArmins.update("Armature|08 Fire", dt);
 		}
 		else if (win.keys['W'] || win.keys['A'] || win.keys['S'] || win.keys['D'] || win.keys[VK_SPACE]) {
@@ -344,6 +324,31 @@ int WinMain(
 
 
 		ShootingArm.draw(&core, shaders.find("animated"), &cameraW, &camera.vp, Vec3(0.2, 0.2, 0.2), &ShootingArmins, &textures);
+
+
+
+
+
+		npcspawn.update(&win, dt, &core, &camera);
+
+		npcspawn.draw(&core, &shaders, &camera, Vec3(4, 4, 4), &textures);
+
+
+		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.07f, 0.07f, 0.07f), &textures);
+
+		//TRexins.update("attack", dt);
+		//TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(4, 4, 4), &TRexins, &textures);
+
+
+
+
+		// wall
+		Matrix wallr = Matrix::RotationX(M_PI / 2);
+		wallx.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(0.5, 30, 20), &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
+		wallz.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(30, 0.5, 20), &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
+
+
+
 
 
 		// ground
