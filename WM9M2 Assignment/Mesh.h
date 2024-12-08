@@ -6,7 +6,7 @@
 #include "GEMLoader.h"
 #include "Animation.h"
 #include "Texture.h"
-
+#include "Collision.h"
 
 using namespace Mathlib;
 
@@ -145,7 +145,7 @@ public:
 		}
 	}
 
-	void init(DXcore* core, string filename, vector<Vec3> instanceData, int instancenum);
+	void init(DXcore* core, string filename, vector<Vec3> instanceData, int instancenum,AABB* box);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures);
 
@@ -163,7 +163,7 @@ public:
 		}
 	}
 
-	void init(DXcore* core, string filename,int tilingnum, vector<Vec3> instanceData, int instancenum);
+	void init(DXcore* core, string filename,int tilingnum, vector<Vec3> instanceData, int instancenum, AABB* box);
 
 	void draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 Scal, TextureManager* textures,string tf, string nf);
 

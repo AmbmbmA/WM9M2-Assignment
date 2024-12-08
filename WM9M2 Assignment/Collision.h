@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "Mathlib.h"
 
@@ -115,11 +115,40 @@ public:
 
 	}
 
-	bool box1sphere1check() {
+	bool box1sphere1check(Vec3& contra) {
+
+		float closestX = max(box1.min.x, min(sphere1.centre.x, box1.max.x));
+		float closestY = max(box1.min.y, min(sphere1.centre.y, box1.max.y));
+		float closestZ = max(box1.min.z, min(sphere1.centre.z, box1.max.z));
+
+		Vec3 closest(closestX, closestY, closestZ);
+
+		Vec3 different = {
+			sphere1.centre.x - closestX,
+			sphere1.centre.y - closestY,
+			sphere1.centre.z - closestZ
+		};
+
+		float dsq = square(different.x) + square(different.y) + square(different.z);
+
+		if (dsq > sphere1.radius * sphere1.radius) {
+			return false;
+		}
+
+		float distance = sqrtf(dsq);
+		float overlap = sphere1.radius - distance;
+
+		if (distance > 0) {
+			different.x /= distance;
+			different.y /= distance;
+			different.z /= distance;
+		}
 
 
-		return false;
+		contra = Vec3(different.x * overlap, different.y * overlap, different.z * overlap);
 
+
+		return true;
 	}
 
 	bool boxcheck() {

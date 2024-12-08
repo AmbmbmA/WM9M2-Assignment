@@ -55,8 +55,13 @@ void Camera::move(float sensity) {
 
 void Camera::rotate(double dtheta, double dphi) {
 
-	theta += dtheta;
-	phi += dphi;
+	float smoothFactor = 0.5;
+
+	thetasmooth = thetasmooth * (1 - smoothFactor) + dtheta * smoothFactor;
+	phismooth = phismooth * (1 - smoothFactor) + dphi * smoothFactor;
+
+	theta += thetasmooth;
+	phi += phismooth;
 
 	checkanglelimit();
 }
@@ -71,10 +76,8 @@ void Camera::jump() {
 
 void Camera::update(float dt) {
 
-	float sensity = 150 * dt;
-
 	// camera rotate
-	rotate(win->rawmousey * 0.5 * sensity, win->rawmousex * sensity);
+	rotate(win->rawmousey * 0.5 * mousesensity * dt, win->rawmousex * mousesensity * dt);
 
 	// move
 	if (win->keys['W']) {
@@ -89,7 +92,7 @@ void Camera::update(float dt) {
 	if (win->keys['D']) {
 		direcmoniter[3] = true;
 	}
-	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(0.2 * sensity);
+	if (direcmoniter[0] || direcmoniter[1] || direcmoniter[2] || direcmoniter[3]) move(speed * dt);
 
 	direcmoniter[0] = direcmoniter[1] = direcmoniter[2] = direcmoniter[3] = false;
 
@@ -107,8 +110,10 @@ void Camera::update(float dt) {
 			jumpspeedtemp = 0;
 		}
 	}
+	
 
-
+	mousesensity = 150;
+	speed = 30;
 	updatevp();
 
 }

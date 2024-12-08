@@ -20,10 +20,15 @@ public:
 	Vec3 to;
 	Vec3 up;
 
+	float mousesensity = 100;
+	float speed = 30;
 
 	// for view direction moving
 	float theta; // rotate around x
 	float phi; // rotate around y
+
+	float thetasmooth = 0.0f;
+	float phismooth = 0.0f;
 
 	// direction for camera moving
 	Vec3 movedirforward;
@@ -33,6 +38,9 @@ public:
 	bool isjump = false;
 	float jumpspeed = 30;
 	float jumpspeedtemp = 0;
+
+	float health = 1000;
+
 
 	Matrix view; // view matrix
 	Matrix p; // projection
@@ -50,6 +58,5 @@ public:
 
 	void jump();
 
-	void checkcollision();
 
 };

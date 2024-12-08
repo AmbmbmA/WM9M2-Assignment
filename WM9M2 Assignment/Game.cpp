@@ -6,7 +6,7 @@
 #include "GamesEngineeringBase.h"
 #include "Camera.h"
 #include "NPC.h"
-
+#include "Collision.h"
 
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -15,7 +15,7 @@
 //int screenWidth = GetSystemMetrics(SM_CXSCREEN);
 //int screenHeight = GetSystemMetrics(SM_CYSCREEN);
 
-const int WINDOWSIZE[2] = { 1920,1080 };
+const int WINDOWSIZE[2] = { 1920,1080 }; // 1920,1080  2560,1440
 const float FOV = 90;
 const float NEARPLANE = 0.1;
 const float FARPLANE = 1500;
@@ -30,7 +30,7 @@ int WinMain(
 	int nCmdShow // for initial window setting
 ) {
 
-	
+
 
 	GamesEngineeringBase::Timer timer;
 
@@ -128,19 +128,22 @@ int WinMain(
 
 	StaticModel pine;
 	vector<Vec3> pineinslocation;
-	int pinerangemin = -1000;
-	int pinerangemax = 1000;
-	int pinenum = 1000;
+	Vec3 pineScal = Vec3(0.07f, 0.07f, 0.07f);
+	int pinerangemin = -2000;
+	int pinerangemax = 2000;
+	int pinenum = 3000;
 	for (int i = 0; i < pinenum; i++) {
 		int x = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
 		int y = pinerangemin + rand() % (pinerangemax - pinerangemin + 1);
 		pineinslocation.push_back(Vec3(x, 0, y));
 	}
-	pine.init(&core, "Models/pine.gem", pineinslocation, pinenum);
+	AABB pinebox;
+	pine.init(&core, "Models/pine.gem", pineinslocation, pinenum, &pinebox);
+
+	pinebox.max = Matrix::Scaling(pineScal).mulPoint(pinebox.max);
+	pinebox.min = Matrix::Scaling(pineScal).mulPoint(pinebox.min);
 
 
-	//pineinslocation.push_back(Vec3(3, 0, 3));
-	//pine.init(&core, "Models/pine.gem", pineinslocation, 1);
 
 
 	// cube
@@ -149,9 +152,11 @@ int WinMain(
 	StaticModelwithtiling wallz;
 	vector<Vec3> wallinslocationx;
 	vector<Vec3> wallinslocationz;
-	int wallrangemin = -1000;
-	int wallrangemax = 1000;
-	int wallnum = 20;
+	Vec3 wallxScal = Vec3(20, 30, 0.5);
+	Vec3 wallzScal = Vec3(0.5, 20, 30);
+	int wallrangemin = -2000;
+	int wallrangemax = 2000;
+	int wallnum = 50;
 	for (int i = 0; i < wallnum; i++) {
 		int x = wallrangemin + rand() % (wallrangemax - wallrangemin + 1);
 		int y = wallrangemin + rand() % (wallrangemax - wallrangemin + 1);
@@ -162,38 +167,19 @@ int WinMain(
 		int y = wallrangemin + rand() % (wallrangemax - wallrangemin + 1);
 		wallinslocationz.push_back(Vec3(x, 0, y));
 	}
-	wallx.init(&core, "Models/cube.gem", 20, wallinslocationx, wallnum);
-	wallz.init(&core, "Models/cube.gem", 25, wallinslocationz, wallnum);
+	AABB wallxbox;
+	AABB wallzbox;
+	wallx.init(&core, "Models/cube.gem", 20, wallinslocationx, wallnum, &wallxbox);
+	wallz.init(&core, "Models/cube.gem", 20, wallinslocationz, wallnum, &wallzbox);
+
+	wallxbox.max = Matrix::Scaling(wallxScal).mulPoint(wallxbox.max);
+	wallxbox.min = Matrix::Scaling(wallxScal).mulPoint(wallxbox.min);
+	wallzbox.max = Matrix::Scaling(wallzScal).mulPoint(wallzbox.max);
+	wallzbox.min = Matrix::Scaling(wallzScal).mulPoint(wallzbox.min);
 
 
+	// Spawn
 	Spawn npcspawn;
-
-
-
-
-	// TRex
-
-	AnimatedModel TRex;
-	vector<Vec3> TRexinslocation;
-	TRexinslocation.push_back(Vec3(10, 0, 10));
-	TRexinslocation.push_back(Vec3(5, 0, 5));
-	TRexinslocation.push_back(Vec3(20, 0, 20));
-	TRex.init(&core, "Models/TRex.gem", TRexinslocation, 3);
-
-	AnimationInstance TRexins;
-	TRexins.animation = &TRex.animation;
-	TRexins.currentAnimation = "Run";
-
-	// Soldier
-	AnimatedModel Soldier;
-	vector<Vec3> Soldierinslocation;
-	Soldierinslocation.push_back(Vec3(0.0f, 0.0f, 0.0f));
-	Soldier.init(&core, "Models/Soldier1.gem", Soldierinslocation, 1);
-
-	AnimationInstance Soldierins;
-	Soldierins.animation = &Soldier.animation;
-	Soldierins.currentAnimation = "idle";
-
 
 
 	// failed shadow mapping
@@ -214,7 +200,7 @@ int WinMain(
 
 		srand(time(0));
 		float dt = timer.dt();
-		
+
 
 		float u = 1 * dt;
 		core.clear();
@@ -246,8 +232,71 @@ int WinMain(
 		}
 
 
+		if (win.keys[VK_SHIFT]) {
+			camera.speed = 50;
+		}
+		if (win.keys[VK_CONTROL]) {
+			camera.speed = 10;
+			camera.position.y = 3;
+		}
+		else if (!camera.isjump) {
+			camera.position.y = 8;
+		}
+
 		camera.update(dt);
 
+		// collision 
+		{
+
+			Collision collision;
+			collision.setsphere1(camera.position, 3);
+			for (auto position : pineinslocation) {
+				if ((camera.position - position).getlength() < 50) {
+					AABB instancebox;
+					instancebox.max = pinebox.max + position - Vec3(15, 0, 15); // add so it only culculate the roll
+					instancebox.min = pinebox.min + position + Vec3(15, 0, 15);
+					collision.setbox1(instancebox);
+
+					Vec3 contra;
+					if (collision.box1sphere1check(contra)) {
+						camera.position.x += contra.x;
+						camera.position.z += contra.z;
+
+					}
+				}
+			}
+			for (auto position : wallinslocationx) {
+				if ((camera.position - position).getlength() < 50) {
+					AABB instancebox;
+					instancebox.max = wallxbox.max + position;
+					instancebox.min = wallxbox.min + position;
+					collision.setbox1(instancebox);
+
+					Vec3 contra;
+					if (collision.box1sphere1check(contra)) {
+						camera.position.x += contra.x;
+						camera.position.z += contra.z;
+
+					}
+				}
+			}
+			for (auto position : wallinslocationz) {
+				if ((camera.position - position).getlength() < 50) {
+					AABB instancebox;
+					instancebox.max = wallzbox.max + position;
+					instancebox.min = wallzbox.min + position;
+					collision.setbox1(instancebox);
+
+					Vec3 contra;
+					if (collision.box1sphere1check(contra)) {
+						camera.position.x += contra.x;
+						camera.position.z += contra.z;
+
+					}
+				}
+			}
+
+		}
 
 
 		// failed deffered shading
@@ -284,48 +333,48 @@ int WinMain(
 		*/
 
 		// shooting arm
+		{
 
-		camera.p = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
-		if (win.mouseButtons[1]) { // aim
-			// zoom to aim
-			camera.p = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV/3, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
-
-			if (win.mouseButtons[0]) {
-				ShootingArmins.update("Armature|13 Zoom Fire", dt);
+			camera.p = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+			if (win.mouseButtons[1]) { // aim
+				// zoom to aim
+				camera.p = Matrix::Perspectiveprojectionz01(NEARPLANE, FARPLANE, FOV / 3, (float)WINDOWSIZE[0] / (float)WINDOWSIZE[1]);
+				camera.mousesensity = 50;
+				if (win.mouseButtons[0]) {
+					ShootingArmins.update("Armature|13 Zoom Fire", dt);
+				}
+				else if (win.keys['W'] || win.keys['A'] || win.keys['S'] || win.keys['D'] || win.keys[VK_SPACE]) {
+					ShootingArmins.update("Armature|12 Zoom Walk", dt);
+				}
+				else {
+					ShootingArmins.update("Armature|11 Zoom Idle", dt);
+				}
+			}
+			else if (win.mouseButtons[0]) { // shoot
+				ShootingArmins.update("Armature|08 Fire", dt);
 			}
 			else if (win.keys['W'] || win.keys['A'] || win.keys['S'] || win.keys['D'] || win.keys[VK_SPACE]) {
-				ShootingArmins.update("Armature|12 Zoom Walk", dt);
+
+				ShootingArmins.update("Armature|07 Run", dt);
 			}
 			else {
-				ShootingArmins.update("Armature|11 Zoom Idle", dt);
+				ShootingArmins.update("Armature|04 Idle", dt);
 			}
+
+
+			ShootingArminslocation.clear();
+			ShootingArminslocation.push_back(Vec3(camera.position.x, camera.position.y, camera.position.z));
+			for (auto mesh : ShootingArm.meshes) {
+				mesh.updateinstanceBuffer(&core, ShootingArminslocation);
+			}
+
+			Matrix cameraW = Matrix::Transformationto(-camera.movedirright, Vec3(0, 1, 0), -camera.movedirforward, Vec3(0, 0, 0));
+			cameraW = Matrix::RotationAroundAxis(camera.movedirright, M_PI - camera.theta * M_PI / 180) * cameraW;
+
+
+			ShootingArm.draw(&core, shaders.find("animated"), &cameraW, &camera.vp, Vec3(0.2, 0.2, 0.2), &ShootingArmins, &textures);
+
 		}
-		else if (win.mouseButtons[0]) { // shoot
-			ShootingArmins.update("Armature|08 Fire", dt);
-		}
-		else if (win.keys['W'] || win.keys['A'] || win.keys['S'] || win.keys['D'] || win.keys[VK_SPACE]) {
-
-			ShootingArmins.update("Armature|07 Run", dt);
-		}
-		else {
-			ShootingArmins.update("Armature|04 Idle", dt);
-		}
-
-
-		ShootingArminslocation.clear();
-		ShootingArminslocation.push_back(Vec3(camera.position.x, camera.position.y, camera.position.z));
-		for (auto mesh : ShootingArm.meshes) {
-			mesh.updateinstanceBuffer(&core, ShootingArminslocation);
-		}
-
-		Matrix cameraW = Matrix::Transformationto(-camera.movedirright, Vec3(0, 1, 0), -camera.movedirforward, Vec3(0, 0, 0));
-		cameraW = Matrix::RotationAroundAxis(camera.movedirright, M_PI - camera.theta * M_PI / 180) * cameraW;
-
-
-		ShootingArm.draw(&core, shaders.find("animated"), &cameraW, &camera.vp, Vec3(0.2, 0.2, 0.2), &ShootingArmins, &textures);
-
-
-
 
 
 		npcspawn.update(&win, dt, &core, &camera);
@@ -333,13 +382,13 @@ int WinMain(
 		npcspawn.draw(&core, &shaders, &camera, Vec3(4, 4, 4), &textures);
 
 
-		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.07f, 0.07f, 0.07f), &textures);
+		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, pineScal, &textures);
 
 
 		// wall
-		Matrix wallr = Matrix::RotationX(M_PI / 2);
-		wallx.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(0.5, 30, 20), &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
-		wallz.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(30, 0.5, 20), &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
+
+		wallx.draw(&core, shaders.find("staticNM"), &W, &camera.vp, wallxScal, &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
+		wallz.draw(&core, shaders.find("staticNM"), &W, &camera.vp, wallzScal, &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
 
 
 		// ground

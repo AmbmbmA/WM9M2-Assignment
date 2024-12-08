@@ -12,7 +12,7 @@
 enum NPCname { TRex, Soldier };
 
 const int DEMAGE = 2;
-const int MAXNPC = 1;
+const int MAXNPC = 50;
 const float SPAWNGAP = 2;
 
 
@@ -51,9 +51,9 @@ public:
 
 		if (isattacked && !beenattacked) beenattacked = true;
 
-		if (distance > 200) beenattacked = false;
+		if (distance > 300) beenattacked = false;
 
-		if (distance < 150) {
+		if (distance < 200) {
 			roar = true;
 			move = false;
 		}
@@ -61,7 +61,7 @@ public:
 			roar = false;
 		}
 
-		if (distance < 100 || beenattacked) {
+		if (distance < 150 || beenattacked) {
 			chase = true;
 			move = false;
 			roar = false;
@@ -105,6 +105,7 @@ public:
 
 			*animation = "attack";
 
+			camera->health -= 20;
 			modelfaward = -(position - camerap).normalize();
 
 		}
@@ -246,7 +247,7 @@ public:
 				randomZ = camera->position.z - 1000 + rand() % 2001;
 				position = Vec3(randomX, 0, randomZ);
 			}
-			position = Vec3(1, 0, 1);
+			//position = Vec3(1, 0, 1);
 
 
 			NPC* n = new NPC;

@@ -233,7 +233,7 @@ void Sphere::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, Vec3 
 
 }
 
-void StaticModel::init(DXcore* core, string filename, vector<Vec3> instanceData, int instancenum) {
+void StaticModel::init(DXcore* core, string filename, vector<Vec3> instanceData, int instancenum, AABB* box) {
 
 	GEMLoader::GEMModelLoader loader;
 
@@ -248,7 +248,7 @@ void StaticModel::init(DXcore* core, string filename, vector<Vec3> instanceData,
 			STATIC_VERTEX v;
 			memcpy(&v, &gemmeshes[i].verticesStatic[j], sizeof(STATIC_VERTEX));
 			vertices.push_back(v);
-			Vec3 vertexposition = v.pos;
+			box->extend(v.pos);
 		}
 		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
 		normalFilenames.push_back(gemmeshes[i].material.find("normals").getValue());
@@ -288,7 +288,7 @@ void StaticModel::draw(DXcore* core, Shader* shader, Matrix* World, Matrix* vp, 
 }
 
 
-void StaticModelwithtiling::init(DXcore* core, string filename, int tilingnum, vector<Vec3> instanceData, int instancenum) {
+void StaticModelwithtiling::init(DXcore* core, string filename, int tilingnum, vector<Vec3> instanceData, int instancenum, AABB* box) {
 
 	GEMLoader::GEMModelLoader loader;
 
@@ -305,6 +305,7 @@ void StaticModelwithtiling::init(DXcore* core, string filename, int tilingnum, v
 			v.tu *= tilingnum;
 			v.tv *= tilingnum;
 			vertices.push_back(v);
+			box->extend(v.pos);
 		}
 		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
 		mesh.init(core, vertices, gemmeshes[i].indices, instanceData, instancenum);
