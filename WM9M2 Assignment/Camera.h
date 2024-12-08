@@ -2,6 +2,8 @@
 
 #include "Mathlib.h"
 #include "Window.h"
+#include "Collision.h"
+
 
 using namespace Mathlib;
 

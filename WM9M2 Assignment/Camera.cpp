@@ -109,7 +109,6 @@ void Camera::update(float dt) {
 	}
 
 
-
 	updatevp();
 
 }

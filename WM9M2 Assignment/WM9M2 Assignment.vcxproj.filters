@@ -54,10 +54,10 @@
     <ClInclude Include="Texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Obj.h">
+    <ClInclude Include="NPC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NPC.h">
+    <ClInclude Include="Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

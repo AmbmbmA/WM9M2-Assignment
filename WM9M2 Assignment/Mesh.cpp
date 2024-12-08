@@ -248,6 +248,7 @@ void StaticModel::init(DXcore* core, string filename, vector<Vec3> instanceData,
 			STATIC_VERTEX v;
 			memcpy(&v, &gemmeshes[i].verticesStatic[j], sizeof(STATIC_VERTEX));
 			vertices.push_back(v);
+			Vec3 vertexposition = v.pos;
 		}
 		textureFilenames.push_back(gemmeshes[i].material.find("diffuse").getValue());
 		normalFilenames.push_back(gemmeshes[i].material.find("normals").getValue());
@@ -350,7 +351,7 @@ void AnimatedModel::init(DXcore* core, string filename, vector<Vec3> instanceDat
 
 	loader.load(filename, gemmeshes, gemanimation);
 
-	listAnimationNames(gemanimation);
+	//listAnimationNames(gemanimation);
 
 	for (int i = 0; i < gemmeshes.size(); i++) {
 		Mesh mesh;

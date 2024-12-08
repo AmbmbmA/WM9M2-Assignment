@@ -7,9 +7,13 @@
 #include "Shaders.h"
 #include "GamesEngineeringBase.h"
 #include "Camera.h"
-
+#include "Collision.h"
 
 enum NPCname { TRex, Soldier };
+
+const int DEMAGE = 2;
+const int MAXNPC = 1;
+const float SPAWNGAP = 2;
 
 
 class NPC {
@@ -22,9 +26,9 @@ public:
 	bool chase = false;
 	bool roar = false;
 	bool attack = false;
-	bool move = true;
+	bool move = false;
 	bool isattacked = false;
-
+	bool beenattacked = false;
 
 	Vec3 modelfaward;
 	Vec3 dir = Vec3(1, 0, 1);
@@ -45,6 +49,10 @@ public:
 		Vec3 camerap = Vec3(camera->position.x, 0, camera->position.z);
 		float distance = (position - camerap).getlength();
 
+		if (isattacked && !beenattacked) beenattacked = true;
+
+		if (distance > 200) beenattacked = false;
+
 		if (distance < 150) {
 			roar = true;
 			move = false;
@@ -53,7 +61,7 @@ public:
 			roar = false;
 		}
 
-		if (distance < 100 || isattacked) {
+		if (distance < 100 || beenattacked) {
 			chase = true;
 			move = false;
 			roar = false;
@@ -71,9 +79,12 @@ public:
 		else {
 			attack = false;
 		}
-		
+
 		if (health <= 0) {
 			*animation = "death";
+			if (!roar && !chase && !attack) {
+				modelfaward = dir.normalize();
+			}
 		}
 		else if (roar) {
 
@@ -84,7 +95,7 @@ public:
 		}
 		else if (chase) {
 			*animation = "Run";
-			Vec3 newposition = position + (camerap - position).normalize() * 0.15;
+			Vec3 newposition = position + (camerap - position).normalize() * 0.2;
 			npcinslocation.clear();
 			npcinslocation.push_back(newposition);
 
@@ -149,10 +160,11 @@ public:
 	void update(Window* win, float dt, DXcore* core, Camera* camera) {
 
 		string animation;
+
 		positionupdate(camera, win, &animation, dt);
 
 		if (isattacked) {
-			health -= 5;
+			health -= DEMAGE;
 		}
 
 		npcani.update(animation, dt);
@@ -160,6 +172,10 @@ public:
 		for (auto mesh : npc.meshes) {
 			mesh.updateinstanceBuffer(core, npcinslocation);
 		}
+
+	}
+
+	void collisioncheck() {
 
 	}
 
@@ -183,10 +199,10 @@ public:
 	vector<NPC*> npcmanage;
 
 	float timeElapsed = 0.0f; // time passed since last generate
-	float timeThreshold = 2; // generate time gap
+	float timeThreshold = SPAWNGAP; // generate time gap
 
 	vector<float> deathanimationtime;
-	int maxnum = 1;
+	int maxnum = MAXNPC;
 
 
 
@@ -230,7 +246,7 @@ public:
 				randomZ = camera->position.z - 1000 + rand() % 2001;
 				position = Vec3(randomX, 0, randomZ);
 			}
-			//position = Vec3(1, 0, 1);
+			position = Vec3(1, 0, 1);
 
 
 			NPC* n = new NPC;
@@ -253,16 +269,41 @@ public:
 
 			NPC* npc = npcmanage[i];
 
+			Collision collision;
+			collision.setray(camera->position, camera->movedirforward, 200);
+			collision.setsphere1(npc->npcinslocation[0], 17);
+
+			npc->isattacked = false;
+			if (win->mouseButtons[0]) {
+
+
+				if (collision.raysphere1check()) {
+					npc->isattacked = true;
+
+				}
+
+			}
+
+			collision.setsphere2(camera->position, 5);
+			Vec3 contra;
+			if (collision.spherecheck(contra)) {
+				camera->position.x -= contra.x;
+				camera->position.z -= contra.z;
+			}
+
+			float distance = (Vec3(camera->position.x, 0, camera->position.z) - npc->npcinslocation[0]).getlength();
+
 			npc->update(win, dt, core, camera);
 			if (npc->health <= 0) {
 				deathanimationtime[i] += dt;
 
 			}
-			if (deathanimationtime[i] >= 2.8) {
+			if (deathanimationtime[i] >= 2.8 || distance >= 1500) {
 				npc->~NPC();
 				npcmanage.erase(npcmanage.begin() + i);
 				deathanimationtime.erase(deathanimationtime.begin() + i);
 			}
+
 		}
 
 	}

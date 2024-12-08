@@ -18,7 +18,7 @@
 const int WINDOWSIZE[2] = { 1920,1080 };
 const float FOV = 90;
 const float NEARPLANE = 0.1;
-const float FARPLANE = 1000;
+const float FARPLANE = 1500;
 
 
 // Windows program entrance
@@ -246,8 +246,8 @@ int WinMain(
 		}
 
 
-
 		camera.update(dt);
+
 
 
 		// failed deffered shading
@@ -301,7 +301,6 @@ int WinMain(
 			}
 		}
 		else if (win.mouseButtons[0]) { // shoot
-			npcspawn.npcmanage[0]->isattacked = true;
 			ShootingArmins.update("Armature|08 Fire", dt);
 		}
 		else if (win.keys['W'] || win.keys['A'] || win.keys['S'] || win.keys['D'] || win.keys[VK_SPACE]) {
@@ -336,19 +335,11 @@ int WinMain(
 
 		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, Vec3(0.07f, 0.07f, 0.07f), &textures);
 
-		//TRexins.update("attack", dt);
-		//TRex.draw(&core, shaders.find("animated"), &W, &camera.vp, Vec3(4, 4, 4), &TRexins, &textures);
-
-
-
 
 		// wall
 		Matrix wallr = Matrix::RotationX(M_PI / 2);
 		wallx.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(0.5, 30, 20), &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
 		wallz.draw(&core, shaders.find("staticNM"), &wallr, &camera.vp, Vec3(30, 0.5, 20), &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
-
-
-
 
 
 		// ground
@@ -359,6 +350,7 @@ int WinMain(
 		Skyinslocation.push_back(Vec3(camera.position.x, 0, camera.position.z));
 		Sky.mesh.updateinstanceBuffer(&core, Skyinslocation);
 		Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1), &textures, "Textures/sky.png");
+
 
 		core.present();
 	}
