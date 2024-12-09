@@ -7,6 +7,7 @@
 #include "Camera.h"
 #include "NPC.h"
 #include "Collision.h"
+#include <fstream>
 
 
 #define STB_IMAGE_IMPLEMENTATION
@@ -20,6 +21,97 @@ const float FOV = 90;
 const float NEARPLANE = 0.1;
 const float FARPLANE = 1500;
 
+bool fileexist(const string& filename) {
+	ifstream file(filename);
+	return file.good();
+}
+
+void savegame(string _filename, Camera* camera, vector<Vec3>* pineinslocation, vector<Vec3>* wallinslocationx, vector<Vec3>* wallinslocationz, Spawn* npcspawn) {
+	string filename = "Save/" + _filename + ".txt";
+	ofstream save;
+
+	save.open(filename, ios::out);
+
+	camera->save(save);
+
+	save << pineinslocation->size() << endl;
+
+	for (auto position : *pineinslocation) {
+		save << position.x << endl;
+		save << position.y << endl;
+		save << position.z << endl;
+	}
+
+	save << wallinslocationx->size() << endl;
+
+	for (auto position : *wallinslocationx) {
+		save << position.x << endl;
+		save << position.y << endl;
+		save << position.z << endl;
+	}
+
+	save << wallinslocationz->size() << endl;
+
+	for (auto position : *wallinslocationz) {
+		save << position.x << endl;
+		save << position.y << endl;
+		save << position.z << endl;
+	}
+
+	npcspawn->save(save);
+
+	save.close();
+}
+
+void loadgame(string _filename, DXcore* core, Camera* camera, vector<Vec3>* pineinslocation, vector<Vec3>* wallinslocationx, vector<Vec3>* wallinslocationz, Spawn* npcspawn) {
+
+	string filename = "Save/" + _filename + ".txt";
+	if (fileexist(filename)) {
+		ifstream load;
+
+		load.open(filename, ios::in);
+
+		camera->load(load);
+
+		int size;
+		load >> size;
+		pineinslocation->clear();
+		for (int i = 0; i < size; i++) {
+			Vec3 position;
+			load >> position.x;
+			load >> position.y;
+			load >> position.z;
+			pineinslocation->push_back(position);
+		}
+
+		load >> size;
+		wallinslocationx->clear();
+		for (int i = 0; i < size; i++) {
+			Vec3 position;
+			load >> position.x;
+			load >> position.y;
+			load >> position.z;
+			wallinslocationx->push_back(position);
+		}
+
+		load >> size;
+		wallinslocationz->clear();
+		for (int i = 0; i < size; i++) {
+			Vec3 position;
+			load >> position.x;
+			load >> position.y;
+			load >> position.z;
+			wallinslocationz->push_back(position);
+		}
+
+		npcspawn->load(core, load);
+
+		load.close();
+	}
+
+
+
+}
 
 // Windows program entrance
 // prameters are set by the windows system
@@ -29,9 +121,7 @@ int WinMain(
 	PSTR lpCmdLine, //  for command lines to pass extra info
 	int nCmdShow // for initial window setting
 ) {
-
-
-
+	srand(time(0));
 	GamesEngineeringBase::Timer timer;
 
 	bool run = true;
@@ -98,7 +188,6 @@ int WinMain(
 	textures.load(&core, "rounded-brick1-albedo.png");
 	textures.load(&core, "rounded-brick1-normal.png");
 
-	//textures.load(&core, "MaleDuty_3_OBJ_Serious_Packed0_Diffuse.png");
 
 	// ground
 	Plane ground;
@@ -144,9 +233,7 @@ int WinMain(
 	pinebox.min = Matrix::Scaling(pineScal).mulPoint(pinebox.min);
 
 
-
-
-	// cube
+	// wall
 
 	StaticModelwithtiling wallx;
 	StaticModelwithtiling wallz;
@@ -198,7 +285,7 @@ int WinMain(
 	while (run)
 	{
 
-		srand(time(0));
+
 		float dt = timer.dt();
 
 
@@ -210,19 +297,30 @@ int WinMain(
 		sampler.bind(&core);
 
 		// clip, hide mouse
-		if (win.keys['Y']) {
-			win.clipMouseToWindow();
-		}
-		else if (win.keys['U']) {
-			ClipCursor(NULL);
-		}
-		if (win.keys['H']) {
-			win.hideCursor();
-		}
-		else if (win.keys['J']) {
-			win.showCursor();
+		{
+
+			if (win.keys['Y']) {
+				win.clipMouseToWindow();
+			}
+			else if (win.keys['U']) {
+				ClipCursor(NULL);
+			}
+			if (win.keys['H']) {
+				win.hideCursor();
+			}
+			else if (win.keys['J']) {
+				win.showCursor();
+			}
+
 		}
 
+		// save and load
+		if (win.keys['B']) {
+			savegame("save", &camera, &pineinslocation, &wallinslocationx, &wallinslocationz, &npcspawn);
+		}
+		else if (win.keys['N']) {
+			loadgame("save", &core, &camera, &pineinslocation, &wallinslocationx, &wallinslocationz, &npcspawn);
+		}
 
 
 		//quit game
@@ -231,7 +329,7 @@ int WinMain(
 			win.keys[VK_ESCAPE] = false;
 		}
 
-
+		// speed up and squat
 		if (win.keys[VK_SHIFT]) {
 			camera.speed = 50;
 		}
@@ -379,27 +477,31 @@ int WinMain(
 
 		npcspawn.update(&win, dt, &core, &camera);
 
-		npcspawn.draw(&core, &shaders, &camera, Vec3(4, 4, 4), &textures);
+		npcspawn.draw(&core, &shaders, &camera, Vec3(6, 6, 6), &textures);
+
+		// sceen
+		{
+
+			//pine
+
+			pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, pineScal, &textures);
+
+			// wall
+
+			wallx.draw(&core, shaders.find("staticNM"), &W, &camera.vp, wallxScal, &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
+			wallz.draw(&core, shaders.find("staticNM"), &W, &camera.vp, wallzScal, &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
 
 
-		pine.draw(&core, shaders.find("staticNM"), &W, &camera.vp, pineScal, &textures);
+			// ground
+			ground.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1000, 0.0f, 1000), &textures, "Textures/grassland.jpg");
 
+			// sky
+			Skyinslocation.clear();
+			Skyinslocation.push_back(Vec3(camera.position.x, 0, camera.position.z));
+			Sky.mesh.updateinstanceBuffer(&core, Skyinslocation);
+			Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1), &textures, "Textures/sky.png");
 
-		// wall
-
-		wallx.draw(&core, shaders.find("staticNM"), &W, &camera.vp, wallxScal, &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
-		wallz.draw(&core, shaders.find("staticNM"), &W, &camera.vp, wallzScal, &textures, "Textures/rounded-brick1-albedo.png", "Textures/rounded-brick1-normal.png");
-
-
-		// ground
-		ground.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1000, 0.0f, 1000), &textures, "Textures/grassland.jpg");
-
-		// sky
-		Skyinslocation.clear();
-		Skyinslocation.push_back(Vec3(camera.position.x, 0, camera.position.z));
-		Sky.mesh.updateinstanceBuffer(&core, Skyinslocation);
-		Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1), &textures, "Textures/sky.png");
-
+		}
 
 		core.present();
 	}

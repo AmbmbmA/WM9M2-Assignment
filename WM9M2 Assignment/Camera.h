@@ -3,7 +3,7 @@
 #include "Mathlib.h"
 #include "Window.h"
 #include "Collision.h"
-
+#include <fstream>
 
 using namespace Mathlib;
 
@@ -58,5 +58,24 @@ public:
 
 	void jump();
 
+	void save(ofstream& save) {
+		save << health << endl;
+		save << position.x << endl;
+		save << position.y << endl;
+		save << position.z << endl;
+		save << theta << endl;
+		save << phi << endl;
 
+	}
+
+	void load(ifstream& load) {
+		load >> health;
+		float x, y, z;
+		load >> x;
+		load >> y;
+		load >> z;
+		position = Vec3(x, y, z);
+		load >> theta;
+		load >> phi;
+	}
 };

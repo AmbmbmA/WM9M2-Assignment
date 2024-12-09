@@ -11,9 +11,9 @@
 
 enum NPCname { TRex, Soldier };
 
-const int DEMAGE = 2;
+const int DEMAGE = 3;
 const int MAXNPC = 50;
-const float SPAWNGAP = 2;
+const float SPAWNGAP = 10;
 
 
 class NPC {
@@ -22,6 +22,7 @@ public:
 	AnimatedModel npc;
 	vector<Vec3> npcinslocation;
 	AnimationInstance npcani;
+	string filename;
 	float health = 1000;
 	bool chase = false;
 	bool roar = false;
@@ -37,7 +38,8 @@ public:
 
 	~NPC() {}
 
-	void init(DXcore* core, string filename, Vec3 position) {
+	void init(DXcore* core, string _filename, Vec3 position) {
+		filename = _filename;
 		npcinslocation.push_back(position);
 		npc.init(core, filename, npcinslocation, 1);
 		npcani.animation = &npc.animation;
@@ -51,9 +53,9 @@ public:
 
 		if (isattacked && !beenattacked) beenattacked = true;
 
-		if (distance > 300) beenattacked = false;
+		if (distance > 600) beenattacked = false;
 
-		if (distance < 200) {
+		if (distance < 400) {
 			roar = true;
 			move = false;
 		}
@@ -61,7 +63,7 @@ public:
 			roar = false;
 		}
 
-		if (distance < 150 || beenattacked) {
+		if (distance < 350 || beenattacked) {
 			chase = true;
 			move = false;
 			roar = false;
@@ -70,7 +72,7 @@ public:
 			chase = false;
 		}
 
-		if (distance < 25) {
+		if (distance < 30) {
 			attack = true;
 			chase = false;
 			move = false;
@@ -95,7 +97,7 @@ public:
 		}
 		else if (chase) {
 			*animation = "Run";
-			Vec3 newposition = position + (camerap - position).normalize() * 0.2;
+			Vec3 newposition = position + (camerap - position).normalize() * 0.4;
 			npcinslocation.clear();
 			npcinslocation.push_back(newposition);
 
@@ -114,11 +116,11 @@ public:
 
 
 
-			if (timeElapsed <= 3 + rand() % 28) {
+			if (timeElapsed <= 5 + rand() % 26) {
 
 				*animation = "walk";
 
-				Vec3 newposition = position + dir.normalize() * 0.1;
+				Vec3 newposition = position + dir.normalize() * 0.4;
 				npcinslocation.clear();
 				npcinslocation.push_back(newposition);
 
@@ -134,7 +136,7 @@ public:
 		else {
 			timeElapsed += dt;
 
-			if (timeElapsed <= 1 + rand() % 5) {
+			if (timeElapsed <= 2 + rand() % 9) {
 				*animation = "Idle";
 				modelfaward = dir.normalize();
 
@@ -157,7 +159,6 @@ public:
 
 	}
 
-
 	void update(Window* win, float dt, DXcore* core, Camera* camera) {
 
 		string animation;
@@ -176,9 +177,6 @@ public:
 
 	}
 
-	void collisioncheck() {
-
-	}
 
 
 	void draw(DXcore* core, ShaderManager* shaders, Camera* camera, Vec3 Scal, TextureManager* textures) {
@@ -190,6 +188,24 @@ public:
 
 	}
 
+	void save(ofstream& save) {
+		save << npcinslocation[0].x << endl;
+		save << npcinslocation[0].y << endl;
+		save << npcinslocation[0].z << endl;
+		save << health << endl;
+		save << chase << endl;
+		save << roar << endl;
+		save << move << endl;
+		save << isattacked << endl;
+		save << beenattacked << endl;
+		save << modelfaward.x << endl;
+		save << modelfaward.y << endl;
+		save << modelfaward.z << endl;
+		save << dir.x << endl;
+		save << dir.y << endl;
+		save << dir.z << endl;
+		save << timeElapsed << endl;
+	}
 
 };
 
@@ -242,15 +258,16 @@ public:
 			Vec3 position = Vec3(randomX, 0, randomZ);
 			Vec3 camerap = Vec3(camera->position.x, 0, camera->position.z);
 
-			while ((position - camerap).getlength() <= 300) {
-				randomX = camera->position.x - 1000 + rand() % 2001;
-				randomZ = camera->position.z - 1000 + rand() % 2001;
+			while ((position - camerap).getlength() <= 1000) {
+				randomX = camera->position.x - 1500 + rand() % 3001;
+				randomZ = camera->position.z - 1500 + rand() % 3001;
 				position = Vec3(randomX, 0, randomZ);
 			}
 			//position = Vec3(1, 0, 1);
 
 
 			NPC* n = new NPC;
+
 			n->init(core, getfilename(name), position);
 
 			npcmanage.push_back(n);
@@ -271,8 +288,8 @@ public:
 			NPC* npc = npcmanage[i];
 
 			Collision collision;
-			collision.setray(camera->position, camera->movedirforward, 200);
-			collision.setsphere1(npc->npcinslocation[0], 17);
+			collision.setray(camera->position, camera->movedirforward, 400);
+			collision.setsphere1(npc->npcinslocation[0], 25);
 
 			npc->isattacked = false;
 			if (win->mouseButtons[0]) {
@@ -317,6 +334,64 @@ public:
 
 	}
 
+	void save(ofstream& save) {
+		save << timeElapsed << endl;
 
+		save << deathanimationtime.size() << endl;
+		for (auto time : deathanimationtime) {
+			save << time << endl;
+		}
 
+		save << npcmanage.size() << endl;
+		for (auto npc : npcmanage) {
+			npc->save(save);
+		}
+
+	}
+
+	void load(DXcore* core, ifstream& load) {
+		load >> timeElapsed;
+
+		int size;
+
+		load >> size;
+		deathanimationtime.clear();
+		for (int i = 0; i < size; i++) {
+			float time;
+			load >> time;
+			deathanimationtime.push_back(time);
+		}
+		load >> size;
+		npcmanage.clear();
+		for (int i = 0; i < size; i++) {
+			npcload(core, load);
+		}
+	}
+
+	void npcload(DXcore* core, ifstream& load) {
+		float x, y, z;
+		load >> x;
+		load >> y;
+		load >> z;
+		Vec3 position = Vec3(x, y, z);
+		NPC* npc = new NPC;
+		npc->init(core, "Models/TRex.gem", position);
+		load >> npc->health;
+		load >> npc->chase;
+		load >> npc->roar;
+		load >> npc->move;
+		load >> npc->isattacked;
+		load >> npc->beenattacked;
+		load >> x;
+		load >> y;
+		load >> z;
+		npc->modelfaward = Vec3(x, y, z);
+		load >> x;
+		load >> y;
+		load >> z;
+		npc->dir = Vec3(x, y, z);
+		load >> npc->timeElapsed;
+		npcmanage.push_back(npc);
+	}
 };
+
