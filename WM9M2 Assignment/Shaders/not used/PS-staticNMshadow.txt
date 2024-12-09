@@ -1,8 +1,7 @@
 Texture2D tex : register(t0);
 Texture2D normalMap : register(t1);    
-Texture2D shadowMap : register(t2); // 阴影贴图
 SamplerState samplerLinear : register(s0);
-SamplerComparisonState shadowSampler : register(s1); // 用于深度比较的采样器
+SamplerComparisonState shadowSampler : register(s1); 
 
 cbuffer LightBuffer
 {
@@ -37,10 +36,10 @@ float4 PS(PS_INPUT input) : SV_Target
 
     float3 lightDir = normalize(lightDirection);
 
-    // 计算阴影
+
     float shadow = shadowMap.SampleCmpLevelZero(shadowSampler, input.LightSpacePos.xy / input.LightSpacePos.w, input.LightSpacePos.z / input.LightSpacePos.w - 0.005);
 
-    // 环境光和漫反射
+ 
     float3 ambient = float3(0.2, 0.2, 0.2);
     float3 diffuse = (albedo.rgb / PI) * lightColour * max(dot(mapNormal, lightDir), 0.0) * shadow;
 

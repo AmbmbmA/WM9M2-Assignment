@@ -65,8 +65,8 @@ public:
 	}
 
 	void settoshadowmap() {
-		//devicecontext->OMSetRenderTargets(0, nullptr, shadowDSV); 
-		//devicecontext->ClearDepthStencilView(shadowDSV, D3D11_CLEAR_DEPTH, 1.0f, 0); 
+		/*devicecontext->OMSetRenderTargets(0, nullptr, shadowDSV); 
+		devicecontext->ClearDepthStencilView(shadowDSV, D3D11_CLEAR_DEPTH, 1.0f, 0); */
 
 	}
 

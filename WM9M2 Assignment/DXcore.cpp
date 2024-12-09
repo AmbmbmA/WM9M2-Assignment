@@ -115,7 +115,6 @@ void DXcore::init(int width, int height, HWND hwnd, bool window_fullscreen) {
 	device->CreateDepthStencilView(shadowTexture, &dsvDesc, &shadowDSV);
 
 
-	// 创建 Shader Resource View
 	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 	srvDesc.Format = DXGI_FORMAT_R32_FLOAT;
 	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
@@ -124,6 +123,7 @@ void DXcore::init(int width, int height, HWND hwnd, bool window_fullscreen) {
 	device->CreateShaderResourceView(shadowTexture, &srvDesc, &shadowSRV);
 
 	*/
+	
 
 
 	// send bbrv and sdv to GPU for rendering

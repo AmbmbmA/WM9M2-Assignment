@@ -63,7 +63,7 @@ void savegame(string _filename, Camera* camera, vector<Vec3>* pineinslocation, v
 	save.close();
 }
 
-void loadgame(string _filename, DXcore* core, Camera* camera, vector<Vec3>* pineinslocation, vector<Vec3>* wallinslocationx, vector<Vec3>* wallinslocationz, Spawn* npcspawn) {
+void loadgame(string _filename, DXcore* core, Camera* camera, StaticModel* pine, StaticModelwithtiling* wallx, StaticModelwithtiling* wallz, vector<Vec3>* pineinslocation, vector<Vec3>* wallinslocationx, vector<Vec3>* wallinslocationz, Spawn* npcspawn) {
 
 	string filename = "Save/" + _filename + ".txt";
 	if (fileexist(filename)) {
@@ -83,6 +83,9 @@ void loadgame(string _filename, DXcore* core, Camera* camera, vector<Vec3>* pine
 			load >> position.z;
 			pineinslocation->push_back(position);
 		}
+		for (auto mesh : pine->meshes) {
+			mesh.updateinstanceBuffer(core, *pineinslocation);
+		}
 
 		load >> size;
 		wallinslocationx->clear();
@@ -93,6 +96,9 @@ void loadgame(string _filename, DXcore* core, Camera* camera, vector<Vec3>* pine
 			load >> position.z;
 			wallinslocationx->push_back(position);
 		}
+		for (auto mesh : wallx->meshes) {
+			mesh.updateinstanceBuffer(core, *wallinslocationx);
+		}
 
 		load >> size;
 		wallinslocationz->clear();
@@ -102,6 +108,9 @@ void loadgame(string _filename, DXcore* core, Camera* camera, vector<Vec3>* pine
 			load >> position.y;
 			load >> position.z;
 			wallinslocationz->push_back(position);
+		}
+		for (auto mesh : wallz->meshes) {
+			mesh.updateinstanceBuffer(core, *wallinslocationz);
 		}
 
 		npcspawn->load(core, load);
@@ -231,6 +240,7 @@ int WinMain(
 
 	pinebox.max = Matrix::Scaling(pineScal).mulPoint(pinebox.max);
 	pinebox.min = Matrix::Scaling(pineScal).mulPoint(pinebox.min);
+	
 
 
 	// wall
@@ -281,6 +291,7 @@ int WinMain(
 	Matrix LightProjectionMatrix = Matrix::OrthographicProjection(NEARPLANE,FARPLANE, WINDOWSIZE[0], WINDOWSIZE[1]);
 	Matrix LightViewProjMatrix = LightProjectionMatrix * LightViewMatrix;
 	*/
+	
 
 	while (run)
 	{
@@ -319,7 +330,7 @@ int WinMain(
 			savegame("save", &camera, &pineinslocation, &wallinslocationx, &wallinslocationz, &npcspawn);
 		}
 		else if (win.keys['N']) {
-			loadgame("save", &core, &camera, &pineinslocation, &wallinslocationx, &wallinslocationz, &npcspawn);
+			loadgame("save", &core, &camera, &pine, &wallx, &wallz, &pineinslocation, &wallinslocationx, &wallinslocationz, &npcspawn);
 		}
 
 
@@ -343,6 +354,7 @@ int WinMain(
 
 		camera.update(dt);
 
+		
 		// collision 
 		{
 
@@ -397,39 +409,6 @@ int WinMain(
 		}
 
 
-		// failed deffered shading
-		/*
-
-		// Pass 1
-		core.settoGbuffer();
-
-		core.devicecontext->PSSetShaderResources(0, 3, core.shaderResourceViews);
-
-		// Pass2
-		core.settoBackbuffer();
-
-		*/
-
-
-		// failed shadow mapping
-		/*
-		core.settoshadowmap();
-
-		shaders.find("shadow")->updateConstantVS("ShadowMapBuffer", "LightViewProj", &LightViewProjMatrix);
-
-		shaders.find("shadow")->apply(&core);
-
-		pine.draw(&core, shaders.find("shadow"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
-
-		core.settoBackbuffer();
-		core.devicecontext->PSSetShaderResources(2, 1, &core.shadowSRV);
-
-		shaders.find("staticNMshadow")->updateConstantVS("staticMeshBuffer", "LightViewProj", &LightViewProjMatrix);
-		shaders.find("staticNMshadow")->apply(&core);
-		pine.draw(&core, shaders.find("staticNMshadow"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
-
-		*/
-
 		// shooting arm
 		{
 
@@ -478,6 +457,7 @@ int WinMain(
 		npcspawn.update(&win, dt, &core, &camera);
 
 		npcspawn.draw(&core, &shaders, &camera, Vec3(6, 6, 6), &textures);
+		
 
 		// sceen
 		{
@@ -502,6 +482,40 @@ int WinMain(
 			Sky.draw(&core, shaders.find("static"), &W, &camera.vp, Vec3(1, -1, 1), &textures, "Textures/sky.png");
 
 		}
+
+
+		// failed deffered shading
+
+		/*
+		// Pass 1
+		core.settoGbuffer();
+
+		core.devicecontext->PSSetShaderResources(0, 3, core.shaderResourceViews);
+
+		// Pass2
+		core.settoBackbuffer();
+		*/
+
+
+
+
+		// failed shadow mapping
+
+		/*
+		core.settoshadowmap();
+
+		shaders.find("shadow")->updateConstantVS("ShadowMapBuffer", "LightViewProj", &LightViewProjMatrix);
+
+		pine.draw(&core, shaders.find("shadow"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
+
+		core.settoBackbuffer();
+
+		core.devicecontext->PSSetShaderResources(2, 1, &core.shadowSRV);
+
+		shaders.find("staticNMshadow")->updateConstantVS("staticMeshBuffer", "LightViewProj", &LightViewProjMatrix);
+
+		pine.draw(&core, shaders.find("staticNMshadow"), &W, &camera.vp, Vec3(0.05f, 0.05f, 0.05f), &textures);
+		*/
 
 		core.present();
 	}
